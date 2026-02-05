@@ -1,0 +1,46 @@
+---
+import { ArrowRight, Github, Linkedin, Mail, Instagram } from 'lucide-react';
+---
+
+<section class="min-h-[90vh] flex flex-col justify-center items-start pt-20 pb-32 relative overflow-hidden reveal">
+  
+  <div class="space-y-6 max-w-4xl relative z-10">
+    <div class="inline-flex items-center gap-x-2 border-2 border-zinc-900 rounded-full px-4 py-1.5 text-sm font-bold text-zinc-900 bg-white shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-transform hover:-translate-y-0.5">
+      <span class="relative flex h-3 w-3">
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-zinc-900"></span>
+      </span>
+      Disponible para nuevos proyectos
+    </div>
+    
+    <h1 class="text-6xl sm:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.9]">
+      HOLA, SOY <br/>
+      <span class="text-rose-600">JAMIRO MANRÍQUEZ</span>.
+    </h1>
+    
+    <p class="text-xl sm:text-3xl text-zinc-700 max-w-2xl text-balance font-medium leading-relaxed">
+       Desarrollador Web & Marketer Digital.
+    </p>
+
+    <div class="flex flex-wrap gap-4 pt-8 animate-fade-in-up">
+      <a href="#projects" class="group flex items-center justify-center gap-2 bg-zinc-900 text-cream-50 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(225,29,72,1)] hover:shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900">
+        Ver Proyectos
+        <ArrowRight class="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+      </a>
+      
+      <div class="flex items-center gap-6 px-6">
+        <a href="https://github.com/jamirou" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
+            <Github class="w-8 h-8" stroke-width={2.5} />
+        </a>
+        <a href="https://linkedin.com/in/jamiro-manriquez-832aaa204" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
+            <Linkedin class="w-8 h-8" stroke-width={2.5} />
+        </a>
+        <a href="https://www.instagram.com/yamir.r.r/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
+            <Instagram class="w-8 h-8" stroke-width={2.5} />
+        </a>
+        <a href="mailto:devjamiro@gmail.com" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
+            <Mail class="w-8 h-8" stroke-width={2.5} />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+import { Code2, PenTool, BarChart3, Rocket, Layout, Globe } from 'lucide-react';
+---
+
+<section id="services" class="py-24 relative reveal">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <h2 class="text-4xl sm:text-5xl font-black text-zinc-900 tracking-tighter">SOLUCIONES INTEGRALES</h2>
+      <p class="text-zinc-700 text-lg font-medium">
+        Combino la técnica del desarrollo con la visión del marketing para ofrecer resultados completos.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Desarrollo Web -->
+      <div class="group bg-white border-2 border-zinc-900 p-8 rounded-2xl hover:translate-x-1 hover:translate-y-1 transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+        <div class="w-14 h-14 bg-rose-100 border-2 border-zinc-900 rounded-lg flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+          <Code2 class="w-8 h-8 text-rose-600" stroke-width={2.5} />
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-zinc-900 font-heading">Desarrollo Web</h3>
+        <p class="text-zinc-600 mb-6 italic border-l-4 border-amber-300 pl-4 font-serif">
+          "Si lo imaginas lo puedo programar".
+        </p>
+        <p class="text-zinc-700 mb-6 text-base leading-relaxed">
+           Creo sitios modernos, rápidos y optimizados para que tu idea cobre vida tal como la pensaste.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <Layout class="w-5 h-5 text-rose-600" /> Sitios Web a Medida
+          </li>
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <Globe class="w-5 h-5 text-rose-600" /> HTML, CSS, JS & Astro
+          </li>
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <Rocket class="w-5 h-5 text-rose-600" /> Rendimiento Optimizado
+          </li>
+        </ul>
+      </div>
+
+      <!-- Marketing Digital -->
+      <div class="group bg-white border-2 border-zinc-900 p-8 rounded-2xl hover:translate-x-1 hover:translate-y-1 transition-all duration-300 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+        <div class="w-14 h-14 bg-amber-100 border-2 border-zinc-900 rounded-lg flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+          <BarChart3 class="w-8 h-8 text-amber-600" stroke-width={2.5} />
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-zinc-900 font-heading">Marketing Digital</h3>
+        <p class="text-zinc-700 mb-6 leading-relaxed">
+            Estrategias diseñadas para convertir visitas en clientes y potenciar la presencia de tu marca.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <PenTool class="w-5 h-5 text-amber-600" /> SEO & Posicionamiento
+          </li>
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <BarChart3 class="w-5 h-5 text-amber-600" /> Google Analytics & GTM
+          </li>
+          <li class="flex items-center gap-3 text-sm font-bold text-zinc-700">
+            <Rocket class="w-5 h-5 text-amber-600" /> Estrategia de Contenidos
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

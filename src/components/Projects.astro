@@ -1,0 +1,114 @@
+---
+import { ArrowUpRight, Github, Globe } from 'lucide-react';
+import ProjectGallery from './ProjectGallery.jsx';
+import { getImage } from 'astro:assets';
+
+// Import Images
+import morales1 from '../assets/proyectos/ProyectoMorales1.png';
+import morales2 from '../assets/proyectos/ProyectoMorales2.png';
+import morales3 from '../assets/proyectos/ProyectoMorales3.png';
+import morales4 from '../assets/proyectos/ProyectoMorales4.png';
+
+import ogaz1 from '../assets/proyectos/proyectoogaz1.png';
+import ogaz2 from '../assets/proyectos/proyectoogaz2.png';
+import ogaz3 from '../assets/proyectos/proyectoogaz3.png';
+
+import iglesia1 from '../assets/proyectos/ProyectoIglesia1.png';
+import iglesia2 from '../assets/proyectos/ProyectoIglesia2.png';
+import iglesia3 from '../assets/proyectos/ProyectoIglesia3.png';
+
+// Optimization Helper
+async function getOptImages(images) {
+  return await Promise.all(images.map(async (img) => {
+    const optimized = await getImage({ src: img, width: 1280, format: 'webp', quality: 90 });
+    return optimized.src;
+  }));
+}
+
+const moralesImages = await getOptImages([morales1, morales2, morales3, morales4]);
+const ogazImages = await getOptImages([ogaz1, ogaz2, ogaz3]);
+const iglesiaImages = await getOptImages([iglesia1, iglesia2, iglesia3]);
+
+
+const PROJECTS = [
+  {
+    title: "Ecommerce Morales",
+    description: "Tienda online completa con pasarela de pago, blog y catálogo. Incluye gestión de campañas en Meta y Google Ads.",
+    tags: ["Ecommerce", "Meta Ads", "Google Analytics", "Pasarela Pago"],
+    link: "https://morales-eirl.com/", 
+    github: "https://github.com/jamirou",
+    images: moralesImages
+  },
+  {
+    title: "Transportes Ogaz",
+    description: "Landing page corporativa para empresa de transportes. Diseño optimizado para conversión, velocidad de carga y experiencia de usuario.",
+    tags: ["Landing Page", "UX/UI", "Velocidad", "Corporativo"],
+    link: "https://transportesogaz.cl/",
+    github: "https://github.com/jamirou",
+    images: ogazImages
+  },
+  {
+    title: "Web Institucional & Comunidad",
+    description: "Plataforma integral para IICD. Sistema de gestión de contenidos, calendario de actividades dinámico y automatización de comunicación.",
+    tags: ["CMS", "Gestión Comunidad", "Email Marketing", "Frontend"],
+    link: "https://www.iglesiainternacionalcorderodedios.com/",
+    github: "https://github.com/jamirou",
+    images: iglesiaImages
+  }
+];
+---
+
+<section id="projects" class="py-24 relative reveal">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+        <div>
+            <h2 class="text-4xl sm:text-5xl font-black mb-4 text-zinc-900 tracking-tighter">PROYECTOS DESTACADOS</h2>
+            <p class="text-zinc-700 max-w-xl text-lg font-medium">
+                Una selección de trabajos donde la estrategia se encuentra con el código.
+            </p>
+        </div>
+        <a href="https://github.com/jamirou" target="_blank" class="text-zinc-900 hover:text-rose-600 flex items-center gap-2 transition-colors font-bold border-b-2 border-zinc-900 hover:border-rose-600 pb-1">
+            Ver más en GitHub <ArrowUpRight class="w-5 h-5" stroke-width={2.5} />
+        </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {PROJECTS.map((project) => (
+        <article class="group relative bg-white border-2 border-zinc-900 rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-all duration-300">
+          <div class="aspect-video bg-zinc-100 flex items-center justify-center border-b-2 border-zinc-900 relative group-hover:bg-amber-50 transition-colors z-10">
+             <ProjectGallery images={project.images} title={project.title} client:visible />
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-zinc-900 mb-2 group-hover:text-rose-600 transition-colors font-heading">
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <span class="absolute inset-0 z-0"></span>
+                    {project.title}
+                </a>
+            </h3>
+            <p class="text-zinc-700 text-sm mb-4 line-clamp-3 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-4 relative z-10">
+              {project.tags.map((tag) => (
+                <span class="px-3 py-1 bg-zinc-900 text-white text-xs font-bold rounded-full border border-zinc-900">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div class="flex items-center gap-4 relative z-10 border-t border-zinc-100 pt-4 mt-4">
+                <a href={project.github} target="_blank" class="text-zinc-500 hover:text-rose-600 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver código GitHub">
+                    <Github class="w-5 h-5" /> Code
+                </a>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-amber-500 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver sitio web">
+                    <Globe class="w-5 h-5" /> Demo
+                </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
