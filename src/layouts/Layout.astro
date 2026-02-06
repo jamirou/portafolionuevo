@@ -5,9 +5,37 @@ import favicon from '../assets/favicon.png';
 interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
 }
 
-const { title, description = "Desarrollador Web & Marketer Digital. Soluciones estratégicas y código de alto impacto." } = Astro.props;
+const { 
+    title, 
+    description = "Desarrollador Web & Marketer Digital en Peñaflor. Sitios web a medida, soluciones estratégicas y marketing para Pymes.", 
+    keywords = "desarrollador web peñaflor, diseño web santiago, marketing digital pymes, páginas web económicas, seo peñaflor, programación web chile",
+    image = "/og-image.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const schemaMarkup = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Jamiro Manríquez | Web & Marketing",
+  "image": "https://jamirmkt.com" + favicon.src,
+  "url": "https://jamirmkt.com",
+  "telephone": "", 
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Peñaflor",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "priceRange": "$$",
+  "description": description,
+  "knowsAbout": ["Desarrollo Web", "Marketing Digital", "SEO", "Estrategia de Contenidos"],
+  "areaServed": "Peñaflor, Talagante, Santiago, Chile"
+});
 ---
 
 <!doctype html>
@@ -15,9 +43,29 @@ const { title, description = "Desarrollador Web & Marketer Digital. Soluciones e
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href={favicon.src} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={schemaMarkup} />
+
     <title>{title}</title>
     <!-- Google Fonts: Outfit (Headings), Inter (Body) & Courier Prime (Notes) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
