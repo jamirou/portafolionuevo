@@ -10,7 +10,7 @@ import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award
     <a href="/docs" class="flex items-center gap-2 bg-white text-zinc-900 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-zinc-50">
       <ArrowLeft class="w-4 h-4 sm:w-5 sm:h-5" stroke-width={3} /> Volver
     </a>
-    <button onclick="window.print()" class="flex items-center gap-2 bg-rose-600 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-rose-700">
+    <button id="download-pdf-btn" class="flex items-center gap-2 bg-rose-600 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-rose-700">
       <Printer class="w-4 h-4 sm:w-5 sm:h-5" /> Descargar PDF
     </button>
     <a href="https://wa.me/56947185397?text=Hola,%20vi%20el%20documento%20interactivo%20de%20Transportes%20Ogaz%20y%20me%20gustó%20mucho.%20Estoy%20interesado%20en%20cotizar." target="_blank" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base" style="background-color: #25D366; color: white;">
@@ -233,7 +233,7 @@ import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award
         <div class="mt-16 pt-8 border-t-2 border-zinc-200 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 print:break-inside-avoid">
           <div class="flex-1">
             <p class="font-bold text-xl mb-8">Atentamente,</p>
-            <div class="w-64 h-24 bg-zinc-50 border-b-2 border-zinc-900 flex items-center justify-center rounded-t-2xl mb-4 relative overflow-hidden print:bg-transparent print:border-none">
+            <div class="w-64 h-24 bg-zinc-50 border-b-2 border-zinc-900 flex items-center justify-center rounded-t-2xl mb-4 relative overflow-hidden print:hidden">
               <span class="font-serif italic text-4xl text-zinc-800 transform -rotate-3 opacity-80">Diego Ogaz C.</span>
             </div>
             <h5 class="font-black text-2xl text-zinc-900 uppercase">Diego Ogaz C.</h5>
@@ -247,7 +247,7 @@ import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award
 
   </div>
 
-  <style>
+  <style is:global>
     .hide-scrollbar::-webkit-scrollbar { display: none; }
     .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -260,6 +260,7 @@ import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award
     }
 
     @media print {
+      footer, #scroll-to-top { display: none !important; }
       @page {
         margin: 1.5cm !important;
         size: A4 portrait;
@@ -302,10 +303,22 @@ import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       
-      // Auto-print logic
+      // Lógica de Descarga PDF
+      const downloadBtn = document.getElementById('download-pdf-btn');
+      
+      const triggerDownload = () => {
+        if (!downloadBtn) return;
+        window.print();
+      };
+
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', triggerDownload);
+      }
+
+      // Auto-download si viene con ?download=1
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('print') === '1') {
-        setTimeout(() => { window.print(); }, 1200); 
+      if (urlParams.get('print') === '1' || urlParams.get('download') === '1') {
+        setTimeout(() => { triggerDownload(); }, 800); 
       }
 
       // Fleet Selector Logic

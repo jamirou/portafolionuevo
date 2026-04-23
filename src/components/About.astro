@@ -8,9 +8,10 @@ import { getImage } from 'astro:assets';
 import hero1 from '../assets/hero1.jpg';
 import hero2 from '../assets/hero2.png';
 import hero3 from '../assets/hero3.png';
+import hero4 from '../assets/hero4.jpg';
 
 // Optimize images for performance (Resize to 800px width, WebP)
-const heroImages = [hero1, hero2, hero3];
+const heroImages = [hero1, hero2, hero3, hero4];
 const optimizedPhotos = await Promise.all(
   heroImages.map(async (img) => {
     const optimized = await getImage({ src: img, width: 800, format: 'webp' });
