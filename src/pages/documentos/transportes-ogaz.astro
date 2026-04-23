@@ -1,0 +1,362 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ArrowLeft, Printer, Truck, MapPin, Phone, Mail, ShieldCheck, Map, Award, ChevronDown, MessageCircle, Calendar, CheckCircle2, Box, Users, Globe } from "lucide-react";
+---
+
+<Layout title="Transportes Ogaz | Presentación" description="Carta de presentación corporativa de Transportes Ogaz.">
+  
+  <!-- Sticky Contact Footer (Web only) -->
+  <div class="fixed bottom-0 left-0 w-full bg-white border-t-2 border-zinc-900 shadow-[0px_-4px_0px_0px_rgba(24,24,27,1)] p-4 flex flex-wrap justify-center items-center gap-3 sm:gap-4 z-[100] print:hidden">
+    <a href="/docs" class="flex items-center gap-2 bg-white text-zinc-900 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-zinc-50">
+      <ArrowLeft class="w-4 h-4 sm:w-5 sm:h-5" stroke-width={3} /> Volver
+    </a>
+    <button onclick="window.print()" class="flex items-center gap-2 bg-rose-600 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-rose-700">
+      <Printer class="w-4 h-4 sm:w-5 sm:h-5" /> Descargar PDF
+    </button>
+    <a href="https://wa.me/56947185397?text=Hola,%20vi%20el%20documento%20interactivo%20de%20Transportes%20Ogaz%20y%20me%20gustó%20mucho.%20Estoy%20interesado%20en%20cotizar." target="_blank" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base" style="background-color: #25D366; color: white;">
+      <MessageCircle class="w-4 h-4 sm:w-5 sm:h-5" /> WhatsApp
+    </a>
+    <a href="mailto:devjamiro@gmail.com?subject=Cotización%20Documento%20Interactivo" class="flex items-center gap-2 bg-zinc-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl font-black transition-all border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] hover:translate-y-0.5 text-xs sm:text-base hover:bg-zinc-800">
+      <Mail class="w-4 h-4 sm:w-5 sm:h-5" /> Cotizar
+    </a>
+  </div>
+
+  <!-- Contenedor Principal con padding top ajustado -->
+  <div class="min-h-screen bg-[#FBF9F3] pt-32 pb-40 px-4 sm:px-6 relative print:bg-white print:p-0">
+    
+    <main class="max-w-5xl mx-auto bg-white border-2 border-zinc-900 rounded-[2rem] shadow-[16px_16px_0px_0px_rgba(24,24,27,1)] print:rounded-none print:border-none print:shadow-none print:w-full print:max-w-none relative z-10 overflow-hidden">
+      
+      <!-- HEADER CORPORATIVO -->
+      <section class="bg-zinc-900 text-white p-8 sm:p-14 relative overflow-hidden print:bg-zinc-900 print:text-white header-print border-b-2 border-zinc-900">
+        <div class="absolute right-0 top-0 opacity-[0.03] pointer-events-none">
+          <Truck class="w-96 h-96 -mt-10 -mr-10" />
+        </div>
+        
+        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-8">
+          <div class="flex-1">
+            <div class="inline-block bg-rose-600 text-white px-4 py-1.5 rounded-full font-bold text-sm border-2 border-zinc-900 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] mb-4 uppercase tracking-wider">
+              10 Años de Trayectoria
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tighter text-white mb-2 uppercase leading-none">Transportes<br/>Ogaz Ltda.</h1>
+            <p class="text-rose-400 font-bold text-lg sm:text-xl font-mono tracking-widest uppercase mt-4">Soluciones de Transporte Terrestre</p>
+          </div>
+          
+          <!-- Datos de Contacto Header -->
+          <div class="flex flex-col gap-4 text-sm font-bold text-zinc-300 bg-zinc-800/50 p-6 rounded-2xl border-2 border-zinc-700 backdrop-blur-sm w-full md:w-auto">
+            <div class="flex items-center gap-3">
+              <MapPin class="w-5 h-5 text-rose-500 shrink-0" />
+              <span>Avda. Lonquén N° 10821 Of. 29, Maipú</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Phone class="w-5 h-5 text-rose-500 shrink-0" />
+              <span>+56 9 64025940</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Mail class="w-5 h-5 text-rose-500 shrink-0" />
+              <span>diego.ogaz@transportesogaz.cl</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <Globe class="w-5 h-5 text-rose-500 shrink-0" />
+              <span>www.transportesogaz.cl</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENIDO DE LA CARTA -->
+      <div class="p-8 sm:p-14 print:p-12 text-zinc-800 text-lg leading-relaxed font-medium">
+        
+        <p class="mb-6 font-bold text-xl text-zinc-900">Estimados:</p>
+        <p class="mb-6">
+          Es un gusto saludarlos. Nos dirigimos a ustedes para presentar a <strong class="font-black text-rose-600">Transportes Ogaz Ltda.</strong>, empresa con más de 10 años de trayectoria especializada en soluciones de transporte de carga terrestre a nivel nacional.
+        </p>
+        <p class="mb-12">
+          Nuestro objetivo es convertirnos en el socio estratégico de su empresa, garantizando seguridad y puntualidad a través de una operación robusta.
+        </p>
+
+        <!-- GRID: PROPUESTA DE VALOR -->
+        <div class="mb-16 print:break-inside-avoid">
+          <h3 class="text-2xl sm:text-3xl font-black text-zinc-900 mb-8 uppercase flex items-center gap-3 border-b-4 border-rose-600 inline-block pb-2">
+            Nuestra Propuesta de Valor
+          </h3>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="bg-zinc-50 border-2 border-zinc-900 p-6 rounded-2xl shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+              <Box class="w-8 h-8 text-rose-600 mb-4" />
+              <h4 class="font-black text-xl text-zinc-900 mb-2">Equipamiento Furgonado</h4>
+              <p class="text-zinc-600 text-base">Carrocerías furgonadas para carga general, garantizando la máxima protección contra el clima y agentes externos.</p>
+            </div>
+
+            <div class="bg-zinc-50 border-2 border-zinc-900 p-6 rounded-2xl shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+              <ShieldCheck class="w-8 h-8 text-rose-600 mb-4" />
+              <h4 class="font-black text-xl text-zinc-900 mb-2">Seguridad Garantizada</h4>
+              <p class="text-zinc-600 text-base">Todas nuestras operaciones están respaldadas por Seguro de Carga y Responsabilidad Civil.</p>
+            </div>
+
+            <div class="bg-zinc-50 border-2 border-zinc-900 p-6 rounded-2xl shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+              <Map class="w-8 h-8 text-rose-600 mb-4" />
+              <h4 class="font-black text-xl text-zinc-900 mb-2">Alcance Nacional</h4>
+              <p class="text-zinc-600 text-base">Operaciones diarias en la Región Metropolitana y Rutas Spot hacia todo Chile.</p>
+            </div>
+
+            <div class="bg-zinc-50 border-2 border-zinc-900 p-6 rounded-2xl shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
+              <Award class="w-8 h-8 text-rose-600 mb-4" />
+              <h4 class="font-black text-xl text-zinc-900 mb-2">Estándares de Calidad</h4>
+              <p class="text-zinc-600 text-base">Vehículos en óptimas condiciones, conductores con EPP completos y opción de tripulación doble para viajes a regiones, garantizando entregas sin interrupciones.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SELECTOR INTERACTIVO DE FLOTA -->
+        <div class="mb-16 print:hidden">
+          <h3 class="text-2xl sm:text-3xl font-black text-zinc-900 mb-8 uppercase flex items-center gap-3 border-b-4 border-rose-600 inline-block pb-2">
+            Unidades de Carga
+          </h3>
+          
+          <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Menú lateral -->
+            <div class="flex flex-row lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 w-full lg:w-1/3 shrink-0 hide-scrollbar">
+              <button class="fleet-tab active-tab text-left px-5 py-4 rounded-xl border-2 border-zinc-900 font-bold shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] whitespace-nowrap lg:whitespace-normal" data-target="camiones">Camiones 5 a 20 Ton</button>
+              <button class="fleet-tab text-left px-5 py-4 rounded-xl border-2 border-zinc-900 font-bold hover:bg-zinc-50 whitespace-nowrap lg:whitespace-normal transition-colors" data-target="remolques">Alta Capacidad (Remolques)</button>
+            </div>
+            
+            <!-- Contenido dinámico -->
+            <div class="w-full lg:w-2/3 bg-rose-50 border-2 border-zinc-900 rounded-2xl p-6 sm:p-8 min-h-[200px] flex items-center justify-center">
+              
+              <div id="fleet-camiones" class="fleet-content w-full animate-fade-in-up">
+                <div class="flex items-center gap-4 mb-4">
+                  <Truck class="w-10 h-10 text-rose-600" />
+                  <h4 class="text-2xl font-black text-zinc-900">Camiones de Carga</h4>
+                </div>
+                <p class="text-zinc-700 text-lg mb-4">Disponemos de camiones rígidos adaptables a sus necesidades operativas:</p>
+                <ul class="space-y-3 font-bold text-zinc-800 perspective-1000">
+                  <li class="flex items-center gap-3 bg-white p-3 rounded-xl border-2 border-zinc-900 hover:translate-x-2 transition-transform duration-300 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] cursor-default"><CheckCircle2 class="w-5 h-5 text-rose-600" /> Capacidades desde 5, 10 y 20 toneladas.</li>
+                  <li class="flex items-center gap-3 bg-white p-3 rounded-xl border-2 border-zinc-900 hover:translate-x-2 transition-transform duration-300 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] cursor-default"><CheckCircle2 class="w-5 h-5 text-rose-600" /> Volúmenes configurables desde 30 m³ hasta 50 m³.</li>
+                </ul>
+              </div>
+
+              <div id="fleet-remolques" class="fleet-content w-full hidden animate-fade-in-up">
+                <div class="flex items-center gap-4 mb-4">
+                  <Truck class="w-10 h-10 text-rose-600" />
+                  <h4 class="text-2xl font-black text-zinc-900">Remolques Adicionales</h4>
+                </div>
+                <p class="text-zinc-700 text-lg mb-4">Para requerimientos de grandes volúmenes, ofrecemos alta capacidad en ruta:</p>
+                <ul class="space-y-3 font-bold text-zinc-800 perspective-1000">
+                  <li class="flex items-center gap-3 bg-white p-3 rounded-xl border-2 border-zinc-900 hover:translate-x-2 transition-transform duration-300 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] cursor-default"><CheckCircle2 class="w-5 h-5 text-rose-600" /> Remolques adicionales acoplados.</li>
+                  <li class="flex items-center gap-3 bg-white p-3 rounded-xl border-2 border-zinc-900 hover:translate-x-2 transition-transform duration-300 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] cursor-default"><CheckCircle2 class="w-5 h-5 text-rose-600" /> Capacidad extra de 15.000 kg.</li>
+                  <li class="flex items-center gap-3 bg-white p-3 rounded-xl border-2 border-zinc-900 hover:translate-x-2 transition-transform duration-300 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] cursor-default"><CheckCircle2 class="w-5 h-5 text-rose-600" /> Volumen adicional de 50 m³.</li>
+                </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- PRINT FALLBACK FLOTA -->
+        <div class="mb-12 hidden print:block print:break-inside-avoid">
+          <h3 class="text-2xl font-black text-zinc-900 mb-4 uppercase border-b-4 border-rose-600 inline-block pb-2">Unidades de Carga</h3>
+          <ul class="list-disc pl-6 space-y-3">
+            <li><strong>Camiones Rígidos:</strong> Capacidades de 5, 10 y 20 toneladas (desde 30 m³ hasta 50 m³).</li>
+            <li><strong>Alta Capacidad:</strong> Remolques adicionales con capacidad de 15.000 kg (50 m³) para grandes volúmenes.</li>
+          </ul>
+        </div>
+
+        <!-- ACORDEON DE SERVICIOS -->
+        <div class="mb-16 print:hidden">
+          <h3 class="text-2xl sm:text-3xl font-black text-zinc-900 mb-8 uppercase flex items-center gap-3 border-b-4 border-rose-600 inline-block pb-2">
+            Servicios Destacados
+          </h3>
+          
+          <div class="flex flex-col gap-4">
+            <div class="accordion-item bg-white border-2 border-zinc-900 rounded-2xl overflow-hidden cursor-pointer">
+              <div class="accordion-header flex justify-between items-center p-5 hover:bg-zinc-50 transition-colors">
+                <div class="flex items-center gap-4">
+                  <MapPin class="w-6 h-6 text-rose-600" />
+                  <span class="font-black text-xl text-zinc-900">Retiros RM</span>
+                </div>
+                <ChevronDown class="w-6 h-6 text-zinc-900 transition-transform duration-300" />
+              </div>
+              <div class="accordion-content hidden px-5 pb-5 pt-2 text-zinc-600 border-t-2 border-dashed border-zinc-200">
+                Retiros y entregas punto a punto en la Región Metropolitana, garantizando puntualidad en cada nodo de la cadena.
+              </div>
+            </div>
+
+            <div class="accordion-item bg-white border-2 border-zinc-900 rounded-2xl overflow-hidden cursor-pointer">
+              <div class="accordion-header flex justify-between items-center p-5 hover:bg-zinc-50 transition-colors">
+                <div class="flex items-center gap-4">
+                  <Globe class="w-6 h-6 text-rose-600" />
+                  <span class="font-black text-xl text-zinc-900">Logística de Bodegas</span>
+                </div>
+                <ChevronDown class="w-6 h-6 text-zinc-900 transition-transform duration-300" />
+              </div>
+              <div class="accordion-content hidden px-5 pb-5 pt-2 text-zinc-600 border-t-2 border-dashed border-zinc-200">
+                Logística integral de bodegas y distribución nacional estructurada para grandes superficies.
+              </div>
+            </div>
+
+            <div class="accordion-item bg-white border-2 border-zinc-900 rounded-2xl overflow-hidden cursor-pointer">
+              <div class="accordion-header flex justify-between items-center p-5 hover:bg-zinc-50 transition-colors">
+                <div class="flex items-center gap-4">
+                  <Users class="w-6 h-6 text-rose-600" />
+                  <span class="font-black text-xl text-zinc-900">Operadores y Estibadores</span>
+                </div>
+                <ChevronDown class="w-6 h-6 text-zinc-900 transition-transform duration-300" />
+              </div>
+              <div class="accordion-content hidden px-5 pb-5 pt-2 text-zinc-600 border-t-2 border-dashed border-zinc-200">
+                Operación con estibadores y operadores logísticos calificados según el requerimiento específico de cada cliente.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRINT FALLBACK SERVICIOS -->
+        <div class="mb-12 hidden print:block print:break-inside-avoid">
+          <h3 class="text-2xl font-black text-zinc-900 mb-4 uppercase border-b-4 border-rose-600 inline-block pb-2">Servicios Destacados</h3>
+          <ul class="list-disc pl-6 space-y-3">
+            <li>Retiros y entregas punto a punto en RM.</li>
+            <li>Logística de bodegas y distribución nacional.</li>
+            <li>Operación con estibadores/operadores según el requerimiento del cliente.</li>
+          </ul>
+        </div>
+
+        <!-- CIERRE DE LA CARTA -->
+        <div class="bg-zinc-900 text-white p-8 sm:p-10 rounded-3xl border-2 border-zinc-900 print:bg-white print:text-black print:border-none print:p-0">
+          <p class="mb-6 font-medium text-xl">
+            Estamos convencidos de que nuestra experiencia y compromiso pueden aportar valor directo a su gestión logística.
+          </p>
+          <p class="mb-0 text-zinc-300 print:text-zinc-800">
+            Nos encantaría coordinar una breve reunión o llamada para conocer sus necesidades específicas y presentarles una cotización competitiva. Quedamos a su entera disposición.
+          </p>
+        </div>
+
+        <!-- FIRMA -->
+        <div class="mt-16 pt-8 border-t-2 border-zinc-200 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 print:break-inside-avoid">
+          <div class="flex-1">
+            <p class="font-bold text-xl mb-8">Atentamente,</p>
+            <div class="w-64 h-24 bg-zinc-50 border-b-2 border-zinc-900 flex items-center justify-center rounded-t-2xl mb-4 relative overflow-hidden print:bg-transparent print:border-none">
+              <span class="font-serif italic text-4xl text-zinc-800 transform -rotate-3 opacity-80">Diego Ogaz C.</span>
+            </div>
+            <h5 class="font-black text-2xl text-zinc-900 uppercase">Diego Ogaz C.</h5>
+            <p class="font-bold text-rose-600 font-mono text-lg">Gerente General</p>
+            <p class="font-medium text-zinc-600">Transportes Ogaz Ltda.</p>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <style>
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Active tab style */
+    .active-tab {
+      background-color: #e11d48 !important; /* rose-600 */
+      color: white !important;
+      border-color: #18181b !important;
+      box-shadow: none !important;
+    }
+
+    @media print {
+      @page {
+        margin: 1.5cm !important;
+        size: A4 portrait;
+      }
+      body {
+        background-color: white !important;
+        color: black !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      .print\:hidden { display: none !important; }
+      .print\:block { display: block !important; }
+      .print\:border-none { border: none !important; }
+      .print\:shadow-none { box-shadow: none !important; }
+      .print\:w-full { width: 100% !important; }
+      .print\:max-w-none { max-width: none !important; }
+      .print\:bg-white { background-color: white !important; }
+      .print\:bg-zinc-900 { background-color: #18181b !important; }
+      .print\:text-white { color: white !important; }
+      .print\:text-black { color: black !important; }
+      .print\:p-0 { padding: 0 !important; }
+      
+      /* Ajuste estricto de márgenes para la carta impresa */
+      .print\:p-12 { padding: 3rem !important; }
+
+      .header-print {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        padding: 2.5rem !important;
+        border-radius: 0 !important;
+      }
+      
+      .bg-white { background-color: #ffffff !important; -webkit-print-color-adjust: exact; }
+      .bg-zinc-50 { background-color: #fafafa !important; -webkit-print-color-adjust: exact; }
+      .bg-rose-50 { background-color: #fff1f2 !important; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Auto-print logic
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('print') === '1') {
+        setTimeout(() => { window.print(); }, 1200); 
+      }
+
+      // Fleet Selector Logic
+      const tabs = document.querySelectorAll('.fleet-tab');
+      const contents = document.querySelectorAll('.fleet-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active-tab');
+            t.classList.add('hover:bg-zinc-50', 'shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]');
+          });
+          tab.classList.add('active-tab');
+          tab.classList.remove('hover:bg-zinc-50', 'shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]');
+
+          contents.forEach(c => {
+            c.classList.add('hidden');
+            c.classList.remove('animate-fade-in-up');
+          });
+          
+          const target = tab.getAttribute('data-target');
+          const targetContent = document.getElementById(`fleet-${target}`);
+          if (targetContent) {
+            targetContent.classList.remove('hidden');
+            void targetContent.offsetWidth; // trigger reflow for animation
+            targetContent.classList.add('animate-fade-in-up');
+          }
+        });
+      });
+
+      // Accordion Logic
+      const accordions = document.querySelectorAll('.accordion-item');
+      accordions.forEach(acc => {
+        const header = acc.querySelector('.accordion-header');
+        const content = acc.querySelector('.accordion-content');
+        const icon = acc.querySelector('.lucide-chevron-down');
+        
+        if (header && content && icon) {
+          header.addEventListener('click', () => {
+            content.classList.toggle('hidden');
+            if (content.classList.contains('hidden')) {
+              icon.style.transform = 'rotate(0deg)';
+              acc.style.backgroundColor = 'white';
+            } else {
+              icon.style.transform = 'rotate(180deg)';
+              acc.style.backgroundColor = '#fafafa';
+            }
+          });
+        }
+      });
+
+    });
+  </script>
+</Layout>

@@ -1,0 +1,423 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Lock, FileText, ArrowLeft, Eye, Download, LogOut, EyeOff, Search, Filter, PieChart, BarChart, LayoutTemplate, PenTool, TrendingUp } from "lucide-react";
+
+const docs = [
+  { name: "Transportes Ogaz", date: "23 de Abril 2026", dateRaw: "2026-04-23", blur: false, isNew: true, icon: "FileText" },
+  { name: "Estrategia de Contenidos Q2", date: "15 de Noviembre 2025", dateRaw: "2025-11-15", blur: false, icon: "LayoutTemplate" },
+  { name: "Auditoría SEO Técnica", date: "03 de Septiembre 2025", dateRaw: "2025-09-03", blur: false, icon: "TrendingUp" },
+  { name: "Reporte Campaña Ads", date: "21 de Junio 2025", dateRaw: "2025-06-21", blur: false, icon: "BarChart" },
+  { name: "Propuesta Rediseño UI", date: "10 de Febrero 2025", dateRaw: "2025-02-10", blur: false, icon: "PenTool" },
+  { name: "Análisis de Competencia", date: "05 de Diciembre 2024", dateRaw: "2024-12-05", blur: false, icon: "PieChart" },
+  { name: "Plan de Medios 2025", date: "18 de Octubre 2024", dateRaw: "2024-10-18", blur: false, icon: "LayoutTemplate" },
+  { name: "Keyword Research B2B", date: "22 de Julio 2024", dateRaw: "2024-07-22", blur: false, icon: "TrendingUp" },
+  { name: "Métricas RRSS Febrero", date: "14 de Marzo 2024", dateRaw: "2024-03-14", blur: false, icon: "BarChart" },
+  { name: "Presupuesto Anual Marketing", date: "08 de Noviembre 2023", dateRaw: "2023-11-08", blur: false, icon: "PieChart" },
+  { name: "Brand Guidelines v2", date: "30 de Agosto 2023", dateRaw: "2023-08-30", blur: false, icon: "PenTool" },
+  { name: "Briefing Cliente Inicial", date: "12 de Mayo 2023", dateRaw: "2023-05-12", blur: false, icon: "FileText" },
+];
+---
+
+<Layout
+  title="Área Privada | Jamiro Manríquez"
+  description="Acceso exclusivo para clientes."
+>
+  <!-- Pantalla de Contraseña -->
+  <div
+    id="password-overlay"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-[#FBF9F3]/95 backdrop-blur-md transition-all duration-700"
+  >
+    <div
+      class="bg-white p-8 md:p-12 border-2 border-zinc-900 rounded-3xl shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] max-w-md w-full mx-4 flex flex-col items-center text-center transform transition-all duration-500"
+      id="password-modal"
+    >
+      <div
+        class="w-20 h-20 bg-amber-300 text-zinc-900 rounded-full flex items-center justify-center mb-6 border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]"
+      >
+        <Lock class="w-10 h-10" stroke-width={2.5} />
+      </div>
+      <h2
+        class="text-4xl font-black tracking-tighter text-zinc-900 mb-3 uppercase"
+      >
+        Área Privada
+      </h2>
+      <p class="text-zinc-600 mb-8 font-medium text-lg leading-snug">
+        Ingresa la clave de acceso para visualizar tus documentos.
+      </p>
+
+      <form id="password-form" class="w-full flex flex-col gap-4">
+        <div class="relative w-full">
+          <input
+            type="password"
+            id="password-input"
+            placeholder="Contraseña"
+            class="w-full px-5 py-4 rounded-xl border-2 border-zinc-900 bg-zinc-50 focus:bg-white focus:outline-none transition-all text-center font-bold text-xl placeholder:text-zinc-400 placeholder:font-normal pr-14"
+          />
+          <button type="button" id="toggle-password" class="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-900 transition-colors p-2" aria-label="Mostrar contraseña">
+            <span id="eye-icon" class="block"><Eye class="w-6 h-6" /></span>
+            <span id="eye-off-icon" class="hidden"><EyeOff class="w-6 h-6" /></span>
+          </button>
+        </div>
+        <p
+          id="error-message"
+          class="text-rose-600 text-sm font-bold opacity-0 transition-opacity h-5"
+        >
+          Contraseña incorrecta
+        </p>
+        <button
+          type="submit"
+          class="w-full bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-y-1 hover:shadow-[0px_0px_0px_0px_rgba(225,29,72,1)] border-2 border-zinc-900 flex items-center justify-center gap-2"
+        >
+          Desbloquear
+        </button>
+      </form>
+      <a
+        href="/"
+        class="mt-8 text-sm font-bold text-zinc-500 hover:text-zinc-900 flex items-center gap-1 transition-colors"
+      >
+        <ArrowLeft class="w-4 h-4" /> Volver al inicio
+      </a>
+    </div>
+  </div>
+
+  <!-- Contenido Privado (Documentos) -->
+  <section
+    id="docs-content"
+    class="min-h-screen pt-32 pb-32 opacity-0 pointer-events-none transition-opacity duration-1000 flex flex-col items-center relative overflow-hidden"
+  >
+    <!-- Botón de Salir -->
+    <button
+      id="logout-btn"
+      class="absolute top-8 right-8 sm:top-12 sm:right-12 z-50 flex items-center gap-2 bg-white border-2 border-zinc-900 text-zinc-900 px-6 py-3 rounded-full font-bold hover:bg-rose-50 hover:text-rose-600 hover:border-rose-600 transition-all shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:shadow-[2px_2px_0px_0px_rgba(225,29,72,1)] hover:translate-y-1"
+    >
+      <LogOut class="w-5 h-5" /> Salir
+    </button>
+
+    <div class="max-w-5xl w-full px-4 mb-16 text-center relative z-10">
+      <div
+        class="inline-flex items-center gap-x-2 border-2 border-zinc-900 rounded-full px-4 py-1.5 text-sm font-bold text-zinc-900 bg-amber-300 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] mb-6"
+      >
+        <span class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-900 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-3 w-3 bg-zinc-900 border-2 border-zinc-900"
+          ></span>
+        </span>
+        Acceso Concedido
+      </div>
+      <h1
+        class="text-6xl sm:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.9] mb-6"
+      >
+        PORTAL <br /><span class="text-rose-600">CLIENTES</span>
+      </h1>
+      <p class="text-2xl text-zinc-600 font-medium max-w-2xl mx-auto">
+        Selecciona tu documento para visualizar el contenido interactivo de tu
+        proyecto.
+      </p>
+    </div>
+
+    <!-- Controles de Filtrado -->
+    <div class="w-full max-w-4xl px-4 flex flex-col sm:flex-row gap-4 z-20 relative">
+      <div class="relative flex-1">
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 z-10 pointer-events-none">
+          <Search class="w-5 h-5" />
+        </span>
+        <input type="text" id="search-input" placeholder="Buscar documento..." class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] focus:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] focus:translate-y-0.5 transition-all outline-none font-bold text-zinc-900 bg-white" />
+      </div>
+      <div class="relative w-full sm:w-auto">
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 z-10 pointer-events-none">
+          <Filter class="w-5 h-5" />
+        </span>
+        <select id="sort-select" class="w-full sm:w-auto pl-12 pr-10 py-4 rounded-xl border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] focus:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] focus:translate-y-0.5 transition-all outline-none font-bold text-zinc-900 bg-white appearance-none cursor-pointer relative z-0">
+          <option value="recent">Más recientes</option>
+          <option value="oldest">Más antiguos</option>
+        </select>
+        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none z-10">
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="#18181B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stack de Documentos -->
+    <div
+      id="docs-container"
+      class="w-full max-w-4xl px-4 relative flex flex-col items-center z-10 mt-10 gap-6 pb-20"
+    >
+      {
+        docs.map((doc, index) => (
+          <div
+            class="doc-card group w-full max-w-3xl bg-white border-2 border-zinc-900 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between transition-all duration-500 shadow-[12px_12px_0px_0px_rgba(24,24,27,1)] hover:shadow-[16px_16px_0px_0px_rgba(225,29,72,1)] z-50 hover:!z-[100] hover:scale-[1.03] hover:-translate-y-2 cursor-pointer relative"
+            style={`z-index: ${50 - index};`}
+            data-title={doc.name.toLowerCase()}
+            data-date={doc.dateRaw}
+          >
+            <div class="flex items-center gap-6">
+              <div class="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center border-2 border-zinc-900 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] bg-rose-100 text-rose-600 group-hover:rotate-12 transition-transform duration-300">
+                {doc.icon === 'FileText' && <FileText class="w-8 h-8" stroke-width={2.5} />}
+                {doc.icon === 'LayoutTemplate' && <LayoutTemplate class="w-8 h-8" stroke-width={2.5} />}
+                {doc.icon === 'BarChart' && <BarChart class="w-8 h-8" stroke-width={2.5} />}
+                {doc.icon === 'PieChart' && <PieChart class="w-8 h-8" stroke-width={2.5} />}
+                {doc.icon === 'PenTool' && <PenTool class="w-8 h-8" stroke-width={2.5} />}
+                {doc.icon === 'TrendingUp' && <TrendingUp class="w-8 h-8" stroke-width={2.5} />}
+              </div>
+              <div class="text-left">
+                <h3 class="font-black text-2xl text-zinc-900 leading-tight">
+                  {doc.name}
+                </h3>
+                <p class="text-base font-bold text-zinc-500 font-mono mt-1">
+                  {doc.date}
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-6 sm:mt-0 flex flex-wrap items-center gap-3 w-full sm:w-auto">
+              {doc.isNew && (
+                <div class="hidden lg:flex items-center gap-2 text-sm font-bold text-rose-600 bg-rose-50 px-4 py-2 rounded-full border-2 border-zinc-900 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-600" />
+                  </span>
+                  Reciente
+                </div>
+              )}
+                <button class="doc-action-btn flex-1 sm:flex-none flex items-center justify-center gap-2 bg-zinc-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-zinc-800 transition-colors border-2 border-zinc-900 group-hover:bg-rose-600 group-hover:border-rose-600 group-hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]" data-action="open" data-slug={index === 0 ? "transportes-ogaz" : "other"}>
+                  <Eye class="w-5 h-5 pointer-events-none" /> Abrir
+                </button>
+                <button class="doc-action-btn flex-1 sm:flex-none flex items-center justify-center gap-2 bg-white text-zinc-900 px-6 py-3 rounded-xl font-bold hover:bg-zinc-50 transition-colors border-2 border-zinc-900 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]" data-action="download" data-slug={index === 0 ? "transportes-ogaz" : "other"}>
+                  <Download class="w-5 h-5 pointer-events-none" /> Descargar
+                </button>
+              </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Permisos Toast -->
+    <div id="permission-toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-rose-600 text-white px-6 py-4 rounded-2xl font-bold flex items-center gap-3 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] border-2 border-zinc-900 transition-all duration-300 opacity-0 pointer-events-none z-[100] translate-y-10">
+      <Lock class="w-6 h-6" />
+      No tiene permisos suficientes para realizar esta acción.
+    </div>
+  </section>
+
+  <script>
+    function initDocs() {
+      const form = document.getElementById("password-form");
+      const input = document.getElementById("password-input");
+      const errorMsg = document.getElementById("error-message");
+      const overlay = document.getElementById("password-overlay");
+      const modal = document.getElementById("password-modal");
+      const content = document.getElementById("docs-content");
+      const logoutBtn = document.getElementById("logout-btn");
+      const toggleBtn = document.getElementById("toggle-password");
+      const eyeIcon = document.getElementById("eye-icon");
+      const eyeOffIcon = document.getElementById("eye-off-icon");
+      
+      // Elementos de filtro
+      const searchInput = document.getElementById("search-input");
+      const sortSelect = document.getElementById("sort-select");
+      const docsContainer = document.getElementById("docs-container");
+      const docCards = Array.from(document.querySelectorAll(".doc-card"));
+
+      if (!form || !input) return;
+
+      // Lógica de filtrado y ordenamiento
+      function filterAndSort() {
+        if (!docsContainer) return;
+        const query = searchInput?.value.toLowerCase() || "";
+        const sortValue = sortSelect?.value || "recent";
+
+        // Filtrar y actualizar display
+        const visibleCards = docCards.filter(card => {
+          const title = card.getAttribute("data-title") || "";
+          const matches = title.includes(query);
+          
+          if (matches) {
+            // Tailwind classes override display, so we use hidden class
+            card.classList.remove("hidden");
+            card.classList.add("flex");
+          } else {
+            card.classList.add("hidden");
+            card.classList.remove("flex");
+          }
+          return matches;
+        });
+
+        // Ordenar
+        visibleCards.sort((a, b) => {
+          const dateA = new Date(a.getAttribute("data-date") || "0").getTime();
+          const dateB = new Date(b.getAttribute("data-date") || "0").getTime();
+          return sortValue === "recent" ? dateB - dateA : dateA - dateB;
+        });
+
+        // Reinsertar en el contenedor en el nuevo orden para que CSS -space-y-6 los apile bien
+        visibleCards.forEach((card, index) => {
+          card.style.zIndex = (50 - index).toString();
+          docsContainer.appendChild(card);
+        });
+      }
+
+      if (searchInput) searchInput.addEventListener("input", filterAndSort);
+      if (sortSelect) sortSelect.addEventListener("change", filterAndSort);
+
+      // Lógica de acciones de documentos
+      const actionBtns = document.querySelectorAll(".doc-action-btn");
+      const toast = document.getElementById("permission-toast");
+      
+      let toastTimeout;
+
+      function showToast() {
+        if (!toast) return;
+        toast.classList.remove("opacity-0", "translate-y-10");
+        toast.classList.add("opacity-100", "translate-y-0");
+        
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove("opacity-100", "translate-y-0");
+          toast.classList.add("opacity-0", "translate-y-10");
+        }, 3000);
+      }
+
+      actionBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const action = btn.getAttribute("data-action");
+          const slug = btn.getAttribute("data-slug");
+
+          if (slug === "transportes-ogaz") {
+            if (action === "open") {
+              window.location.href = "/documentos/transportes-ogaz";
+            } else if (action === "download") {
+              window.open("/documentos/transportes-ogaz?print=1", "_blank");
+            }
+          } else {
+            showToast();
+          }
+        });
+      });
+
+      // Toggle para ver contraseña
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+          if (input.type === "password") {
+            input.type = "text";
+            if (eyeIcon) eyeIcon.classList.add("hidden");
+            if (eyeOffIcon) eyeOffIcon.classList.remove("hidden");
+            if (eyeOffIcon) eyeOffIcon.classList.add("block");
+          } else {
+            input.type = "password";
+            if (eyeIcon) eyeIcon.classList.remove("hidden");
+            if (eyeOffIcon) eyeOffIcon.classList.add("hidden");
+            if (eyeOffIcon) eyeOffIcon.classList.remove("block");
+          }
+        });
+      }
+
+      // Logout logic
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+          sessionStorage.removeItem("docs_unlocked");
+          if (content) content.classList.add("opacity-0", "pointer-events-none");
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
+        });
+      }
+
+      function unlock(animate) {
+        if (overlay && content && modal) {
+          if (animate) {
+            modal.style.transform = "scale(0.9) translateY(20px)";
+            modal.style.opacity = "0";
+            overlay.style.backgroundColor = "rgba(251, 249, 243, 0)";
+            overlay.style.backdropFilter = "blur(0px)";
+
+            setTimeout(() => {
+              overlay.style.display = "none";
+              content.classList.remove("opacity-0", "pointer-events-none");
+              const stack = content.querySelector(".max-w-4xl");
+              if (stack) stack.classList.add("animate-fade-in-up");
+            }, 600);
+          } else {
+            overlay.style.display = "none";
+            content.classList.remove("opacity-0", "pointer-events-none");
+          }
+        }
+      }
+
+      // Optional: session storage check
+      if (sessionStorage.getItem("docs_unlocked") === "true") {
+        unlock(false);
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // La contraseña que pusiste manualmente en tu código
+        if (input.value === "contraseñajamir") {
+          sessionStorage.setItem("docs_unlocked", "true");
+          unlock(true);
+        } else {
+          if (errorMsg) errorMsg.classList.remove("opacity-0");
+          input.classList.add("border-rose-600", "text-rose-600", "bg-rose-50");
+          if (modal) modal.classList.add("animate-shake-strong");
+          setTimeout(() => {
+            if (modal) modal.classList.remove("animate-shake-strong");
+          }, 500);
+        }
+      });
+
+      input.addEventListener("input", () => {
+        if (errorMsg) errorMsg.classList.add("opacity-0");
+        input.classList.remove("border-rose-600", "text-rose-600", "bg-rose-50");
+      });
+    }
+
+    // Para evitar errores en recargas y view transitions
+    document.addEventListener("DOMContentLoaded", initDocs);
+    document.addEventListener("astro:page-load", initDocs);
+    initDocs();
+  </script>
+
+  <style>
+    @keyframes shakeStrong {
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        transform: translateX(-8px);
+      }
+      20%,
+      40%,
+      60%,
+      80% {
+        transform: translateX(8px);
+      }
+    }
+    .animate-shake-strong {
+      animation: shakeStrong 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</Layout>
