@@ -1,7 +1,9 @@
 ---
 import "../styles/global.css";
+import "../styles/chatbot.css";
 import favicon from '../assets/favicon.png';
 import Preloader from '../components/Preloader.astro';
+import ChatBot from '../components/ChatBot.jsx';
 
 interface Props {
   title: string;
@@ -99,6 +101,9 @@ const schemaMarkup = JSON.stringify({
       </div>
       <p>&copy; {new Date().getFullYear()} Jamiro Manríquez. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- ChatBot Asistente -->
+    <ChatBot client:idle />
 
     <button 
         id="scroll-to-top" 
