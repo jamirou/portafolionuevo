@@ -433,7 +433,7 @@ export default function DigitalLab() {
       <div className="lab-container">
         {/* Header */}
         <div className="lab-header">
-          <span className="lab-badge">⚡ Laboratorio Digital</span>
+          <span className="lab-badge">LAB</span>
           <h2 className="lab-title">MI STACK <span className="lab-title-accent">TECNOLÓGICO</span></h2>
           <p className="lab-subtitle">
             Mueve el cursor sobre la constelación para explorar las tecnologías con las que trabajo. Cada nodo es una herramienta que domino.
