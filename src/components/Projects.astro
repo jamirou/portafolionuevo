@@ -17,6 +17,9 @@ import iglesia1 from '../assets/proyectos/ProyectoIglesia1.png';
 import iglesia2 from '../assets/proyectos/ProyectoIglesia2.png';
 import iglesia3 from '../assets/proyectos/ProyectoIglesia3.png';
 
+import kulfun1 from '../assets/proyectos/külfün 1.png';
+import kulfun2 from '../assets/proyectos/külfün 2.jpeg';
+
 // Optimization Helper
 async function getOptImages(images) {
   return await Promise.all(images.map(async (img) => {
@@ -28,7 +31,7 @@ async function getOptImages(images) {
 const moralesImages = await getOptImages([morales1, morales2, morales3, morales4]);
 const ogazImages = await getOptImages([ogaz1, ogaz2, ogaz3]);
 const iglesiaImages = await getOptImages([iglesia1, iglesia2, iglesia3]);
-
+const kulfunImages = await getOptImages([kulfun1, kulfun2]);
 
 const PROJECTS = [
   {
@@ -54,6 +57,14 @@ const PROJECTS = [
     link: "https://www.iglesiainternacionalcorderodedios.com/",
     github: "https://github.com/jamirou",
     images: iglesiaImages
+  },
+  {
+    title: "Külfün",
+    description: "Proyecto para máquinas vending donde la página web tiene animaciones en relación a la experiencia que el cliente quiere demostrar como el frío glacial, con efectos de tormentas y desplazamientos animados.",
+    tags: ["Animaciones", "Experiencia de Usuario", "UI/UX", "Vending"],
+    link: "https://jamirou.github.io/k-lf-n/",
+    github: "https://github.com/jamirou",
+    images: kulfunImages
   }
 ];
 ---
@@ -72,43 +83,117 @@ const PROJECTS = [
         </a>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {PROJECTS.map((project) => (
-        <article class="group relative bg-white border-2 border-zinc-900 rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-all duration-300">
-          <div class="aspect-video bg-zinc-100 flex items-center justify-center border-b-2 border-zinc-900 relative group-hover:bg-amber-50 transition-colors z-10">
-             <ProjectGallery images={project.images} title={project.title} client:visible />
-          </div>
-          
-          <div class="p-6">
-            <h3 class="text-xl font-bold text-zinc-900 mb-2 group-hover:text-rose-600 transition-colors font-heading">
-                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <span class="absolute inset-0 z-0"></span>
-                    {project.title}
-                </a>
-            </h3>
-            <p class="text-zinc-700 text-sm mb-4 line-clamp-3 leading-relaxed">
-              {project.description}
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-4 relative z-10">
-              {project.tags.map((tag) => (
-                <span class="px-3 py-1 bg-zinc-900 text-white text-xs font-bold rounded-full border border-zinc-900">
-                  {tag}
-                </span>
-              ))}
+    <div class="slider-container overflow-hidden w-full relative pb-4">
+      <div class="slider-track">
+        <div class="flex gap-8 shrink-0 pr-8" aria-hidden="false">
+          {PROJECTS.map((project) => (
+            <div class="slider-item">
+              <article class="h-full group relative bg-white border-2 border-zinc-900 rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-all duration-300 flex flex-col">
+                <div class="aspect-video bg-zinc-100 flex items-center justify-center border-b-2 border-zinc-900 relative group-hover:bg-amber-50 transition-colors z-10 shrink-0">
+                   <ProjectGallery images={project.images} title={project.title} client:visible />
+                </div>
+                
+                <div class="p-6 flex flex-col flex-grow">
+                  <h3 class="text-xl font-bold text-zinc-900 mb-2 group-hover:text-rose-600 transition-colors font-heading">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <span class="absolute inset-0 z-0"></span>
+                          {project.title}
+                      </a>
+                  </h3>
+                  <p class="text-zinc-700 text-sm mb-4 line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4 relative z-10">
+                    {project.tags.map((tag) => (
+                      <span class="px-3 py-1 bg-zinc-900 text-white text-xs font-bold rounded-full border border-zinc-900">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div class="flex items-center gap-4 relative z-10 border-t border-zinc-100 pt-4 mt-auto">
+                      <a href={project.github} target="_blank" class="text-zinc-500 hover:text-rose-600 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver código GitHub">
+                          <Github class="w-5 h-5" /> Code
+                      </a>
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-amber-500 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver sitio web">
+                          <Globe class="w-5 h-5" /> Demo
+                      </a>
+                  </div>
+                </div>
+              </article>
             </div>
-            
-            <div class="flex items-center gap-4 relative z-10 border-t border-zinc-100 pt-4 mt-4">
-                <a href={project.github} target="_blank" class="text-zinc-500 hover:text-rose-600 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver código GitHub">
-                    <Github class="w-5 h-5" /> Code
-                </a>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-amber-500 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver sitio web">
-                    <Globe class="w-5 h-5" /> Demo
-                </a>
+          ))}
+        </div>
+        <div class="flex gap-8 shrink-0 pr-8" aria-hidden="true">
+          {PROJECTS.map((project) => (
+            <div class="slider-item">
+              <article class="h-full group relative bg-white border-2 border-zinc-900 rounded-xl overflow-hidden shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-all duration-300 flex flex-col">
+                <div class="aspect-video bg-zinc-100 flex items-center justify-center border-b-2 border-zinc-900 relative group-hover:bg-amber-50 transition-colors z-10 shrink-0">
+                   <ProjectGallery images={project.images} title={project.title} client:visible />
+                </div>
+                
+                <div class="p-6 flex flex-col flex-grow">
+                  <h3 class="text-xl font-bold text-zinc-900 mb-2 group-hover:text-rose-600 transition-colors font-heading">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <span class="absolute inset-0 z-0"></span>
+                          {project.title}
+                      </a>
+                  </h3>
+                  <p class="text-zinc-700 text-sm mb-4 line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-2 mb-4 relative z-10">
+                    {project.tags.map((tag) => (
+                      <span class="px-3 py-1 bg-zinc-900 text-white text-xs font-bold rounded-full border border-zinc-900">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div class="flex items-center gap-4 relative z-10 border-t border-zinc-100 pt-4 mt-auto">
+                      <a href={project.github} target="_blank" class="text-zinc-500 hover:text-rose-600 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver código GitHub">
+                          <Github class="w-5 h-5" /> Code
+                      </a>
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-amber-500 transition-colors flex items-center gap-1.5 text-sm font-semibold" aria-label="Ver sitio web">
+                          <Globe class="w-5 h-5" /> Demo
+                      </a>
+                  </div>
+                </div>
+              </article>
             </div>
-          </div>
-        </article>
-      ))}
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 35s linear infinite;
+  }
+  .slider-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .slider-item {
+    width: calc(100vw - 2rem);
+    flex-shrink: 0;
+  }
+  @media (min-width: 640px) {
+    .slider-item { width: calc(100vw - 3rem); }
+  }
+  @media (min-width: 768px) {
+    .slider-item { width: calc((100vw - 5rem) / 2); }
+  }
+  @media (min-width: 1024px) {
+    .slider-item { width: calc((min(100vw, 1152px) - 8rem) / 3); }
+  }
+</style>

@@ -62,6 +62,13 @@ export default function PhotoSlider({ images }) {
             </div>
 
             <div className="absolute inset-0 ring-1 ring-inset ring-black/10 pointer-events-none"></div>
+
+            {/* Hidden images for preloading */}
+            <div className="hidden">
+                {images.map((src) => (
+                    <img key={src} src={src} alt="" />
+                ))}
+            </div>
         </div>
     );
 }

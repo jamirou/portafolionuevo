@@ -1,0 +1,116 @@
+---
+import favicon from '../assets/favicon.png';
+---
+
+<div id="global-preloader" class="fixed inset-0 z-[9999] bg-[#FBF9F3] flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
+  <div class="relative flex flex-col items-center">
+    <!-- Icon or Logo Animation -->
+    <div class="mb-8 relative z-10">
+        <img src={favicon.src} alt="Jamiro" class="w-16 h-16 animate-bounce drop-shadow-[4px_4px_0px_rgba(24,24,27,1)] rounded-xl" />
+        <div class="absolute -inset-4 border-2 border-rose-600 rounded-full animate-ping opacity-20 -z-10"></div>
+    </div>
+    
+    <!-- Text -->
+    <div class="overflow-hidden">
+        <h2 class="text-4xl md:text-5xl font-black text-zinc-900 tracking-tighter uppercase inline-block translate-y-full animate-slide-up">
+            Jamiro <span class="text-rose-600">Manríquez</span>
+        </h2>
+    </div>
+    <div class="overflow-hidden mt-2">
+        <p class="text-zinc-500 font-mono text-sm tracking-widest uppercase inline-block translate-y-full animate-slide-up" style="animation-delay: 0.1s;">
+            Cargando Propósito...
+        </p>
+    </div>
+
+    <!-- Progress line -->
+    <div class="w-48 h-1 bg-zinc-200 mt-8 rounded-full overflow-hidden relative">
+        <div class="absolute top-0 left-0 h-full bg-rose-600 w-full rounded-full animate-progress-bar origin-left"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes progress-bar {
+    0% {
+      transform: scaleX(0);
+    }
+    50% {
+      transform: scaleX(0.5);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  .animate-progress-bar {
+    animation: progress-bar 1.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+  
+  /* Class to fade out the preloader */
+  .preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10%);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.getElementById('global-preloader');
+    
+    // Check if already shown in this session
+    if (sessionStorage.getItem('preloaderShown') === 'true') {
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
+        return;
+    }
+
+    // Disable scroll while loading
+    document.body.style.overflow = 'hidden';
+
+    // Determine the minimum delay for the animation to look good
+    const minAnimationTime = 1800; // 1.8 seconds
+    const startTime = Date.now();
+
+    // The function to hide preloader
+    const hidePreloader = () => {
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minAnimationTime - elapsedTime);
+        
+        setTimeout(() => {
+            if (preloader) {
+                preloader.classList.add('preloader-hidden');
+                document.body.style.overflow = ''; // Restore scroll
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                    sessionStorage.setItem('preloaderShown', 'true');
+                }, 700); // Wait for CSS opacity/transform transition
+            }
+        }, remainingTime);
+    };
+
+    // We wait for the window 'load' event, which means all images, stylesheets, etc are fully loaded.
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
+    }
+    
+    // Fallback just in case load event takes too long or fails
+    setTimeout(hidePreloader, 5000);
+  });
+</script>
