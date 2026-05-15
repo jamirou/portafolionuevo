@@ -1,62 +1,127 @@
 ---
-import { ArrowRight, Github, Linkedin, Mail, Instagram, Lock } from 'lucide-react';
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  Instagram,
+  Lock,
+} from "lucide-react";
 ---
 
-<section class="min-h-[90vh] flex flex-col justify-center items-start pt-20 pb-32 relative overflow-hidden reveal">
-  
-    <!-- Background Animation (Neo-brutalist floating elements) -->
-    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50">
-        <!-- Dot Pattern -->
-        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #d4d4d8 1px, transparent 0); background-size: 32px 32px; mask-image: linear-gradient(to bottom, black 50%, transparent 100%);"></div>
-        
-        <!-- Floating shapes -->
-        <div class="absolute top-1/4 left-[10%] sm:left-1/4 w-20 h-20 sm:w-32 sm:h-32 bg-amber-300 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rounded-full animate-float opacity-70"></div>
-        
-        <div class="absolute top-1/3 right-[10%] sm:right-1/4 w-16 h-16 sm:w-24 sm:h-24 bg-rose-400 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rotate-12 animate-float-delayed opacity-70"></div>
-        
-        <div class="absolute bottom-1/4 right-[20%] sm:right-1/3 w-24 h-8 sm:w-40 sm:h-12 bg-white border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] -rotate-6 animate-float-slow opacity-70 rounded-full"></div>
+<section
+  class="min-h-[90vh] flex flex-col justify-center items-start pt-20 pb-32 relative overflow-hidden reveal"
+>
+  <!-- Background Animation (Neo-brutalist floating elements) -->
+  <div
+    class="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50"
+  >
+    <!-- Dot Pattern -->
+    <div
+      class="absolute inset-0"
+      style="background-image: radial-gradient(circle at 2px 2px, #d4d4d8 1px, transparent 0); background-size: 32px 32px; mask-image: linear-gradient(to bottom, black 50%, transparent 100%);"
+    >
     </div>
 
+    <!-- Floating shapes -->
+    <div
+      class="absolute top-1/4 left-[10%] sm:left-1/4 w-20 h-20 sm:w-32 sm:h-32 bg-amber-300 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rounded-full shape-1 opacity-70"
+    >
+    </div>
+
+    <div
+      class="absolute top-1/3 right-[10%] sm:right-1/4 w-16 h-16 sm:w-24 sm:h-24 bg-rose-400 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rotate-12 shape-2 opacity-70"
+    >
+    </div>
+
+    <div
+      class="absolute bottom-1/4 right-[20%] sm:right-1/3 w-24 h-8 sm:w-40 sm:h-12 bg-white border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] -rotate-6 shape-3 opacity-70 rounded-full"
+    >
+    </div>
+  </div>
+
   <div class="space-y-6 max-w-4xl relative z-10">
-    <a href="#contact" class="inline-flex items-center gap-x-2 border-2 border-zinc-900 rounded-full px-4 py-1.5 text-sm font-bold text-zinc-900 bg-white shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-y-0 cursor-pointer">
-      <span class="relative flex h-3 w-3">
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-zinc-900"></span>
-      </span>
-      Disponible para nuevos proyectos
-    </a>
-    
-    <h1 class="text-6xl sm:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.9]">
-      HOLA, SOY <br/>
+    <div class="inline-block animate-attention origin-left">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-x-2 border-2 border-zinc-900 rounded-full px-4 py-1.5 text-sm font-bold text-zinc-900 bg-white shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-y-0 cursor-pointer"
+      >
+        <span class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-zinc-900"
+          ></span>
+        </span>
+        Disponible para nuevos proyectos
+      </a>
+    </div>
+
+    <h1
+      class="text-6xl sm:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.9]"
+    >
+      HOLA, SOY <br />
       <span class="text-rose-600">JAMIRO MANRÍQUEZ</span>.
     </h1>
-    
-    <p class="text-xl sm:text-3xl text-zinc-700 max-w-2xl text-balance font-medium leading-relaxed">
-       Desarrollador Web & Marketer Digital.
+
+    <p
+      class="text-xl sm:text-3xl text-zinc-700 max-w-2xl text-balance font-medium leading-relaxed"
+    >
+      Desarrollador Web & Marketer Digital.
     </p>
 
     <div class="flex flex-wrap gap-4 pt-8 animate-fade-in-up">
-      <a href="#projects" class="group flex items-center justify-center gap-2 bg-zinc-900 text-cream-50 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(225,29,72,1)] hover:shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900">
+      <a
+        href="#projects"
+        class="group flex items-center justify-center gap-2 bg-zinc-900 text-cream-50 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(225,29,72,1)] hover:shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900"
+      >
         Ver Proyectos
-        <ArrowRight class="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+        <ArrowRight
+          class="w-6 h-6 group-hover:translate-x-1 transition-transform"
+        />
       </a>
-      
-      <a href="/docs" class="group flex items-center justify-center gap-2 bg-white text-zinc-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-50 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900">
+
+      <a
+        href="/docs"
+        class="group flex items-center justify-center gap-2 bg-white text-zinc-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-50 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900"
+      >
         Docs
-        <Lock class="w-5 h-5 text-zinc-400 group-hover:text-zinc-900 transition-colors" />
+        <Lock
+          class="w-5 h-5 text-zinc-400 group-hover:text-zinc-900 transition-colors"
+        />
       </a>
-      
+
       <div class="flex items-center gap-6 px-6">
-        <a href="https://github.com/jamirou" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
-            <Github class="w-8 h-8" stroke-width={2.5} />
+        <a
+          href="https://github.com/jamirou"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
+        >
+          <Github class="w-8 h-8" stroke-width={2.5} />
         </a>
-        <a href="https://linkedin.com/in/jamiro-manriquez-832aaa204" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
-            <Linkedin class="w-8 h-8" stroke-width={2.5} />
+        <a
+          href="https://linkedin.com/in/jamiro-manriquez-832aaa204"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
+        >
+          <Linkedin class="w-8 h-8" stroke-width={2.5} />
         </a>
-        <a href="https://www.instagram.com/yamir.r.r/" target="_blank" rel="noopener noreferrer" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
-            <Instagram class="w-8 h-8" stroke-width={2.5} />
+        <a
+          href="https://www.instagram.com/yamir.r.r/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
+        >
+          <Instagram class="w-8 h-8" stroke-width={2.5} />
         </a>
-        <a href="mailto:devjamiro@gmail.com" class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110">
-            <Mail class="w-8 h-8" stroke-width={2.5} />
+        <a
+          href="mailto:devjamiro@gmail.com"
+          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
+        >
+          <Mail class="w-8 h-8" stroke-width={2.5} />
         </a>
       </div>
     </div>
@@ -65,21 +130,82 @@ import { ArrowRight, Github, Linkedin, Mail, Instagram, Lock } from 'lucide-reac
 
 <style>
   @keyframes float {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
-    100% { transform: translateY(0) rotate(0deg); }
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
   }
   @keyframes float-delayed {
-    0% { transform: translateY(0) rotate(12deg); }
-    50% { transform: translateY(15px) rotate(0deg); }
-    100% { transform: translateY(0) rotate(12deg); }
+    0% {
+      transform: translateY(0) rotate(12deg);
+    }
+    50% {
+      transform: translateY(15px) rotate(0deg);
+    }
+    100% {
+      transform: translateY(0) rotate(12deg);
+    }
   }
   @keyframes float-slow {
-    0% { transform: translateY(0) translateX(0) rotate(-6deg); }
-    50% { transform: translateY(-10px) translateX(10px) rotate(-10deg); }
-    100% { transform: translateY(0) translateX(0) rotate(-6deg); }
+    0% {
+      transform: translateY(0) translateX(0) rotate(-6deg);
+    }
+    50% {
+      transform: translateY(-10px) translateX(10px) rotate(-10deg);
+    }
+    100% {
+      transform: translateY(0) translateX(0) rotate(-6deg);
+    }
   }
-  .animate-float { animation: float 6s ease-in-out infinite; }
-  .animate-float-delayed { animation: float-delayed 7s ease-in-out infinite alternate; }
-  .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+
+  /* Animaciones de entrada (primeros 3 segundos) */
+  @keyframes pop-in-1 {
+    0% { transform: translate(-200px, -200px) rotate(-180deg) scale(0.5); }
+    30% { transform: translate(50px, 50px) rotate(45deg) scale(1.2); }
+    60% { transform: translate(-20px, -20px) rotate(-20deg) scale(0.9); }
+    80% { transform: translate(10px, 10px) rotate(10deg) scale(1.05); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  }
+
+  @keyframes pop-in-2 {
+    0% { transform: translate(200px, -200px) rotate(180deg) scale(0.5); }
+    30% { transform: translate(-50px, 50px) rotate(-45deg) scale(1.2); }
+    60% { transform: translate(20px, -20px) rotate(20deg) scale(0.9); }
+    80% { transform: translate(-10px, 10px) rotate(-10deg) scale(1.05); }
+    100% { transform: translate(0, 0) rotate(12deg) scale(1); }
+  }
+
+  @keyframes pop-in-3 {
+    0% { transform: translate(200px, 200px) rotate(180deg) scale(0.5); }
+    30% { transform: translate(-50px, -50px) rotate(-45deg) scale(1.2); }
+    60% { transform: translate(20px, 20px) rotate(20deg) scale(0.9); }
+    80% { transform: translate(-10px, -10px) rotate(-10deg) scale(1.05); }
+    100% { transform: translate(0, 0) rotate(-6deg) scale(1); }
+  }
+
+  /* Animación de atención (tintineo) */
+  @keyframes attention {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    2%, 6% { transform: rotate(-3deg) scale(1.05); }
+    4%, 8% { transform: rotate(3deg) scale(1.05); }
+    10%, 98% { transform: rotate(0deg) scale(1); }
+  }
+
+  .shape-1 {
+    animation: pop-in-1 3s cubic-bezier(0.34, 1.56, 0.64, 1), float 6s ease-in-out 3s infinite;
+  }
+  .shape-2 {
+    animation: pop-in-2 3s cubic-bezier(0.34, 1.56, 0.64, 1), float-delayed 7s ease-in-out 3s infinite alternate;
+  }
+  .shape-3 {
+    animation: pop-in-3 3s cubic-bezier(0.34, 1.56, 0.64, 1), float-slow 8s ease-in-out 3s infinite;
+  }
+  .animate-attention {
+    animation: attention 7s ease-in-out infinite;
+  }
 </style>
