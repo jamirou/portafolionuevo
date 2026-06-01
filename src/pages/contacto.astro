@@ -24,7 +24,7 @@ import "../styles/global.css";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#0B0B0C] text-zinc-100 antialiased selection:bg-yellow-400 selection:text-zinc-950 flex flex-col justify-between min-h-screen font-sans">
+  <body class="bg-[#0B0B0C] text-zinc-100 antialiased selection:bg-yellow-400 selection:text-zinc-950 flex flex-col justify-center min-h-screen font-sans">
     
     <!-- Background glow elements -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
@@ -33,35 +33,18 @@ import "../styles/global.css";
     </div>
 
     <!-- Main Container -->
-    <main class="w-full max-w-[420px] mx-auto px-4 pt-8 pb-12 flex-grow flex flex-col justify-center">
+    <main class="w-full max-w-[420px] mx-auto px-4 py-8 flex flex-col justify-center">
       
       <div class="bg-zinc-900/50 backdrop-blur-xl border border-zinc-800/80 rounded-[2rem] overflow-hidden shadow-2xl flex flex-col">
         
         <!-- Header Banner (Visual Gradient) -->
-        <div class="bg-gradient-to-b from-zinc-950 via-zinc-900 to-transparent pt-10 pb-8 px-6 text-center relative border-b border-zinc-800/30">
+        <div class="bg-gradient-to-b from-zinc-950 via-zinc-900 to-transparent pt-12 pb-8 px-6 text-center relative border-b border-zinc-800/30">
           
-          <!-- Logo Container -->
-          <div class="flex justify-center mb-6">
-            <div class="relative group">
-              <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full blur-md opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-              <img 
-                src="/moralesreducido.png" 
-                alt="Logo Morales EIRL" 
-                class="relative h-14 object-contain mx-auto"
-                onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';"
-              />
-              <!-- Fallback if logo not loaded yet -->
-              <div id="logo-fallback" class="hidden h-14 w-14 rounded-full bg-zinc-800 border border-yellow-400 items-center justify-center font-heading text-xl font-bold text-yellow-400 mx-auto">
-                M
-              </div>
-            </div>
-          </div>
-
-          <!-- Name and Title -->
+          <!-- Name and Title (Logo removed, Name is first) -->
           <h1 class="text-3xl font-bold tracking-tight text-white font-heading">
             Jamiro Manríquez
           </h1>
-          <p class="text-xs font-semibold tracking-widest uppercase text-yellow-400/90 font-sans mt-2 flex items-center justify-center gap-1.5">
+          <p class="text-xs font-semibold tracking-widest uppercase text-yellow-400/90 font-sans mt-2.5 flex items-center justify-center gap-1.5">
             <span class="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             Ejecutivo Comercial
           </p>
@@ -153,23 +136,7 @@ import "../styles/global.css";
 
         </div>
       </div>
-
-      <!-- Action Footer Links -->
-      <div class="mt-8 text-center flex flex-col items-center gap-3">
-        <a 
-          href="/" 
-          class="inline-flex items-center gap-2 text-zinc-500 hover:text-zinc-300 text-sm transition-colors group font-medium"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-x-0.5 transition-transform"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-          Volver a jamirmkt.com
-        </a>
-      </div>
     </main>
-
-    <!-- Footer Copyright -->
-    <footer class="py-6 text-center text-zinc-600 text-xs font-mono">
-      <p>&copy; {new Date().getFullYear()} Morales EIRL. Todos los derechos reservados.</p>
-    </footer>
 
     <!-- Interactive vCard Generator Script -->
     <script>
