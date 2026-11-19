@@ -1,21 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-heading: 'Outfit', sans-serif;
-  --font-mono: 'Courier Prime', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 
-  --color-cream-50: #FBF9F3;
-  --color-charcoal-950: #18181B;
-  --color-rose-600: #E11D48;
-  --color-amber-300: #FCD34D;
+  --color-midnight-950: #070B14;
+  --color-midnight-900: #0D1321;
+  --color-midnight-800: #131B2E;
+  --color-lime-electric: #D4FF00;
+  --color-lime-hover: #CCFF00;
+  --color-ink-900: #0F172A;
+  --color-surface-light: #F8FAFC;
 }
 
 html {
   font-family: var(--font-sans);
-  background-color: var(--color-cream-50);
-  color: var(--color-charcoal-950);
+  background-color: #070B14;
+  color: #0F172A;
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
 }
 
 h1,
@@ -25,16 +32,20 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
-  /* Tight tracking for headings */
+  letter-spacing: -0.025em;
 }
 
-/* Scroll Reveal Animation */
+::selection {
+  background-color: #D4FF00;
+  color: #070B14;
+}
+
+/* Smooth Scroll Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Ease Out Expo-ish */
+  transform: translateY(22px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -43,13 +54,25 @@ h6 {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hide scrollbars cleanly where used for interactive horizontal tracks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-::selection {
-  background-color: var(--color-amber-300);
-  color: var(--color-charcoal-950);
 }

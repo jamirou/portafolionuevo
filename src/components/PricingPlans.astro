@@ -1,0 +1,248 @@
+---
+const PHONE = '56947185397';
+
+interface Plan {
+  name: string;
+  badge?: string;
+  price: string;
+  billing: string;
+  oldPrice?: string;
+  featured?: boolean;
+  features: string[];
+  waMessage: string;
+}
+
+const plans: Plan[] = [
+  {
+    name: 'Presencia en Google',
+    badge: 'MÁS ELEGIDO PARA EMPEZAR',
+    price: '$29.990',
+    billing: 'Pago único',
+    features: [
+      'Creación o reclamo y verificación oficial en Google Business Profile.',
+      'Optimización SEO local con palabras clave de tu comuna.',
+      'Botón directo a WhatsApp, horarios y catálogo de servicios/precios.',
+      'Carga y optimización de 8 a 10 fotos reales de tu negocio.',
+      'Diseño de código QR listo para imprimir y pedir reseñas en tu local.',
+    ],
+    waMessage:
+      'Hola JMKT, quiero contratar el plan Presencia en Google ($29.990 pago único) para mi negocio.',
+  },
+  {
+    name: 'Mantención Mensual Google',
+    price: '$19.990',
+    billing: '/ mes · Opcional',
+    features: [
+      'Subida semanal de fotos nuevas y publicación de ofertas.',
+      'Respuesta profesional a todas las reseñas de clientes.',
+      'Actualización continua de horarios y servicios.',
+      'Reporte mensual simple con llamadas, rutas y clics recibidos.',
+    ],
+    waMessage:
+      'Hola JMKT, me interesa la Mantención Mensual Google ($19.990/mes) para mantener activo mi perfil.',
+  },
+  {
+    name: 'Página Web Express',
+    price: '$89.990',
+    billing: 'Pago único',
+    features: [
+      'Landing page profesional diseñada a medida y ultrarrápida en celulares.',
+      'Presentación estratégica de servicios, galería y mapa integrado.',
+      'Botones directos de cotización hacia tu WhatsApp.',
+      'SEO técnico local incluido (el cliente solo cubre su dominio .cl).',
+    ],
+    waMessage:
+      'Hola JMKT, quiero cotizar la Página Web Express ($89.990 pago único) para mi negocio.',
+  },
+  {
+    name: 'Combo Despegue Total',
+    badge: 'AHORRA $10.000',
+    price: '$109.990',
+    billing: 'Pago único',
+    oldPrice: 'Antes $119.980',
+    featured: true,
+    features: [
+      'Todo lo incluido en Presencia en Google.',
+      'Todo lo incluido en Página Web Express.',
+      'Integración de tus reseñas y ubicación de Google dentro de tu sitio web.',
+    ],
+    waMessage:
+      'Hola JMKT, quiero contratar el Combo Despegue Total ($109.990 pago único) con Google Maps + Página Web Express.',
+  },
+  {
+    name: 'Campañas Meta Ads (IG & FB)',
+    price: '$59.990',
+    billing: '/ mes (+ inversión en anuncios)',
+    features: [
+      'Configuración profesional y segmentación por radio geográfico (3 a 5 km).',
+      'Diseño y redacción de 2 a 3 anuncios enfocados en conversión directa.',
+      'Optimización semanal para recibir mensajes de clientes al WhatsApp.',
+    ],
+    waMessage:
+      'Hola JMKT, quiero activar Campañas Meta Ads en Instagram y Facebook ($59.990/mes) para atraer clientes.',
+  },
+  {
+    name: 'Agente IA para WhatsApp',
+    badge: 'ALTO IMPACTO',
+    price: '$119.990',
+    billing: 'Implementación única',
+    features: [
+      'Entrenamiento de asistente IA con toda la información y precios de tu negocio.',
+      'Respuestas automáticas naturales 24/7 y calificación de clientes.',
+      'Integración con flujo de agendamiento o derivación directa a tu teléfono.',
+    ],
+    waMessage:
+      'Hola JMKT, quiero implementar el Agente IA para WhatsApp ($119.990 implementación única) en mi negocio.',
+  },
+];
+---
+
+<section id="planes" class="scroll-mt-20 bg-[#F8FAFC] text-[#0F172A] py-20 sm:py-28 border-t border-slate-200/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-14 sm:mb-16 reveal">
+      <div class="inline-flex items-center gap-2.5 mb-4">
+        <span class="w-6 h-[2px] bg-[#658C00] rounded-full"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#4D6B00]">
+          Planes Transparentes
+        </span>
+        <span class="w-6 h-[2px] bg-[#658C00] rounded-full"></span>
+      </div>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight text-[#0F172A] text-balance">
+        Soluciones claras, sin contratos de amarre.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600">
+        Inversiones transparentes pensadas para la realidad de las PyMEs en Chile.
+      </p>
+    </div>
+
+    <!-- 6 Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 reveal">
+      {plans.map((plan) => {
+        const waHref = `https://wa.me/${PHONE}?text=${encodeURIComponent(plan.waMessage)}`;
+        const isFeatured = Boolean(plan.featured);
+
+        return (
+          <article
+            class={`relative rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
+              isFeatured
+                ? 'bg-[#0D1321] text-white border-2 border-[#D4FF00] shadow-[0_20px_50px_rgba(7,11,20,0.22)]'
+                : 'bg-white text-[#0F172A] border border-slate-200/90 hover:border-slate-300 shadow-[0_6px_24px_rgba(15,23,42,0.04)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.08)]'
+            }`}
+          >
+            <div>
+              {/* Badge Row */}
+              <div class="min-h-[28px] mb-3">
+                {plan.badge && (
+                  <span
+                    class={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-heading font-extrabold uppercase tracking-wider ${
+                      isFeatured
+                        ? 'bg-[#D4FF00] text-[#070B14]'
+                        : plan.badge === 'ALTO IMPACTO'
+                          ? 'bg-[#070B14] text-[#D4FF00]'
+                          : 'bg-[#D4FF00]/35 text-[#2F4600] border border-[#9EC500]/40'
+                    }`}
+                  >
+                    {plan.badge}
+                  </span>
+                )}
+              </div>
+
+              {/* Title */}
+              <h3
+                class={`font-heading font-extrabold text-xl leading-snug ${
+                  isFeatured ? 'text-white' : 'text-[#0F172A]'
+                }`}
+              >
+                {plan.name}
+              </h3>
+
+              {/* Price */}
+              <div class="mt-4 pb-6 border-b border-current/10">
+                <div class="flex items-baseline gap-2 flex-wrap">
+                  <span
+                    class={`font-heading font-extrabold text-3xl sm:text-4xl tracking-tight ${
+                      isFeatured ? 'text-[#D4FF00]' : 'text-[#0F172A]'
+                    }`}
+                  >
+                    {plan.price}
+                  </span>
+                  <span
+                    class={`text-xs font-semibold ${
+                      isFeatured ? 'text-slate-300' : 'text-slate-500'
+                    }`}
+                  >
+                    CLP
+                  </span>
+                </div>
+                <div class="mt-1.5 flex items-center gap-2 flex-wrap">
+                  <span
+                    class={`text-xs font-medium ${
+                      isFeatured ? 'text-slate-300' : 'text-slate-500'
+                    }`}
+                  >
+                    {plan.billing}
+                  </span>
+                  {plan.oldPrice && (
+                    <span class="text-xs font-medium text-slate-400 line-through">
+                      {plan.oldPrice}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Features List */}
+              <ul class="mt-6 space-y-3.5">
+                {plan.features.map((feat) => (
+                  <li class="flex items-start gap-3 text-sm leading-relaxed">
+                    <span
+                      class={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
+                        isFeatured
+                          ? 'bg-[#D4FF00]/15 text-[#D4FF00]'
+                          : 'bg-[#070B14] text-[#D4FF00]'
+                      }`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span class={isFeatured ? 'text-slate-200' : 'text-slate-600'}>
+                      {feat}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <div class="mt-8 pt-4">
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-heading font-bold text-sm transition-all duration-200 ${
+                  isFeatured
+                    ? 'bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] shadow-[0_0_24px_rgba(212,255,0,0.28)]'
+                    : 'bg-[#070B14] hover:bg-[#131B2E] text-white'
+                }`}
+              >
+                <span>Solicitar por WhatsApp</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    <!-- Bottom Helper Note -->
+    <div class="mt-10 text-center">
+      <p class="text-sm text-slate-600">
+        ¿Necesitas combinar varios servicios?{' '}
+        <a href="#arma-tu-plan" class="font-bold text-[#0F172A] underline decoration-[#D4FF00] decoration-2 underline-offset-4 hover:text-[#4D6B00] transition-colors">
+          Usa nuestro configurador interactivo abajo ↓
+        </a>
+      </p>
+    </div>
+  </div>
+</section>

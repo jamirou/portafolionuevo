@@ -1,0 +1,234 @@
+---
+const WHATSAPP_IA_URL =
+  'https://wa.me/56947185397?text=Hola%20JMKT,%20quiero%20implementar%20un%20Agente%20de%20Inteligencia%20Artificial%20en%20el%20WhatsApp%20de%20mi%20negocio';
+
+const benefits = [
+  {
+    title: 'Responde al instante 24/7',
+    description:
+      'Contesta dudas frecuentes, envía precios y fotos en menos de 5 segundos, incluso domingos y festivos.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>`,
+  },
+  {
+    title: 'Filtra y califica interesados',
+    description:
+      'Hace las preguntas clave antes de pasarte el cliente listo para cerrar la venta.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 11 3 3L22 4"/></svg>`,
+  },
+  {
+    title: 'Ahorra horas de trabajo manual',
+    description:
+      'Ideal para clínicas, talleres, veterinarias, estética, servicios técnicos y comercios.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2"/></svg>`,
+  },
+];
+---
+
+<section id="ia" class="scroll-mt-20 relative bg-[#070B14] text-white py-20 sm:py-28 overflow-hidden">
+  <!-- Subtle Glow -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/2 -left-32 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-[#D4FF00]/8 blur-[130px]"></div>
+    <div class="absolute bottom-0 right-0 w-[380px] h-[380px] rounded-full bg-emerald-500/8 blur-[120px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      <!-- Left Column: Pitch & 3 Benefits -->
+      <div class="lg:col-span-6 space-y-6 reveal">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00] text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-[#D4FF00] animate-pulse"></span>
+          Nuevo · Automatización Inteligente
+        </div>
+
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.7rem] leading-[1.1] tracking-tight text-white text-balance">
+          Un vendedor experto atendiendo tu WhatsApp las{' '}
+          <span class="text-[#D4FF00]">24 horas.</span>
+        </h2>
+
+        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+          ¿Pierdes clientes porque estás trabajando, manejando o descansando y no alcanzas a responder mensajes a tiempo? Implementamos Agentes de Inteligencia Artificial entrenados con los precios, horarios y servicios de tu negocio.
+        </p>
+
+        <ul class="space-y-4 pt-2">
+          {benefits.map((b) => (
+            <li class="flex items-start gap-4 p-4 rounded-2xl bg-[#131B2E]/75 border border-slate-800/90 hover:border-[#D4FF00]/35 transition-colors">
+              <div class="w-10 h-10 rounded-xl bg-[#D4FF00]/12 border border-[#D4FF00]/25 text-[#D4FF00] flex items-center justify-center shrink-0 mt-0.5">
+                <span set:html={b.icon} />
+              </div>
+              <div>
+                <h3 class="font-heading font-bold text-base text-white">
+                  {b.title}
+                </h3>
+                <p class="text-sm text-slate-300 mt-1 leading-relaxed">
+                  {b.description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div class="pt-3 flex flex-wrap items-center gap-4">
+          <a
+            href={WHATSAPP_IA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-bold text-sm transition-all duration-200 shadow-[0_0_24px_rgba(212,255,0,0.25)] hover:-translate-y-0.5"
+          >
+            <span>Quiero mi Agente IA</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href="#planes"
+            class="text-sm font-semibold text-slate-300 hover:text-[#D4FF00] transition-colors"
+          >
+            Ver valor de implementación ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive WhatsApp Chat Simulation -->
+      <div class="lg:col-span-6 reveal">
+        <div class="max-w-md mx-auto lg:ml-auto lg:mr-0 rounded-[2rem] bg-[#131B2E] border border-slate-800 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.65)]">
+          <!-- Phone Inner Frame -->
+          <div class="rounded-[1.5rem] bg-[#0B141A] border border-slate-800/80 overflow-hidden flex flex-col">
+            <!-- WhatsApp Top Header -->
+            <div class="bg-[#131B2E] px-4 py-3.5 border-b border-slate-800 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="relative w-10 h-10 rounded-full bg-[#070B14] border border-[#D4FF00]/50 flex items-center justify-center font-heading font-extrabold text-xs text-[#D4FF00]">
+                  IA
+                  <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#131B2E]"></span>
+                </div>
+                <div>
+                  <p class="font-heading font-bold text-sm text-white leading-tight">
+                    Asistente IA · Tu Negocio
+                  </p>
+                  <p class="text-[11px] text-emerald-400 font-medium">
+                    En línea · Respuesta automática 24/7
+                  </p>
+                </div>
+              </div>
+              <span class="px-2 py-0.5 rounded-md bg-slate-800 text-[10px] font-semibold text-slate-300 uppercase tracking-wider">
+                Demo en vivo
+              </span>
+            </div>
+
+            <!-- Chat Body -->
+            <div
+              id="ai-demo-messages"
+              class="p-4 sm:p-5 space-y-4 min-h-[290px] bg-[#0A101D] relative"
+              style="background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px); background-size: 18px 18px;"
+            >
+              <!-- Date Pill -->
+              <div class="flex justify-center">
+                <span class="px-3 py-1 rounded-full bg-[#131B2E] border border-slate-800 text-[11px] text-slate-400 font-medium">
+                  Hoy · 22:43 hrs
+                </span>
+              </div>
+
+              <!-- Client Message -->
+              <div class="flex justify-end">
+                <div class="max-w-[85%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-3 text-sm text-slate-100 shadow-md">
+                  <p class="leading-relaxed">
+                    Hola, buenas noches. ¿Cuánto sale una mantención y tienen hora para mañana?
+                  </p>
+                  <div class="mt-1.5 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                    <span>22:43 hrs</span>
+                    <span class="text-sky-400">✓✓</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI Business Reply -->
+              <div class="flex justify-start">
+                <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/30 px-4 py-3 text-sm text-white shadow-lg">
+                  <div class="flex items-center gap-1.5 mb-1">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00]">
+                      Asistente IA del Negocio
+                    </span>
+                  </div>
+                  <p class="leading-relaxed text-slate-100">
+                    ¡Hola! Claro que sí 👋 Nuestro servicio completo tiene un valor de <strong class="text-[#D4FF00]">$29.990</strong>. Para mañana tenemos cupos disponibles a las <strong class="text-white">11:00</strong> y a las <strong class="text-white">16:30 hrs</strong>. ¿Cuál horario te acomoda reservar?
+                  </p>
+                  <div class="mt-1.5 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                    <span>22:43 hrs</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Extra Interactive Follow-up Slot -->
+              <div id="ai-demo-followup" class="space-y-3 hidden"></div>
+            </div>
+
+            <!-- Interactive Quick Replies -->
+            <div class="px-4 py-3 bg-[#0D1321] border-t border-slate-800/90">
+              <p class="text-[11px] text-slate-400 mb-2 font-medium">
+                Prueba responder como cliente:
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  data-reply="A las 11:00 hrs por favor"
+                  data-ai="¡Perfecto! ✅ Te dejé reservada la hora para mañana a las 11:00 hrs. Por favor confírmame tu nombre y dirección o patente para registrar tu cita."
+                  class="ai-quick-btn px-3 py-1.5 rounded-full bg-[#131B2E] hover:bg-[#D4FF00] text-slate-200 hover:text-[#070B14] border border-slate-700 hover:border-[#D4FF00] text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  “A las 11:00 hrs por favor”
+                </button>
+                <button
+                  type="button"
+                  data-reply="¿Aceptan transferencia o tarjeta?"
+                  data-ai="Sí 🙌 Aceptamos transferencia electrónica, débito y crédito al finalizar el servicio. ¿Te reservo las 11:00 o las 16:30 hrs?"
+                  class="ai-quick-btn px-3 py-1.5 rounded-full bg-[#131B2E] hover:bg-[#D4FF00] text-slate-200 hover:text-[#070B14] border border-slate-700 hover:border-[#D4FF00] text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  “¿Aceptan tarjeta?”
+                </button>
+              </div>
+            </div>
+
+            <!-- Bottom Performance Badge -->
+            <div class="px-4 py-3 bg-[#131B2E] border-t border-slate-800 flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D4FF00] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+              </svg>
+              <span class="text-xs font-semibold text-slate-200">
+                Respondido automáticamente por IA en <span class="text-[#D4FF00]">3 segundos</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.ai-quick-btn');
+  const followup = document.getElementById('ai-demo-followup');
+
+  if (followup && buttons.length > 0) {
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const userText = btn.getAttribute('data-reply') || '';
+        const aiText = btn.getAttribute('data-ai') || '';
+
+        followup.classList.remove('hidden');
+        followup.innerHTML = `
+          <div class="flex justify-end">
+            <div class="max-w-[85%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-2.5 text-sm text-slate-100">
+              <p>${userText}</p>
+              <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                <span>22:44 hrs</span>
+                <span class="text-sky-400">✓✓</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-start">
+            <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/40 px-4 py-3 text-sm text-slate-100">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1">Asistente IA · 2 seg</div>
+              <p class="leading-relaxed">${aiText}</p>
+            </div>
+          </div>
+        `;
+      });
+    });
+  }
+</script>

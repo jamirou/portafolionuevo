@@ -1,136 +1,184 @@
 ---
-import "../styles/global.css";
-import favicon from "../assets/favicon.png";
+import '../styles/global.css';
+import JmktLogo from '../components/JmktLogo.astro';
+
+const WHATSAPP_URL =
+  'https://wa.me/56947185397?text=Hola%20JMKT,%20vi%20tu%20tarjeta%20de%20contacto%20y%20quiero%20impulsar%20la%20presencia%20digital%20de%20mi%20negocio';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href={favicon.src} />
-    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
     <!-- SEO & Meta Tags -->
-    <title>Jamiro Manríquez | Marketing Digital & Desarrollo Web para PyMEs</title>
-    <meta name="description" content="Contacto directo de Jamiro Manríquez • Marketing Digital & Desarrollo Web para PyMEs." />
+    <title>JMKT | Tarjeta de Contacto Digital — Agencia Digital para PyMEs</title>
+    <meta
+      name="description"
+      content="Contacto directo de JMKT · Agencia Digital para PyMEs en Chile. Google Maps, Diseño Web, Meta Ads y Agentes IA en WhatsApp."
+    />
     <meta name="robots" content="noindex, nofollow" />
-    
-    <!-- Open Graph / Card Info -->
+    <meta name="theme-color" content="#070B14" />
+    <link rel="canonical" href="https://jamirmkt.com/contacto" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Jamiro Manríquez • Marketing Digital & Desarrollo Web para PyMEs" />
-    <meta property="og:description" content="Añádeme a tus contactos o envíame un mensaje directo por WhatsApp o llamada." />
-    <meta property="og:image" content={favicon.src} />
+    <meta property="og:site_name" content="JMKT" />
+    <meta property="og:title" content="JMKT | Tarjeta de Contacto Digital" />
+    <meta
+      property="og:description"
+      content="Guarda nuestro contacto o escríbenos directo por WhatsApp para impulsar tu negocio en internet."
+    />
+    <meta property="og:url" content="https://jamirmkt.com/contacto" />
+    <meta property="og:image" content="https://jamirmkt.com/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JMKT | Tarjeta de Contacto Digital" />
+    <meta
+      name="twitter:description"
+      content="Agencia Digital para PyMEs en Chile · Google Maps, Web, Meta Ads e IA."
+    />
+    <meta name="twitter:image" content="https://jamirmkt.com/og-image.png" />
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-[#09090b] text-zinc-100 antialiased selection:bg-yellow-400/30 h-dvh flex flex-col items-center justify-center font-sans overflow-hidden p-4">
-    
-    <!-- Subtle Background Gradient -->
-    <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(250,204,21,0.03)_0%,rgba(9,9,11,1)_100%)]"></div>
+  <body class="bg-[#070B14] text-white antialiased min-h-dvh flex flex-col items-center justify-center font-sans p-4 sm:p-6 relative">
+    <!-- Subtle Ambient Glow -->
+    <div
+      class="fixed inset-0 -z-10 pointer-events-none"
+      aria-hidden="true"
+      style="background: radial-gradient(circle at 50% 15%, rgba(212, 255, 0, 0.1) 0%, rgba(7, 11, 20, 1) 60%);"
+    ></div>
 
-    <!-- Content Container -->
-    <div class="w-full max-w-sm flex flex-col items-center">
-      
-      <!-- Profile Section -->
-      <header class="text-center mb-6">
-        <div class="w-20 h-20 bg-zinc-900 border border-zinc-800 rounded-3xl flex items-center justify-center mb-4 mx-auto shadow-xl">
-          <span class="text-2xl font-bold text-yellow-400 font-heading">JM</span>
+    <!-- Card Container -->
+    <main class="w-full max-w-md rounded-3xl bg-[#0D1321]/95 border border-slate-800 p-6 sm:p-8 shadow-[0_24px_70px_rgba(0,0,0,0.65)]">
+      <!-- Brand Header -->
+      <header class="text-center mb-7">
+        <div class="inline-flex items-center justify-center px-5 py-3.5 rounded-2xl bg-[#131B2E] border border-slate-800 mb-4 shadow-inner">
+          <JmktLogo size="md" />
         </div>
-        <h1 class="text-2xl font-bold tracking-tight text-white font-heading">
+        <h1 class="font-heading font-extrabold text-xl sm:text-2xl tracking-tight text-white">
           Jamiro Manríquez
         </h1>
-        <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-yellow-400 mt-2 px-2 text-balance">
-          Jamiro Manríquez • Marketing Digital & Desarrollo Web para PyMEs
+        <p class="text-xs font-bold tracking-[0.16em] uppercase text-[#D4FF00] mt-1.5">
+          Fundador & Estratega Digital · JMKT
+        </p>
+        <p class="text-xs text-slate-400 mt-1.5">
+          Agencia Digital para PyMEs · Peñaflor, Chile
         </p>
       </header>
 
-      <!-- Links Stack -->
-      <nav class="w-full space-y-3">
-        
-        <!-- WhatsApp Link -->
-        <a 
-          href="https://wa.me/56947185397?text=Hola%20Jamiro,%20vi%20tu%20tarjeta%20de%20contacto%20y%20quiero%20cotizar%20un%20servicio%20para%20mi%20negocio"
+      <!-- Direct Action Links -->
+      <nav aria-label="Canales de contacto JMKT" class="space-y-3">
+        <!-- WhatsApp -->
+        <a
+          href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-3 p-3.5 rounded-2xl bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800/50 hover:border-emerald-400/50 transition-all duration-300 group"
+          class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#131B2E] hover:bg-[#18233B] border border-slate-800 hover:border-[#D4FF00]/50 transition-all duration-200 group"
         >
-          <div class="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800 text-zinc-400 group-hover:text-emerald-400 transition-colors">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <div class="w-11 h-11 rounded-xl bg-[#070B14] flex items-center justify-center border border-slate-800 text-[#D4FF00] shrink-0">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
             </svg>
           </div>
-          <div class="flex-grow">
-            <p class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">WhatsApp</p>
-            <p class="text-sm font-medium text-zinc-200">+56 9 4718 5397</p>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">WhatsApp Directo</p>
+            <p class="text-sm font-semibold text-white">+56 9 4718 5397</p>
           </div>
+          <span class="text-slate-500 group-hover:text-[#D4FF00] transition-colors" aria-hidden="true">→</span>
         </a>
 
-        <!-- Phone Link -->
-        <a 
+        <!-- Phone -->
+        <a
           href="tel:+56947185397"
-          class="flex items-center gap-3 p-3.5 rounded-2xl bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800/50 hover:border-yellow-400/30 transition-all duration-300 group"
+          class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#131B2E] hover:bg-[#18233B] border border-slate-800 hover:border-[#D4FF00]/50 transition-all duration-200 group"
         >
-          <div class="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800 text-zinc-400 group-hover:text-yellow-400 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="w-11 h-11 rounded-xl bg-[#070B14] flex items-center justify-center border border-slate-800 text-slate-300 group-hover:text-[#D4FF00] transition-colors shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
           </div>
-          <div class="flex-grow">
-            <p class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">Llamar Directo</p>
-            <p class="text-sm font-medium text-zinc-200">+56 9 4718 5397</p>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Llamar Directo</p>
+            <p class="text-sm font-semibold text-white">+56 9 4718 5397</p>
           </div>
+          <span class="text-slate-500 group-hover:text-[#D4FF00] transition-colors" aria-hidden="true">→</span>
         </a>
 
-        <!-- Email Link -->
-        <a 
+        <!-- Email -->
+        <a
           href="mailto:devjamiro@gmail.com"
-          class="flex items-center gap-3 p-3.5 rounded-2xl bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800/50 hover:border-yellow-400/30 transition-all duration-300 group"
+          class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#131B2E] hover:bg-[#18233B] border border-slate-800 hover:border-[#D4FF00]/50 transition-all duration-200 group"
         >
-          <div class="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800 text-zinc-400 group-hover:text-yellow-400 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <div class="w-11 h-11 rounded-xl bg-[#070B14] flex items-center justify-center border border-slate-800 text-slate-300 group-hover:text-[#D4FF00] transition-colors shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
           </div>
-          <div class="flex-grow">
-            <p class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">Email</p>
-            <p class="text-sm font-medium text-zinc-200">devjamiro@gmail.com</p>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Correo Agencia</p>
+            <p class="text-sm font-semibold text-white truncate">devjamiro@gmail.com</p>
           </div>
+          <span class="text-slate-500 group-hover:text-[#D4FF00] transition-colors" aria-hidden="true">→</span>
         </a>
 
-        <!-- Website Link -->
-        <a 
-          href="/" 
-          class="flex items-center gap-3 p-3.5 rounded-2xl bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800/50 hover:border-yellow-400/30 transition-all duration-300 group"
+        <!-- Website -->
+        <a
+          href="/"
+          class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-[#131B2E] hover:bg-[#18233B] border border-slate-800 hover:border-[#D4FF00]/50 transition-all duration-200 group"
         >
-          <div class="w-10 h-10 rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800 text-zinc-400 group-hover:text-yellow-400 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <div class="w-11 h-11 rounded-xl bg-[#070B14] flex items-center justify-center border border-slate-800 text-slate-300 group-hover:text-[#D4FF00] transition-colors shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/>
+            </svg>
           </div>
-          <div class="flex-grow">
-            <p class="text-[10px] uppercase tracking-wider text-zinc-500 font-medium">Sitio Web</p>
-            <p class="text-sm font-medium text-zinc-200">Ver Portafolio & Servicios</p>
+          <div class="flex-1 min-w-0">
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Sitio Web Oficial</p>
+            <p class="text-sm font-semibold text-white">jamirmkt.com · Ver Planes e IA</p>
           </div>
+          <span class="text-slate-500 group-hover:text-[#D4FF00] transition-colors" aria-hidden="true">→</span>
         </a>
 
-        <!-- Download vCard CTA -->
-        <button 
+        <!-- Save Contact vCard CTA -->
+        <button
           id="download-vcard"
-          class="w-full mt-3 bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg shadow-yellow-400/10 cursor-pointer"
+          type="button"
+          class="w-full mt-4 bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-extrabold py-4 px-6 rounded-full transition-all duration-200 flex items-center justify-center gap-2.5 active:scale-[0.98] shadow-[0_0_24px_rgba(212,255,0,0.25)] cursor-pointer text-sm"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
-          <span class="text-sm">Guardar Contacto</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <line x1="19" x2="19" y1="8" y2="14"/>
+            <line x1="22" x2="16" y1="11" y2="11"/>
+          </svg>
+          <span>Guardar Contacto JMKT</span>
         </button>
-
       </nav>
 
       <!-- Footer -->
-      <footer class="mt-8 text-center">
-        <p class="text-[10px] uppercase tracking-widest text-zinc-600 font-medium">&copy; {new Date().getFullYear()} Jamiro Manríquez</p>
+      <footer class="mt-7 pt-5 border-t border-slate-800/80 text-center">
+        <p class="text-[11px] text-slate-500 font-medium">
+          © 2026 JMKT · Agencia Digital Chile
+        </p>
       </footer>
+    </main>
 
-    </div>
-
-    <!-- vCard Script -->
+    <!-- vCard Download Script -->
     <script>
       const downloadBtn = document.getElementById('download-vcard');
       if (downloadBtn) {
@@ -138,21 +186,22 @@ import favicon from "../assets/favicon.png";
           const vcardData = [
             'BEGIN:VCARD',
             'VERSION:3.0',
-            'FN:Jamiro Manríquez',
+            'FN:Jamiro Manríquez — JMKT',
             'N:Manríquez;Jamiro;;;',
-            'ORG:Jamiro Manríquez • Marketing Digital & Desarrollo Web',
-            'TITLE:Marketing Digital & Desarrollo Web para PyMEs',
+            'ORG:JMKT Agencia Digital',
+            'TITLE:Fundador & Estratega Digital',
             'TEL;TYPE=CELL,VOICE:+56947185397',
             'EMAIL;TYPE=INTERNET,WORK:devjamiro@gmail.com',
             'URL:https://jamirmkt.com/',
-            'END:VCARD'
+            'ADR;TYPE=WORK:;;Peñaflor;Región Metropolitana;;Chile',
+            'END:VCARD',
           ].join('\r\n');
 
           const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = 'Jamiro_Manriquez.vcf';
+          a.download = 'JMKT_Jamiro_Manriquez.vcf';
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);

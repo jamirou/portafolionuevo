@@ -1,0 +1,47 @@
+---
+interface Props {
+  class?: string;
+  iconOnly?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', iconOnly = false, size = 'md' } = Astro.props;
+
+const sizeMap = {
+  sm: { icon: 'h-6 w-auto', text: 'text-xl' },
+  md: { icon: 'h-7 w-auto', text: 'text-2xl' },
+  lg: { icon: 'h-9 w-auto', text: 'text-3xl' },
+};
+
+const s = sizeMap[size];
+---
+
+<span class={`inline-flex items-center gap-2.5 select-none ${className}`}>
+  <svg
+    viewBox="0 0 76 58"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class={`${s.icon} shrink-0`}
+    aria-hidden="true"
+  >
+    <path
+      d="M32 3H73.5L66.8 15.2C66.1 16.4 64.9 17.2 63.5 17.2H24.2L30.8 5C31.1 4.4 31.5 3 32 3Z"
+      fill="#D4FF00"
+    />
+    <path
+      d="M21.8 21.5H63.3L56.6 33.7C55.9 34.9 54.7 35.7 53.3 35.7H14L20.6 23.5C20.9 22.9 21.3 21.5 21.8 21.5Z"
+      fill="#D4FF00"
+    />
+    <path
+      d="M11.6 40H53.1L46.4 52.2C45.7 53.4 44.5 54.2 43.1 54.2H3.8L10.4 42C10.7 41.4 11.1 40 11.6 40Z"
+      fill="#D4FF00"
+    />
+  </svg>
+  {!iconOnly && (
+    <span
+      class={`font-heading font-extrabold tracking-[0.06em] text-white leading-none ${s.text}`}
+    >
+      JMKT
+    </span>
+  )}
+</span>

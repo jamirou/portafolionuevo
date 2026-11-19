@@ -1,67 +1,132 @@
 ---
+import JmktLogo from './JmktLogo.astro';
+
+const WHATSAPP_URL =
+  'https://wa.me/56947185397?text=Hola%20JMKT,%20quiero%20impulsar%20la%20presencia%20digital%20de%20mi%20negocio';
+
+const navLinks = [
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/#ia', label: 'IA WhatsApp' },
+  { href: '/#planes', label: 'Planes' },
+  { href: '/#arma-tu-plan', label: 'Arma tu plan' },
+  { href: '/#casos-exito', label: 'Casos de éxito' },
+  { href: '/#certificaciones', label: 'Certificaciones' },
+];
 ---
 
-<header class="sticky top-0 z-40 w-full bg-[#FBF9F3]/95 backdrop-blur-md border-b-2 border-zinc-900 transition-all">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
-    
-    <!-- Logo & Brand -->
-    <a href="/" class="flex items-center gap-3 group" aria-label="Inicio Jamir MKT">
-      <div class="w-10 h-10 bg-zinc-900 rounded-xl flex items-center justify-center border-2 border-zinc-900 text-white font-black text-lg shadow-[3px_3px_0px_0px_rgba(225,29,72,1)] group-hover:bg-rose-600 group-hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] transition-all">
-        JM
-      </div>
-      <div class="flex flex-col">
-        <div class="flex items-center gap-1.5">
-          <span class="text-xl font-black tracking-tighter text-zinc-900 font-heading leading-none">
-            JAMIR<span class="text-rose-600">MKT</span>
-          </span>
-          <span class="text-[9px] font-black uppercase tracking-wider bg-amber-300 text-zinc-900 px-1.5 py-0.5 rounded border border-zinc-900 leading-none">
-            AGENCIA
-          </span>
-        </div>
-        <span class="text-[10px] font-bold tracking-wider uppercase text-zinc-500 font-mono mt-0.5">
-          Presencia Digital & PyMEs
-        </span>
-      </div>
-    </a>
-
-    <!-- Nav Links (Desktop) -->
-    <nav class="hidden md:flex items-center gap-8 font-bold text-sm text-zinc-800">
-      <a href="/#servicios" class="hover:text-rose-600 transition-colors">
-        Servicios
-      </a>
-      <a href="/#servicios" class="hover:text-rose-600 transition-colors">
-        Planes & Precios
-      </a>
-      <a href="/#projects" class="hover:text-rose-600 transition-colors">
-        Casos de Éxito
-      </a>
-      <a href="/#contact" class="hover:text-rose-600 transition-colors">
-        Contacto
-      </a>
-    </nav>
-
-    <!-- Header Actions -->
-    <div class="flex items-center gap-3">
-      <!-- Rating Mini Badge (Hidden on smallest screens) -->
-      <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-white border-2 border-zinc-900 rounded-full text-xs font-bold shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
-        <span class="text-amber-500">★★★★★</span>
-        <span class="text-zinc-900">5.0</span>
-      </div>
-
-      <!-- CTA WhatsApp Button -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#070B14]/90 border-b border-slate-800/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 sm:h-20">
+      <!-- Logo -->
       <a
-        href="https://wa.me/56947185397?text=Hola,%20vi%20su%20web%20y%20quiero%20cotizar%20servicios%20para%20mi%20negocio"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-zinc-900 text-white hover:bg-emerald-600 text-xs sm:text-sm font-bold py-2.5 px-4 sm:px-5 rounded-full border-2 border-zinc-900 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)] hover:shadow-[1px_1px_0px_0px_rgba(24,24,27,1)] hover:translate-x-0.5 hover:translate-y-0.5 active:scale-95 transition-all cursor-pointer"
+        href="/"
+        aria-label="JMKT Agencia Digital - Inicio"
+        class="focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4FF00] rounded-lg"
       >
-        <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-        <span class="hidden sm:inline">Cotizar por WhatsApp</span>
-        <span class="sm:hidden">WhatsApp</span>
+        <JmktLogo size="md" />
       </a>
-    </div>
 
+      <!-- Desktop Navigation -->
+      <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-7">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-slate-300 hover:text-[#D4FF00] transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Desktop CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-bold text-sm transition-all duration-200 shadow-[0_0_20px_rgba(212,255,0,0.2)] hover:shadow-[0_0_28px_rgba(212,255,0,0.38)] hover:-translate-y-0.5"
+        >
+          <span>Hablemos</span>
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mobile-menu-drawer"
+          class="lg:hidden inline-flex items-center justify-center p-2.5 rounded-xl bg-[#131B2E] border border-slate-800 text-slate-200 hover:text-[#D4FF00] hover:border-slate-700 transition-colors cursor-pointer"
+        >
+          <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-menu-drawer"
+    class="lg:hidden hidden border-t border-slate-800/80 bg-[#070B14]/98 backdrop-blur-xl"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col gap-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-200 hover:text-[#D4FF00] hover:bg-[#131B2E] transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-3 mt-2 border-t border-slate-800">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-bold text-sm transition-colors"
+        >
+          <span>Hablemos por WhatsApp</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
   </div>
 </header>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const drawer = document.getElementById('mobile-menu-drawer');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  if (toggleBtn && drawer && iconOpen && iconClose) {
+    const closeMenu = () => {
+      drawer.classList.add('hidden');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = !drawer.classList.contains('hidden');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        drawer.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    drawer.querySelectorAll('.mobile-nav-link').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>

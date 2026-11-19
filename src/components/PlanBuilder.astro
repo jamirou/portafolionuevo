@@ -1,0 +1,376 @@
+---
+interface BuilderItem {
+  id: string;
+  name: string;
+  price: number;
+  priceLabel: string;
+  type: 'once' | 'monthly';
+  subtitle: string;
+  tag?: string;
+}
+
+const items: BuilderItem[] = [
+  {
+    id: 'google-maps',
+    name: 'Perfil en Google Maps',
+    price: 29990,
+    priceLabel: '$29.990 pago único',
+    type: 'once',
+    subtitle: 'Verificación, SEO local, catálogo, fotos y QR para reseñas.',
+    tag: 'Ideal para partir',
+  },
+  {
+    id: 'google-mantencion',
+    name: 'Mantención Mensual Google',
+    price: 19990,
+    priceLabel: '$19.990 / mes',
+    type: 'monthly',
+    subtitle: 'Publicaciones semanales, respuesta a reseñas y reporte mensual.',
+  },
+  {
+    id: 'web-express',
+    name: 'Página Web Express',
+    price: 89990,
+    priceLabel: '$89.990 pago único',
+    type: 'once',
+    subtitle: 'Landing page a medida, rápida en celular, SEO local y botones WhatsApp.',
+    tag: 'Combo -$10.000 con Google',
+  },
+  {
+    id: 'meta-ads',
+    name: 'Campañas Instagram & Facebook',
+    price: 59990,
+    priceLabel: '$59.990 / mes',
+    type: 'monthly',
+    subtitle: 'Segmentación local (3-5 km), 2 a 3 anuncios y optimización semanal.',
+  },
+  {
+    id: 'agente-ia',
+    name: 'Agente de Inteligencia Artificial en WhatsApp',
+    price: 119990,
+    priceLabel: '$119.990 pago único',
+    type: 'once',
+    subtitle: 'Asistente IA 24/7 entrenado con tus precios, horarios y agendamiento.',
+    tag: 'Alto impacto',
+  },
+];
+---
+
+<section id="arma-tu-plan" class="scroll-mt-20 bg-white text-[#0F172A] py-20 sm:py-28 border-t border-slate-200/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Heading -->
+    <div class="max-w-3xl mb-12 reveal">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <span class="w-8 h-[2px] bg-[#658C00] rounded-full"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#4D6B00]">
+          Cotizador Interactivo
+        </span>
+      </div>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight text-[#0F172A] text-balance">
+        Arma tu plan a medida en segundos.
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600">
+        Selecciona los servicios que tu negocio necesita hoy. Si combinas <strong class="text-[#0F172A]">Perfil en Google Maps + Página Web Express</strong>, aplicamos automáticamente el <strong class="text-[#3F6212]">Descuento Combo Despegue (-$10.000 CLP)</strong>.
+      </p>
+    </div>
+
+    <!-- Interactive Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start reveal">
+      <!-- Left Column: Selectable Service Cards -->
+      <div class="lg:col-span-7 space-y-3.5" id="plan-builder-list">
+        {items.map((item) => (
+          <label
+            class="plan-option group relative flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border-2 border-slate-200 hover:border-slate-300 cursor-pointer transition-all duration-200 select-none has-[:checked]:bg-white has-[:checked]:border-[#070B14] has-[:checked]:shadow-[0_12px_28px_rgba(7,11,20,0.08)]"
+          >
+            <input
+              type="checkbox"
+              class="plan-checkbox sr-only"
+              data-id={item.id}
+              data-name={item.name}
+              data-price={item.price}
+              data-type={item.type}
+              data-price-label={item.priceLabel}
+            />
+
+            <!-- Custom Checkbox Visual -->
+            <span
+              class="plan-check-box mt-0.5 w-6 h-6 rounded-lg border-2 border-slate-300 bg-white flex items-center justify-center shrink-0 transition-all duration-200"
+              aria-hidden="true"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="plan-check-icon w-3.5 h-3.5 text-[#070B14] opacity-0 scale-75 transition-all duration-150"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3.2"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7" />
+              </svg>
+            </span>
+
+            <!-- Service Info -->
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="font-heading font-bold text-base sm:text-lg text-[#0F172A]">
+                  {item.name}
+                </span>
+                <span class="font-heading font-extrabold text-sm sm:text-base text-[#0F172A] bg-white border border-slate-200 px-3 py-1 rounded-full shrink-0">
+                  {item.priceLabel}
+                </span>
+              </div>
+              <p class="mt-1.5 text-sm text-slate-600 leading-relaxed">
+                {item.subtitle}
+              </p>
+              {item.tag && (
+                <span class="inline-block mt-2.5 px-2.5 py-0.5 rounded-md bg-[#D4FF00]/35 text-[#2F4600] text-[11px] font-bold uppercase tracking-wide">
+                  {item.tag}
+                </span>
+              )}
+            </div>
+          </label>
+        ))}
+      </div>
+
+      <!-- Right Column: Real-time Summary Card -->
+      <aside class="lg:col-span-5 lg:sticky lg:top-24 rounded-3xl bg-[#0D1321] text-white border border-slate-800 p-6 sm:p-8 shadow-[0_24px_60px_rgba(7,11,20,0.22)]">
+        <div class="flex items-center justify-between pb-5 border-b border-slate-800">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#D4FF00]">
+              Resumen en tiempo real
+            </p>
+            <h3 class="font-heading font-extrabold text-xl text-white mt-1">
+              Tu plan personalizado
+            </h3>
+          </div>
+          <span
+            id="builder-count-badge"
+            class="px-3 py-1 rounded-full bg-[#131B2E] border border-slate-700 text-xs font-bold text-slate-300"
+          >
+            0 servicios
+          </span>
+        </div>
+
+        <!-- Selected Items List -->
+        <div class="py-5 border-b border-slate-800 min-h-[112px]">
+          <div id="builder-empty-state" class="text-sm text-slate-400 leading-relaxed">
+            Marca uno o más servicios a la izquierda para calcular automáticamente tu inversión y generar tu cotización directa por WhatsApp.
+          </div>
+          <ul id="builder-selected-list" class="space-y-3 hidden"></ul>
+        </div>
+
+        <!-- Smart Discount Banner -->
+        <div
+          id="builder-discount-banner"
+          class="hidden mt-5 p-3.5 rounded-2xl bg-[#D4FF00]/12 border border-[#D4FF00]/40 flex items-center justify-between gap-3"
+        >
+          <div class="flex items-center gap-2.5">
+            <span class="w-6 h-6 rounded-full bg-[#D4FF00] text-[#070B14] flex items-center justify-center text-xs font-extrabold shrink-0">
+              %
+            </span>
+            <span class="text-xs sm:text-sm font-bold text-[#D4FF00]">
+              Descuento Combo Despegue aplicado
+            </span>
+          </div>
+          <span class="font-heading font-extrabold text-sm text-[#D4FF00] whitespace-nowrap">
+            -$10.000 CLP
+          </span>
+        </div>
+
+        <!-- Totals -->
+        <div class="mt-6 space-y-4">
+          <div class="flex items-baseline justify-between gap-4">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Total Inversión Única
+              </p>
+              <p class="text-[11px] text-slate-500">Pago por implementación</p>
+            </div>
+            <p id="builder-once-total" class="font-heading font-extrabold text-3xl text-[#D4FF00] tracking-tight">
+              $0 CLP
+            </p>
+          </div>
+
+          <div id="builder-monthly-row" class="flex items-baseline justify-between gap-4 pt-3 border-t border-slate-800/80">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                Total Mensual
+              </p>
+              <p class="text-[11px] text-slate-500">Sin contratos de amarre</p>
+            </div>
+            <p id="builder-monthly-total" class="font-heading font-bold text-xl text-white">
+              $0 / mes
+            </p>
+          </div>
+        </div>
+
+        <!-- Dynamic WhatsApp CTA -->
+        <div class="mt-7 space-y-3">
+          <a
+            id="builder-wa-cta"
+            href="https://wa.me/56947185397?text=Hola%20JMKT,%20quiero%20asesor%C3%ADa%20para%20armar%20un%20plan%20digital%20a%20medida%20para%20mi%20negocio."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-extrabold text-sm sm:text-base transition-all duration-200 shadow-[0_0_26px_rgba(212,255,0,0.28)] hover:shadow-[0_0_34px_rgba(212,255,0,0.45)]"
+          >
+            <span>Cotizar mi selección por WhatsApp</span>
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <button
+            id="builder-reset-btn"
+            type="button"
+            class="hidden w-full py-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
+          >
+            Limpiar selección
+          </button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .plan-option:has(.plan-checkbox:checked) .plan-check-box {
+    background-color: #D4FF00;
+    border-color: #070B14;
+  }
+  .plan-option:has(.plan-checkbox:checked) .plan-check-icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
+
+<script>
+  const PHONE = '56947185397';
+  const checkboxes = Array.from(
+    document.querySelectorAll<HTMLInputElement>('.plan-checkbox')
+  );
+  const selectedListEl = document.getElementById('builder-selected-list');
+  const emptyStateEl = document.getElementById('builder-empty-state');
+  const countBadgeEl = document.getElementById('builder-count-badge');
+  const discountBannerEl = document.getElementById('builder-discount-banner');
+  const onceTotalEl = document.getElementById('builder-once-total');
+  const monthlyTotalEl = document.getElementById('builder-monthly-total');
+  const waCtaEl = document.getElementById('builder-wa-cta') as HTMLAnchorElement | null;
+  const resetBtn = document.getElementById('builder-reset-btn');
+
+  const formatCLP = (amount: number) =>
+    '$' + amount.toLocaleString('es-CL');
+
+  function updatePlanBuilder() {
+    const selected = checkboxes
+      .filter((cb) => cb.checked)
+      .map((cb) => ({
+        id: cb.dataset.id || '',
+        name: cb.dataset.name || '',
+        price: Number(cb.dataset.price || 0),
+        type: cb.dataset.type as 'once' | 'monthly',
+        priceLabel: cb.dataset.priceLabel || '',
+      }));
+
+    const hasGoogle = selected.some((s) => s.id === 'google-maps');
+    const hasWeb = selected.some((s) => s.id === 'web-express');
+    const comboDiscount = hasGoogle && hasWeb ? 10000 : 0;
+
+    const onceSubtotal = selected
+      .filter((s) => s.type === 'once')
+      .reduce((acc, s) => acc + s.price, 0);
+    const onceTotal = Math.max(0, onceSubtotal - comboDiscount);
+
+    const monthlyTotal = selected
+      .filter((s) => s.type === 'monthly')
+      .reduce((acc, s) => acc + s.price, 0);
+
+    // Update badge
+    if (countBadgeEl) {
+      countBadgeEl.textContent =
+        selected.length === 1 ? '1 servicio' : `${selected.length} servicios`;
+    }
+
+    // Update selected list
+    if (selectedListEl && emptyStateEl) {
+      if (selected.length === 0) {
+        emptyStateEl.classList.remove('hidden');
+        selectedListEl.classList.add('hidden');
+        selectedListEl.innerHTML = '';
+        resetBtn?.classList.add('hidden');
+      } else {
+        emptyStateEl.classList.add('hidden');
+        selectedListEl.classList.remove('hidden');
+        resetBtn?.classList.remove('hidden');
+        selectedListEl.innerHTML = selected
+          .map(
+            (s) => `
+            <li class="flex items-center justify-between gap-3 text-sm">
+              <span class="text-slate-200 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00] shrink-0"></span>
+                <span>${s.name}</span>
+              </span>
+              <span class="font-semibold text-white whitespace-nowrap">${s.priceLabel}</span>
+            </li>
+          `
+          )
+          .join('');
+      }
+    }
+
+    // Update discount banner
+    if (discountBannerEl) {
+      if (comboDiscount > 0) {
+        discountBannerEl.classList.remove('hidden');
+      } else {
+        discountBannerEl.classList.add('hidden');
+      }
+    }
+
+    // Update totals
+    if (onceTotalEl) {
+      onceTotalEl.textContent = `${formatCLP(onceTotal)} CLP`;
+    }
+    if (monthlyTotalEl) {
+      monthlyTotalEl.textContent =
+        monthlyTotal > 0 ? `${formatCLP(monthlyTotal)} / mes` : 'No aplica';
+    }
+
+    // Build dynamic WhatsApp message
+    if (waCtaEl) {
+      if (selected.length === 0) {
+        waCtaEl.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(
+          'Hola JMKT, quiero asesoría para armar un plan digital a medida para mi negocio.'
+        )}`;
+      } else {
+        const lines = [
+          'Hola JMKT, armé mi plan a medida en jamirmkt.com y quiero cotizar:',
+          '',
+          ...selected.map((s) => `• ${s.name} (${s.priceLabel})`),
+        ];
+        if (comboDiscount > 0) {
+          lines.push('• Descuento Combo Despegue aplicado (-$10.000 CLP)');
+        }
+        lines.push('');
+        if (onceTotal > 0) {
+          lines.push(`Total Inversión Única: ${formatCLP(onceTotal)} CLP`);
+        }
+        if (monthlyTotal > 0) {
+          lines.push(`Total Mensual: ${formatCLP(monthlyTotal)} CLP / mes`);
+        }
+        lines.push('', '¿Podemos coordinar los detalles?');
+
+        waCtaEl.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(
+          lines.join('\n')
+        )}`;
+      }
+    }
+  }
+
+  checkboxes.forEach((cb) => cb.addEventListener('change', updatePlanBuilder));
+  resetBtn?.addEventListener('click', () => {
+    checkboxes.forEach((cb) => {
+      cb.checked = false;
+    });
+    updatePlanBuilder();
+  });
+
+  updatePlanBuilder();
+</script>

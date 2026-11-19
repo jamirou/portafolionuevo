@@ -1,0 +1,195 @@
+---
+const certifications = [
+  {
+    title: 'Google Ads — Publicidad en Búsqueda y Display',
+    issuer: 'Certificación Oficial Google',
+    benefit: 'Campañas optimizadas para atraer clientes listos para comprar sin desperdiciar tu presupuesto.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="m12 8 4 8H8l4-8Z"/></svg>`,
+  },
+  {
+    title: 'Google Analytics 4 (GA4) — Analítica y Conversión',
+    issuer: 'Certificación Oficial Google',
+    benefit: 'Optimización basada en datos reales de visitas y conversiones, no en suposiciones.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h16"/><rect x="6" y="12" width="3" height="5" rx="1"/><rect x="11" y="8" width="3" height="9" rx="1"/><rect x="16" y="4" width="3" height="13" rx="1"/></svg>`,
+  },
+  {
+    title: 'Google Business Profile & SEO Local',
+    issuer: 'Especialización en Posicionamiento',
+    benefit: 'Visibilidad prioritaria en Google Maps y búsquedas locales de tu comuna.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  },
+  {
+    title: 'Fundamentos de Marketing Digital',
+    issuer: 'Google Digital Garage',
+    benefit: 'Estrategia comercial completa pensada para transformar clics en ventas sostenibles.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15l-2 5 2-1 2 1-2-5Z"/><circle cx="12" cy="9" r="6"/></svg>`,
+  },
+  {
+    title: 'Desarrollo Web & Rendimiento Frontend',
+    issuer: 'Astro, React & Core Web Vitals',
+    benefit: 'Sitios web livianos y ultrarrápidos que cargan al instante desde cualquier celular.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m8 9-3 3 3 3m8-6 3 3-3 3m-5 2 2-10"/></svg>`,
+  },
+  {
+    title: 'Arquitectura de Agentes IA & Automatización',
+    issuer: 'APIs Conversacionales & Flujos',
+    benefit: 'Asistentes entrenados con tu negocio para responder, filtrar y agendar clientes 24/7.',
+    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3m-3.6-6.4-2.1 2.1m-6.6 6.6-2.1 2.1m0-10.8 2.1 2.1m6.6 6.6 2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg>`,
+  },
+];
+
+// Duplicate once for seamless infinite horizontal carousel loop
+const loopedCerts = [...certifications, ...certifications];
+---
+
+<section id="certificaciones" class="scroll-mt-20 bg-[#F8FAFC] text-[#0F172A] py-20 sm:py-24 border-t border-slate-200/70 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header + Controls -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <span class="w-8 h-[2px] bg-[#658C00] rounded-full"></span>
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#4D6B00]">
+            Respaldo Técnico & Credenciales
+          </span>
+        </div>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl leading-[1.12] tracking-tight text-[#0F172A]">
+          Certificaciones que respaldan cada estrategia.
+        </h2>
+        <p class="mt-3 text-base text-slate-600">
+          Combinamos formación certificada en Google, desarrollo moderno y automatización con IA para entregar resultados medibles.
+        </p>
+      </div>
+
+      <!-- Prev / Next Arrow Buttons -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button
+          id="cert-prev-btn"
+          type="button"
+          aria-label="Certificación anterior"
+          class="w-11 h-11 rounded-full bg-white border border-slate-300 hover:border-[#070B14] hover:bg-[#070B14] text-[#0F172A] hover:text-[#D4FF00] flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6" />
+          </svg>
+        </button>
+        <button
+          id="cert-next-btn"
+          type="button"
+          aria-label="Siguiente certificación"
+          class="w-11 h-11 rounded-full bg-white border border-slate-300 hover:border-[#070B14] hover:bg-[#070B14] text-[#0F172A] hover:text-[#D4FF00] flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Smooth Scroll Carousel Container -->
+    <div
+      id="cert-carousel-viewport"
+      class="relative overflow-x-auto no-scrollbar pb-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+      aria-label="Carrusel de certificaciones y credenciales de JMKT"
+    >
+      <div id="cert-carousel-track" class="flex gap-5 w-max">
+        {loopedCerts.map((cert, idx) => (
+          <article
+            aria-hidden={idx >= certifications.length ? 'true' : 'false'}
+            class="w-[300px] sm:w-[340px] shrink-0 rounded-2xl bg-white border border-slate-200 hover:border-[#070B14]/30 p-6 flex flex-col justify-between shadow-[0_4px_20px_rgba(15,23,42,0.04)] hover:shadow-[0_14px_32px_rgba(15,23,42,0.08)] transition-all duration-300"
+          >
+            <div>
+              <div class="flex items-center justify-between gap-3 mb-5">
+                <div class="w-12 h-12 rounded-xl bg-[#070B14] text-[#D4FF00] flex items-center justify-center shrink-0">
+                  <span set:html={cert.badge} />
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F8FAFC] border border-slate-200 text-[11px] font-bold text-slate-600">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#658C00]"></span>
+                  Verificada
+                </span>
+              </div>
+
+              <p class="text-xs font-bold uppercase tracking-wider text-[#4D6B00] mb-1.5">
+                {cert.issuer}
+              </p>
+              <h3 class="font-heading font-bold text-lg text-[#0F172A] leading-snug">
+                {cert.title}
+              </h3>
+            </div>
+
+            <p class="mt-4 pt-4 border-t border-slate-100 text-sm text-slate-600 leading-relaxed">
+              {cert.benefit}
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const viewport = document.getElementById('cert-carousel-viewport');
+  const prevBtn = document.getElementById('cert-prev-btn');
+  const nextBtn = document.getElementById('cert-next-btn');
+
+  if (viewport) {
+    let isPaused = false;
+    let isButtonScrolling = false;
+    let scrollTimeout: number | undefined;
+    const speedPxPerFrame = 0.65;
+
+    const pause = () => {
+      isPaused = true;
+    };
+    const resume = () => {
+      isPaused = false;
+    };
+
+    viewport.addEventListener('mouseenter', pause);
+    viewport.addEventListener('mouseleave', resume);
+    viewport.addEventListener('touchstart', pause, { passive: true });
+    viewport.addEventListener('touchend', resume);
+    viewport.addEventListener('focusin', pause);
+    viewport.addEventListener('focusout', resume);
+
+    function step() {
+      if (viewport && !isPaused && !isButtonScrolling) {
+        const halfWidth = viewport.scrollWidth / 2;
+        viewport.scrollLeft += speedPxPerFrame;
+        if (viewport.scrollLeft >= halfWidth) {
+          viewport.scrollLeft -= halfWidth;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      requestAnimationFrame(step);
+    }
+
+    const scrollByCard = (direction: number) => {
+      const halfWidth = viewport.scrollWidth / 2;
+      isButtonScrolling = true;
+      window.clearTimeout(scrollTimeout);
+
+      if (direction < 0 && viewport.scrollLeft < 360) {
+        viewport.scrollLeft += halfWidth;
+      } else if (direction > 0 && viewport.scrollLeft >= halfWidth) {
+        viewport.scrollLeft -= halfWidth;
+      }
+
+      viewport.scrollBy({
+        left: direction * 360,
+        behavior: 'smooth',
+      });
+
+      scrollTimeout = window.setTimeout(() => {
+        isButtonScrolling = false;
+      }, 650);
+    };
+
+    prevBtn?.addEventListener('click', () => scrollByCard(-1));
+    nextBtn?.addEventListener('click', () => scrollByCard(1));
+  }
+</script>
