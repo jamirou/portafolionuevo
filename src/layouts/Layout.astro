@@ -4,6 +4,7 @@ import "../styles/chatbot.css";
 import "../styles/digitallab.css";
 import favicon from '../assets/favicon.png';
 import Preloader from '../components/Preloader.astro';
+import Navbar from '../components/Navbar.astro';
 import ChatBot from '../components/ChatBot.jsx';
 
 interface Props {
@@ -82,6 +83,7 @@ const schemaMarkup = JSON.stringify({
     <div class="fixed inset-0 -z-10 h-full w-full bg-[#FBF9F3]">
         <!-- Subtle grain/paper texture could go here later -->
     </div>
+    <Navbar />
     <main class="w-full mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative">
       <slot />
     </main>

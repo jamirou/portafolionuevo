@@ -1,134 +1,292 @@
 ---
 import {
   ArrowRight,
-  Github,
-  Linkedin,
-  Mail,
-  Instagram,
-  Lock,
+  ShieldCheck,
+  Star,
+  CheckCircle2,
+  Sparkles,
+  MapPin,
+  TrendingUp,
+  Award,
+  Zap,
 } from "lucide-react";
 ---
 
 <section
-  class="min-h-[90vh] flex flex-col justify-center items-start pt-20 pb-32 relative overflow-hidden reveal"
+  class="min-h-[85vh] flex flex-col justify-center pt-10 pb-20 relative overflow-hidden reveal"
 >
   <!-- Background Animation (Neo-brutalist floating elements) -->
   <div
-    class="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50"
+    class="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-40"
   >
     <!-- Dot Pattern -->
     <div
       class="absolute inset-0"
-      style="background-image: radial-gradient(circle at 2px 2px, #d4d4d8 1px, transparent 0); background-size: 32px 32px; mask-image: linear-gradient(to bottom, black 50%, transparent 100%);"
+      style="background-image: radial-gradient(circle at 2px 2px, #d4d4d8 1px, transparent 0); background-size: 32px 32px; mask-image: linear-gradient(to bottom, black 60%, transparent 100%);"
     >
     </div>
 
     <!-- Floating shapes -->
     <div
-      class="absolute top-1/4 left-[10%] sm:left-1/4 w-20 h-20 sm:w-32 sm:h-32 bg-amber-300 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rounded-full shape-1 opacity-70"
+      class="absolute top-1/4 left-[5%] w-24 h-24 bg-amber-300 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rounded-full shape-1 opacity-70"
     >
     </div>
 
     <div
-      class="absolute top-1/3 right-[10%] sm:right-1/4 w-16 h-16 sm:w-24 sm:h-24 bg-rose-400 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rotate-12 shape-2 opacity-70"
+      class="absolute top-1/3 right-[5%] w-20 h-20 bg-rose-400 border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] rotate-12 shape-2 opacity-70"
     >
     </div>
 
     <div
-      class="absolute bottom-1/4 right-[20%] sm:right-1/3 w-24 h-8 sm:w-40 sm:h-12 bg-white border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] -rotate-6 shape-3 opacity-70 rounded-full"
+      class="absolute bottom-1/6 right-[25%] w-36 h-10 bg-white border-2 border-zinc-900 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] -rotate-6 shape-3 opacity-70 rounded-full"
     >
     </div>
   </div>
 
-  <div class="space-y-6 max-w-4xl relative z-10">
-    <div class="inline-block animate-attention origin-left">
-      <a
-        href="#servicios"
-        class="inline-flex items-center gap-x-2 border-2 border-zinc-900 rounded-full px-4 py-1.5 text-sm font-bold text-zinc-900 bg-white shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] transition-transform hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-y-0 cursor-pointer"
-      >
-        <span class="relative flex h-3 w-3">
+  <!-- Contenedor Principal (Grid 2 Columnas) -->
+  <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10 w-full">
+    
+    <!-- ══════════════════════════════════════════════
+         COLUMNA IZQUIERDA: MENSAJE PRINCIPAL Y CTAs
+         ══════════════════════════════════════════════ -->
+    <div class="lg:col-span-7 space-y-6">
+      
+      <!-- Badges Superiores -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <div class="inline-block animate-attention origin-left">
           <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-          ></span>
-          <span
-            class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-zinc-900"
-          ></span>
+            class="inline-flex items-center gap-2 border-2 border-zinc-900 rounded-full px-3.5 py-1.5 text-xs font-black tracking-wide text-zinc-900 bg-white shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]"
+          >
+            <span class="relative flex h-2.5 w-2.5">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-zinc-900"
+              ></span>
+            </span>
+            AGENCIA DE PRESENCIA DIGITAL & MARKETING PyME
+          </span>
+        </div>
+
+        <span
+          class="hidden sm:inline-flex items-center gap-1.5 border-2 border-zinc-900 rounded-full px-3 py-1.5 text-xs font-black tracking-wider text-zinc-900 bg-amber-300 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]"
+        >
+          🇨🇱 COBERTURA CHILE
         </span>
-        Disponible para nuevos proyectos
-      </a>
-    </div>
+      </div>
 
-    <h1
-      class="text-6xl sm:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.9]"
-    >
-      HOLA, SOY <br />
-      <span class="text-rose-600">JAMIRO MANRÍQUEZ</span>.
-    </h1>
-
-    <p
-      class="text-xl sm:text-3xl text-zinc-700 max-w-2xl text-balance font-medium leading-relaxed"
-    >
-      Ayudo a negocios y PyMEs a aparecer en Google, verse profesionales y atraer más clientes todos los días.
-    </p>
-
-    <div class="flex flex-wrap items-center gap-4 pt-8 animate-fade-in-up">
-      <a
-        href="#servicios"
-        class="group flex items-center justify-center gap-2 bg-zinc-900 text-cream-50 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(225,29,72,1)] hover:shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900"
+      <!-- Título Principal de Agencia -->
+      <h1
+        class="text-5xl sm:text-7xl xl:text-8xl font-black tracking-tighter text-balance text-zinc-900 leading-[0.93]"
       >
-        Ver Planes PyME ↓
-      </a>
+        POSICIONA TU NEGOCIO EN GOOGLE Y <br class="hidden sm:inline" />
+        <span class="text-rose-600">ATRAE MÁS CLIENTES</span>.
+      </h1>
 
-      <a
-        href="https://wa.me/56947185397?text=Hola%20Jamiro,%20vi%20tu%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20para%20mi%20negocio"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group flex items-center justify-center gap-2.5 bg-white text-zinc-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-50 hover:border-zinc-900 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900"
+      <!-- Subtítulo Didáctico y Formal -->
+      <p
+        class="text-lg sm:text-2xl text-zinc-700 max-w-2xl font-medium leading-relaxed text-balance"
       >
-        <svg class="w-5 h-5 text-emerald-600 fill-current" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-        Hablar por WhatsApp
-      </a>
+        Ayudamos a negocios y PyMEs a destacar en los primeros lugares de Google Maps, transmitir confianza con sitios web profesionales y conseguir ventas reales todos los días.
+      </p>
 
-      <div class="flex items-center gap-6 px-4">
+      <!-- Botones Principales -->
+      <div class="flex flex-wrap items-center gap-4 pt-4 animate-fade-in-up">
         <a
-          href="https://github.com/jamirou"
+          href="#servicios"
+          class="group flex items-center justify-center gap-2 bg-zinc-900 text-white px-8 py-4 rounded-full font-black text-lg hover:bg-zinc-800 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(225,29,72,1)] hover:shadow-[4px_4px_0px_0px_rgba(225,29,72,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900 cursor-pointer"
+        >
+          <span>Ver Planes PyME ↓</span>
+        </a>
+
+        <a
+          href="https://wa.me/56947185397?text=Hola,%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20presencia%20digital%20para%20mi%20negocio"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
-          aria-label="GitHub"
+          class="group flex items-center justify-center gap-2.5 bg-white text-zinc-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-emerald-50 hover:border-zinc-900 transition-all active:scale-95 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 border-2 border-zinc-900 cursor-pointer"
         >
-          <Github class="w-7 h-7" stroke-width={2.5} />
-        </a>
-        <a
-          href="https://linkedin.com/in/jamiro-manriquez-832aaa204"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
-          aria-label="LinkedIn"
-        >
-          <Linkedin class="w-7 h-7" stroke-width={2.5} />
-        </a>
-        <a
-          href="https://www.instagram.com/yamir.r.r/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
-          aria-label="Instagram"
-        >
-          <Instagram class="w-7 h-7" stroke-width={2.5} />
-        </a>
-        <a
-          href="mailto:devjamiro@gmail.com"
-          class="text-zinc-900 hover:text-rose-600 transition-colors transform hover:scale-110"
-          aria-label="Email"
-        >
-          <Mail class="w-7 h-7" stroke-width={2.5} />
+          <svg class="w-5 h-5 text-emerald-600 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Hablar por WhatsApp</span>
         </a>
       </div>
+
+      <!-- Micro Respaldos Rápidos -->
+      <div class="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs sm:text-sm font-bold text-zinc-700">
+        <div class="flex items-center gap-1.5">
+          <div class="flex text-amber-500">★★★★★</div>
+          <span class="text-zinc-900 font-extrabold">5.0 en Google Reviews</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <Zap class="w-4 h-4 text-rose-600 fill-rose-600" />
+          <span>Entrega rápida en 3 a 5 días</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <ShieldCheck class="w-4 h-4 text-emerald-600" />
+          <span>Sin contratos de amarre</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════
+         COLUMNA DERECHA: TARJETA DE CERTIFICADOS & ACREDITACIÓN
+         ══════════════════════════════════════════════ -->
+    <div class="lg:col-span-5 relative">
+      
+      <!-- Tarjeta Neo-Brutalista de Confianza -->
+      <div
+        class="bg-white border-2 border-zinc-900 rounded-3xl p-6 sm:p-7 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] hover:shadow-[4px_4px_0px_0px_rgba(24,24,27,1)] hover:translate-x-1 hover:translate-y-1 transition-all duration-300 space-y-6 relative"
+      >
+        <!-- Badge Superior Flotante -->
+        <div class="flex items-center justify-between border-b-2 border-zinc-100 pb-4">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-rose-100 text-rose-700 border border-rose-300 rounded-full text-xs font-black tracking-wider uppercase font-mono">
+            <Award class="w-3.5 h-3.5 text-rose-600" />
+            Certificación Oficial
+          </span>
+          <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+            <CheckCircle2 class="w-3.5 h-3.5 text-emerald-600" />
+            Especialista Verificado
+          </span>
+        </div>
+
+        <!-- Módulo Google Business Specialist con Logo Oficial 4 Colores -->
+        <div class="flex items-start gap-4 p-4 rounded-2xl bg-[#FBF9F3] border-2 border-zinc-900 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]">
+          <!-- Logo Oficial de Google en SVG -->
+          <div class="w-13 h-13 sm:w-14 sm:h-14 bg-white border-2 border-zinc-900 rounded-xl flex items-center justify-center p-2.5 shrink-0 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
+            <svg class="w-full h-full" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+          </div>
+          <div class="space-y-1">
+            <h2 class="text-base sm:text-lg font-black text-zinc-900 leading-tight font-heading">
+              Google Business Profile Specialist
+            </h2>
+            <p class="text-xs text-zinc-600 leading-relaxed font-medium">
+              Acreditación en verificación oficial, posicionamiento en mapa y SEO local en Chile.
+            </p>
+            <span class="inline-block text-[10px] font-black uppercase tracking-wider text-rose-600 font-mono mt-1">
+              Google Verified Partner 2026
+            </span>
+          </div>
+        </div>
+
+        <!-- Módulo de Reseñas y Valoración 5.0 -->
+        <div class="p-4 rounded-2xl bg-white border-2 border-zinc-900 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)] space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-3xl font-black text-zinc-900 font-heading">5.0</span>
+              <div class="space-y-0.5">
+                <div class="flex text-amber-400 text-sm">★★★★★</div>
+                <p class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider">
+                  Valoración Máxima en Google
+                </p>
+              </div>
+            </div>
+            <span class="px-2.5 py-1 bg-amber-100 border border-amber-300 rounded-lg text-xs font-black text-amber-900">
+              100% Positivas
+            </span>
+          </div>
+          
+          <p class="text-xs text-zinc-700 italic border-l-2 border-rose-500 pl-2.5 pt-1">
+            "Aparecemos en los primeros lugares de nuestra comuna y las llamadas aumentaron desde la primera semana."
+          </p>
+        </div>
+
+        <!-- Métricas de Éxito de la Agencia (Grid 2x2) -->
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <div class="p-3 bg-zinc-50 border-2 border-zinc-900 rounded-xl text-center">
+            <span class="text-2xl font-black text-zinc-900 font-heading block">+25</span>
+            <span class="text-[11px] font-bold text-zinc-600">PyMEs Posicionadas</span>
+          </div>
+          <div class="p-3 bg-zinc-50 border-2 border-zinc-900 rounded-xl text-center">
+            <span class="text-2xl font-black text-emerald-600 font-heading block">100%</span>
+            <span class="text-[11px] font-bold text-zinc-600">Fichas Verificadas</span>
+          </div>
+          <div class="p-3 bg-zinc-50 border-2 border-zinc-900 rounded-xl text-center">
+            <span class="text-2xl font-black text-zinc-900 font-heading block">3-5 Días</span>
+            <span class="text-[11px] font-bold text-zinc-600">Entrega Express</span>
+          </div>
+          <div class="p-3 bg-zinc-50 border-2 border-zinc-900 rounded-xl text-center">
+            <span class="text-2xl font-black text-rose-600 font-heading block">1 a 2</span>
+            <span class="text-[11px] font-bold text-zinc-600">Clientes p/ Retorno</span>
+          </div>
+        </div>
+
+        <!-- Garantía Oficial -->
+        <div class="flex items-center gap-2 pt-1 text-zinc-600 text-xs font-bold justify-center">
+          <ShieldCheck class="w-4 h-4 text-emerald-600 shrink-0" />
+          <span>Garantía de cumplimiento y configuración oficial Google</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       FRANJA DE CREDENCIALES & CERTIFICACIONES OFICIALES
+       ══════════════════════════════════════════════ -->
+  <div class="mt-16 pt-8 border-t-2 border-zinc-900/10 relative z-10">
+    <p class="text-xs font-black uppercase tracking-widest text-zinc-400 text-center mb-6 font-mono">
+      Estándares y Tecnologías Certificadas
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+      
+      <!-- Google Business -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-800">
+        <svg class="w-4 h-4" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Google Business Profile</span>
+      </div>
+
+      <!-- Google Maps Local SEO -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-800">
+        <MapPin class="w-4 h-4 text-rose-600" />
+        <span>Google Maps Local SEO</span>
+      </div>
+
+      <!-- Google Ads -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-800">
+        <div class="w-2.5 h-2.5 rounded-full bg-amber-400 border border-zinc-900"></div>
+        <span>Google Ads Search Certified</span>
+      </div>
+
+      <!-- Meta Business -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-800">
+        <svg class="w-4 h-4 text-blue-600 fill-current" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+        <span>Meta Ads Specialist</span>
+      </div>
+
+      <!-- NIC Chile -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-white border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-800">
+        <span class="text-rose-600 font-mono font-black text-sm leading-none">.CL</span>
+        <span>NIC Chile Integración</span>
+      </div>
+
+      <!-- Soporte 100% Chileno -->
+      <div class="flex items-center gap-2 px-4 py-2 bg-amber-300 border-2 border-zinc-900 rounded-full shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] text-xs font-black text-zinc-900">
+        <ShieldCheck class="w-4 h-4 text-zinc-900" />
+        <span>100% Soporte Local Chile</span>
+      </div>
+
     </div>
   </div>
+
 </section>
 
 <style>
@@ -166,7 +324,7 @@ import {
     }
   }
 
-  /* Animaciones de entrada (primeros 3 segundos) */
+  /* Animaciones de entrada */
   @keyframes pop-in-1 {
     0% {
       transform: translate(-200px, -200px) rotate(-180deg) scale(0.5);
