@@ -34,24 +34,29 @@ const benefits = [
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
       <!-- Left Column: Pitch & 3 Benefits -->
-      <div class="lg:col-span-6 space-y-6 reveal">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00] text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#D4FF00] animate-pulse"></span>
-          Nuevo · Automatización Inteligente
+      <div class="lg:col-span-6 space-y-6">
+        <div class="space-y-6 reveal">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00] text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-[#D4FF00] animate-pulse"></span>
+            Nuevo · Automatización Inteligente
+          </div>
+
+          <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.7rem] leading-[1.1] tracking-tight text-white text-balance">
+            Un vendedor experto atendiendo tu WhatsApp las{' '}
+            <span class="text-[#D4FF00]">24 horas.</span>
+          </h2>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            ¿Pierdes clientes porque estás trabajando, manejando o descansando y no alcanzas a responder mensajes a tiempo? Implementamos Agentes de Inteligencia Artificial entrenados con los precios, horarios y servicios de tu negocio.
+          </p>
         </div>
 
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.7rem] leading-[1.1] tracking-tight text-white text-balance">
-          Un vendedor experto atendiendo tu WhatsApp las{' '}
-          <span class="text-[#D4FF00]">24 horas.</span>
-        </h2>
-
-        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
-          ¿Pierdes clientes porque estás trabajando, manejando o descansando y no alcanzas a responder mensajes a tiempo? Implementamos Agentes de Inteligencia Artificial entrenados con los precios, horarios y servicios de tu negocio.
-        </p>
-
         <ul class="space-y-4 pt-2">
-          {benefits.map((b) => (
-            <li class="flex items-start gap-4 p-4 rounded-2xl bg-[#131B2E]/75 border border-slate-800/90 hover:border-[#D4FF00]/35 transition-colors">
+          {benefits.map((b, idx) => (
+            <li
+              style={`--reveal-delay: ${idx * 100}ms;`}
+              class="reveal flex items-start gap-4 p-4 rounded-2xl bg-[#131B2E]/75 border border-slate-800/90 hover:border-[#D4FF00]/35 transition-colors"
+            >
               <div class="w-10 h-10 rounded-xl bg-[#D4FF00]/12 border border-[#D4FF00]/25 text-[#D4FF00] flex items-center justify-center shrink-0 mt-0.5">
                 <span set:html={b.icon} />
               </div>
@@ -67,7 +72,7 @@ const benefits = [
           ))}
         </ul>
 
-        <div class="pt-3 flex flex-wrap items-center gap-4">
+        <div class="pt-3 flex flex-wrap items-center gap-4 reveal" style="--reveal-delay: 200ms;">
           <a
             href={WHATSAPP_IA_URL}
             target="_blank"
@@ -86,113 +91,172 @@ const benefits = [
         </div>
       </div>
 
-      <!-- Right Column: Interactive WhatsApp Chat Simulation -->
-      <div class="lg:col-span-6 reveal">
-        <div class="max-w-md mx-auto lg:ml-auto lg:mr-0 rounded-[2rem] bg-[#131B2E] border border-slate-800 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.65)]">
-          <!-- Phone Inner Frame -->
-          <div class="rounded-[1.5rem] bg-[#0B141A] border border-slate-800/80 overflow-hidden flex flex-col">
-            <!-- WhatsApp Top Header -->
-            <div class="bg-[#131B2E] px-4 py-3.5 border-b border-slate-800 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="relative w-10 h-10 rounded-full bg-[#070B14] border border-[#D4FF00]/50 flex items-center justify-center font-heading font-extrabold text-xs text-[#D4FF00]">
-                  IA
-                  <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#131B2E]"></span>
+      <!-- Right Column: Extended Fluid Animated WhatsApp AI Conversation -->
+      <div class="lg:col-span-6 reveal" style="--reveal-delay: 120ms;">
+        <div class="max-w-md mx-auto lg:ml-auto lg:mr-0">
+          <div
+            id="ai-chat-preview"
+            class="rounded-[2rem] bg-[#131B2E] border border-slate-800 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.65)]"
+          >
+            <!-- Phone Inner Frame -->
+            <div class="rounded-[1.5rem] bg-[#0B141A] border border-slate-800/80 overflow-hidden flex flex-col">
+              <!-- WhatsApp Top Header -->
+              <div class="bg-[#131B2E] px-4 py-3.5 border-b border-slate-800 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="relative w-10 h-10 rounded-full bg-[#070B14] border border-[#D4FF00]/50 flex items-center justify-center font-heading font-extrabold text-xs text-[#D4FF00] shrink-0">
+                    IA
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#131B2E]"></span>
+                  </div>
+                  <div class="min-w-0">
+                    <p class="font-heading font-bold text-sm text-white leading-tight truncate">
+                      Asistente IA · Tu Negocio
+                    </p>
+                    <p
+                      id="ai-chat-status"
+                      class="text-[11px] text-emerald-400 font-medium transition-colors duration-200 truncate"
+                    >
+                      En línea · Respuesta automática 24/7
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p class="font-heading font-bold text-sm text-white leading-tight">
-                    Asistente IA · Tu Negocio
-                  </p>
-                  <p class="text-[11px] text-emerald-400 font-medium">
-                    En línea · Respuesta automática 24/7
-                  </p>
-                </div>
-              </div>
-              <span class="px-2 py-0.5 rounded-md bg-slate-800 text-[10px] font-semibold text-slate-300 uppercase tracking-wider">
-                Demo en vivo
-              </span>
-            </div>
-
-            <!-- Chat Body -->
-            <div
-              id="ai-demo-messages"
-              class="p-4 sm:p-5 space-y-4 min-h-[290px] bg-[#0A101D] relative"
-              style="background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px); background-size: 18px 18px;"
-            >
-              <!-- Date Pill -->
-              <div class="flex justify-center">
-                <span class="px-3 py-1 rounded-full bg-[#131B2E] border border-slate-800 text-[11px] text-slate-400 font-medium">
-                  Hoy · 22:43 hrs
+                <span class="px-2.5 py-1 rounded-md bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[9.5px] font-bold text-[#D4FF00] uppercase tracking-wider shrink-0">
+                  IA Real · Entrenada a medida
                 </span>
               </div>
 
-              <!-- Client Message -->
-              <div class="flex justify-end">
-                <div class="max-w-[85%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-3 text-sm text-slate-100 shadow-md">
-                  <p class="leading-relaxed">
-                    Hola, buenas noches. ¿Cuánto sale una mantención y tienen hora para mañana?
-                  </p>
-                  <div class="mt-1.5 flex items-center justify-end gap-1 text-[10px] text-slate-400">
-                    <span>22:43 hrs</span>
-                    <span class="text-sky-400">✓✓</span>
+              <!-- Scrollable Fixed-Height Chat Body (Zero Page Jump) -->
+              <div
+                id="ai-chat-body"
+                class="p-4 sm:p-5 space-y-3.5 h-[410px] sm:h-[440px] overflow-y-auto no-scrollbar bg-[#0A101D] relative flex flex-col"
+                style="background-image: radial-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px); background-size: 18px 18px;"
+              >
+                <!-- Date Pill -->
+                <div class="flex justify-center shrink-0">
+                  <span class="px-3 py-1 rounded-full bg-[#131B2E] border border-slate-800 text-[11px] text-slate-400 font-medium">
+                    Hoy · 22:41 hrs
+                  </span>
+                </div>
+
+                <!-- Dynamic Stream Container (Pre-populated for no-JS / reduced-motion) -->
+                <div id="ai-chat-feed" class="space-y-3.5 flex-1">
+                  <!-- Turn 1: Client -->
+                  <div class="flex justify-end">
+                    <div class="max-w-[86%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-2.5 text-[13px] text-slate-100 shadow-md">
+                      <p class="leading-relaxed">
+                        Hola buenas noches 👋 Soy Camila Rojas, quiero cotizar el servicio completo y saber si tienen hora mañana a las 11:00 hrs.
+                      </p>
+                      <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                        <span>22:41 hrs</span>
+                        <span class="text-sky-400">✓✓</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Turn 2: AI checking with manager -->
+                  <div class="flex justify-start">
+                    <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/30 px-4 py-2.5 text-[13px] text-slate-100 shadow-lg">
+                      <div class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1">
+                        Asistente IA del Negocio
+                      </div>
+                      <p class="leading-relaxed">
+                        ¡Hola Camila! Claro que sí 😊 Nuestro servicio completo tiene un valor de <strong class="text-[#D4FF00]">$29.990</strong>. Déjame consultarle en este momento al encargado si el horario de mañana a las <strong class="text-white">11:00 hrs</strong> sigue libre; dame un momento para confirmarte.
+                      </p>
+                      <div class="mt-1 flex items-center justify-end text-[10px] text-slate-400">
+                        <span>22:41 hrs</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Turn 3: AI confirms manager availability + deposit -->
+                  <div class="flex justify-start">
+                    <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/30 px-4 py-2.5 text-[13px] text-slate-100 shadow-lg">
+                      <div class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1">
+                        Asistente IA del Negocio
+                      </div>
+                      <p class="leading-relaxed">
+                        ¡Listo Camila! ✅ El encargado me confirmó que sí tiene disponible mañana a las <strong class="text-white">11:00 hrs</strong>. Para agendar tu hora solo debes abonar <strong class="text-[#D4FF00]">$10.000</strong> a la Cuenta Vista BancoEstado N° <strong class="text-white">12345678</strong> (RUT 76.410.290-K) y enviarme el comprobante junto a tu correo. ¿Confirmamos tu reserva?
+                      </p>
+                      <div class="mt-1 flex items-center justify-end text-[10px] text-slate-400">
+                        <span>22:42 hrs</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Turn 4: Client sends deposit + email -->
+                  <div class="flex justify-end">
+                    <div class="max-w-[86%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-2.5 text-[13px] text-slate-100 shadow-md">
+                      <div class="mb-2 px-2.5 py-1.5 rounded-lg bg-[#0D1321] border border-slate-700 flex items-center gap-2 text-[11px] text-emerald-300 font-medium">
+                        <span>📄</span>
+                        <span class="truncate">Comprobante_Abono_$10.000.jpg</span>
+                      </div>
+                      <p class="leading-relaxed">
+                        ¡Súper! Ya hice el abono 🙌 Ahí va el comprobante y mi correo es camila.rojas@gmail.com.
+                      </p>
+                      <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+                        <span>22:44 hrs</span>
+                        <span class="text-sky-400">✓✓</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Turn 5: AI books appointment with client's exact data -->
+                  <div class="flex justify-start">
+                    <div class="max-w-[92%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/40 px-4 py-3 text-[13px] text-slate-100 shadow-lg">
+                      <div class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1">
+                        Asistente IA del Negocio
+                      </div>
+                      <p class="leading-relaxed">
+                        ¡Comprobante recibido! 🎉 Tu hora quedó agendada con tus datos:<br />
+                        • <strong class="text-white">Cliente:</strong> Camila Rojas<br />
+                        • <strong class="text-white">Horario:</strong> Mañana · <strong class="text-[#D4FF00]">11:00 hrs</strong><br />
+                        • <strong class="text-white">Correo:</strong> camila.rojas@gmail.com<br />
+                        • <strong class="text-white">Abono:</strong> $10.000 confirmado (saldo $19.990)<br />
+                        ¡Te esperamos mañana, Camila!
+                      </p>
+                      <div class="mt-1 flex items-center justify-end text-[10px] text-slate-400">
+                        <span>22:44 hrs</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- AI Business Reply -->
-              <div class="flex justify-start">
-                <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/30 px-4 py-3 text-sm text-white shadow-lg">
-                  <div class="flex items-center gap-1.5 mb-1">
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00]">
-                      Asistente IA del Negocio
+                <!-- Typing Indicator Bubble (Managed by Script) -->
+                <div
+                  id="ai-msg-typing"
+                  class="flex justify-start hidden shrink-0"
+                  aria-live="polite"
+                >
+                  <div class="rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/30 px-4 py-2.5 shadow-lg inline-flex items-center gap-2.5">
+                    <span id="ai-typing-label" class="text-[11px] font-semibold text-slate-300">
+                      escribiendo
+                    </span>
+                    <span class="inline-flex items-center gap-1" aria-hidden="true">
+                      <span class="ai-dot w-1.5 h-1.5 rounded-full bg-[#D4FF00]"></span>
+                      <span class="ai-dot w-1.5 h-1.5 rounded-full bg-[#D4FF00]"></span>
+                      <span class="ai-dot w-1.5 h-1.5 rounded-full bg-[#D4FF00]"></span>
                     </span>
                   </div>
-                  <p class="leading-relaxed text-slate-100">
-                    ¡Hola! Claro que sí 👋 Nuestro servicio completo tiene un valor de <strong class="text-[#D4FF00]">$29.990</strong>. Para mañana tenemos cupos disponibles a las <strong class="text-white">11:00</strong> y a las <strong class="text-white">16:30 hrs</strong>. ¿Cuál horario te acomoda reservar?
-                  </p>
-                  <div class="mt-1.5 flex items-center justify-end gap-1 text-[10px] text-slate-400">
-                    <span>22:43 hrs</span>
-                  </div>
                 </div>
               </div>
 
-              <!-- Extra Interactive Follow-up Slot -->
-              <div id="ai-demo-followup" class="space-y-3 hidden"></div>
-            </div>
-
-            <!-- Interactive Quick Replies -->
-            <div class="px-4 py-3 bg-[#0D1321] border-t border-slate-800/90">
-              <p class="text-[11px] text-slate-400 mb-2 font-medium">
-                Prueba responder como cliente:
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  data-reply="A las 11:00 hrs por favor"
-                  data-ai="¡Perfecto! ✅ Te dejé reservada la hora para mañana a las 11:00 hrs. Por favor confírmame tu nombre y dirección o patente para registrar tu cita."
-                  class="ai-quick-btn px-3 py-1.5 rounded-full bg-[#131B2E] hover:bg-[#D4FF00] text-slate-200 hover:text-[#070B14] border border-slate-700 hover:border-[#D4FF00] text-xs font-semibold transition-colors cursor-pointer"
-                >
-                  “A las 11:00 hrs por favor”
-                </button>
-                <button
-                  type="button"
-                  data-reply="¿Aceptan transferencia o tarjeta?"
-                  data-ai="Sí 🙌 Aceptamos transferencia electrónica, débito y crédito al finalizar el servicio. ¿Te reservo las 11:00 o las 16:30 hrs?"
-                  class="ai-quick-btn px-3 py-1.5 rounded-full bg-[#131B2E] hover:bg-[#D4FF00] text-slate-200 hover:text-[#070B14] border border-slate-700 hover:border-[#D4FF00] text-xs font-semibold transition-colors cursor-pointer"
-                >
-                  “¿Aceptan tarjeta?”
-                </button>
+              <!-- Bottom Performance Badge -->
+              <div class="px-4 py-3 bg-[#131B2E] border-t border-slate-800 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D4FF00] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+                </svg>
+                <span class="text-xs font-semibold text-slate-200">
+                  Consulta disponibilidad, valida abonos y agenda <span class="text-[#D4FF00]">en automático</span>
+                </span>
               </div>
             </div>
+          </div>
 
-            <!-- Bottom Performance Badge -->
-            <div class="px-4 py-3 bg-[#131B2E] border-t border-slate-800 flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#D4FF00] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
-              </svg>
-              <span class="text-xs font-semibold text-slate-200">
-                Respondido automáticamente por IA en <span class="text-[#D4FF00]">3 segundos</span>
-              </span>
-            </div>
+          <!-- Explanatory Note Below Chat Window -->
+          <div class="mt-4 px-2 flex items-start gap-2.5 text-xs sm:text-[13px] text-slate-400 leading-relaxed">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00] mt-2 shrink-0" aria-hidden="true"></span>
+            <p>
+              Cada asistente se conecta a un modelo de Inteligencia Artificial real, configurado y entrenado específicamente con tus precios, servicios y forma de atender — sin menús rígidos ni respuestas robóticas.
+            </p>
           </div>
         </div>
       </div>
@@ -200,35 +264,475 @@ const benefits = [
   </div>
 </section>
 
+<style>
+  .ai-chat-bubble {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 380ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ai-chat-bubble.is-shown {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-feed-fade {
+    transition: opacity 500ms ease;
+  }
+
+  .ai-dot {
+    animation: aiTypingBounce 1.15s infinite ease-in-out;
+  }
+  .ai-dot:nth-child(2) {
+    animation-delay: 0.18s;
+  }
+  .ai-dot:nth-child(3) {
+    animation-delay: 0.36s;
+  }
+
+  @keyframes aiTypingBounce {
+    0%, 60%, 100% {
+      transform: translateY(0);
+      opacity: 0.35;
+    }
+    30% {
+      transform: translateY(-4px);
+      opacity: 1;
+    }
+  }
+
+  .ai-stream-caret {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background-color: #D4FF00;
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    animation: aiCaretBlink 0.75s steps(1) infinite;
+  }
+
+  @keyframes aiCaretBlink {
+    0%, 50% {
+      opacity: 1;
+    }
+    51%, 100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-chat-bubble,
+    .ai-dot,
+    .ai-stream-caret {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
 <script>
-  const buttons = document.querySelectorAll('.ai-quick-btn');
-  const followup = document.getElementById('ai-demo-followup');
+  type Segment = { text: string; className?: string; br?: boolean };
 
-  if (followup && buttons.length > 0) {
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const userText = btn.getAttribute('data-reply') || '';
-        const aiText = btn.getAttribute('data-ai') || '';
+  interface ChatStep {
+    sender: 'client' | 'ai';
+    time: string;
+    attachment?: string;
+    preDelay: number;
+    typingMs?: number;
+    typingLabel?: string;
+    headerStatus?: string;
+    systemNote?: { text: string; durationMs: number };
+    segments: Segment[];
+  }
 
-        followup.classList.remove('hidden');
-        followup.innerHTML = `
-          <div class="flex justify-end">
-            <div class="max-w-[85%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-2.5 text-sm text-slate-100">
-              <p>${userText}</p>
-              <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
-                <span>22:44 hrs</span>
-                <span class="text-sky-400">✓✓</span>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-start">
-            <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/40 px-4 py-3 text-sm text-slate-100">
-              <div class="text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1">Asistente IA · 2 seg</div>
-              <p class="leading-relaxed">${aiText}</p>
-            </div>
-          </div>
-        `;
+  const conversation: ChatStep[] = [
+    {
+      sender: 'client',
+      time: '22:41 hrs',
+      preDelay: 400,
+      segments: [
+        {
+          text: 'Hola buenas noches 👋 Soy Camila Rojas, quiero cotizar el servicio completo y saber si tienen hora mañana a las 11:00 hrs.',
+        },
+      ],
+    },
+    {
+      sender: 'ai',
+      time: '22:41 hrs',
+      preDelay: 650,
+      typingMs: 1350,
+      typingLabel: 'escribiendo',
+      headerStatus: 'Analizando consulta · escribiendo...',
+      segments: [
+        { text: '¡Hola Camila! Claro que sí 😊 Nuestro servicio completo tiene un valor de ' },
+        { text: '$29.990', className: 'font-bold text-[#D4FF00]' },
+        { text: '. Déjame consultarle en este momento al encargado si el horario de mañana a las ' },
+        { text: '11:00 hrs', className: 'font-bold text-white' },
+        { text: ' sigue libre; dame un momento para confirmarte.' },
+      ],
+    },
+    {
+      sender: 'ai',
+      time: '22:42 hrs',
+      preDelay: 650,
+      systemNote: {
+        text: 'Consultando disponibilidad con el encargado...',
+        durationMs: 2200,
+      },
+      typingMs: 1300,
+      typingLabel: 'escribiendo',
+      headerStatus: 'Confirmación recibida · escribiendo...',
+      segments: [
+        { text: '¡Buenas noticias Camila! ✅ El encargado me acaba de confirmar que sí tiene disponible mañana a las ' },
+        { text: '11:00 hrs', className: 'font-bold text-white' },
+        { text: '. Para dejar tu hora agendada solo debes abonar ' },
+        { text: '$10.000', className: 'font-bold text-[#D4FF00]' },
+        { text: ' a la Cuenta Vista BancoEstado N° ' },
+        { text: '12345678', className: 'font-bold text-white' },
+        { text: ' (RUT 76.410.290-K) y enviarme el comprobante junto a tu correo. ¿Confirmamos tu reserva?' },
+      ],
+    },
+    {
+      sender: 'client',
+      time: '22:44 hrs',
+      preDelay: 1700,
+      attachment: 'Comprobante_Abono_$10.000.jpg',
+      segments: [
+        {
+          text: '¡Súper! Ya hice el abono 🙌 Ahí va el comprobante y mi correo es camila.rojas@gmail.com.',
+        },
+      ],
+    },
+    {
+      sender: 'ai',
+      time: '22:44 hrs',
+      preDelay: 700,
+      typingMs: 1650,
+      typingLabel: 'verificando abono y agendando',
+      headerStatus: 'Registrando reserva · escribiendo...',
+      segments: [
+        { text: '¡Comprobante recibido! 🎉 Tu hora quedó agendada con tus datos:' },
+        { text: '', br: true },
+        { text: '• ' },
+        { text: 'Cliente:', className: 'font-bold text-white' },
+        { text: ' Camila Rojas' },
+        { text: '', br: true },
+        { text: '• ' },
+        { text: 'Horario:', className: 'font-bold text-white' },
+        { text: ' Mañana · ' },
+        { text: '11:00 hrs', className: 'font-bold text-[#D4FF00]' },
+        { text: '', br: true },
+        { text: '• ' },
+        { text: 'Correo:', className: 'font-bold text-white' },
+        { text: ' camila.rojas@gmail.com' },
+        { text: '', br: true },
+        { text: '• ' },
+        { text: 'Abono:', className: 'font-bold text-white' },
+        { text: ' $10.000 confirmado (saldo $19.990)' },
+        { text: '', br: true },
+        { text: '¡Te esperamos mañana, Camila! Cualquier cambio me escribes por este mismo chat.' },
+      ],
+    },
+  ];
+
+  const chatPreview = document.getElementById('ai-chat-preview');
+  const chatBody = document.getElementById('ai-chat-body');
+  const chatFeed = document.getElementById('ai-chat-feed');
+  const typingMsg = document.getElementById('ai-msg-typing');
+  const typingLabel = document.getElementById('ai-typing-label');
+  const statusEl = document.getElementById('ai-chat-status');
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function flattenTokens(segments: Segment[]): Segment[] {
+    const out: Segment[] = [];
+    segments.forEach((seg) => {
+      if (seg.br) {
+        out.push({ text: '', br: true });
+        return;
+      }
+      const words = seg.text.split(/(\s+)/);
+      words.forEach((w) => {
+        if (w.length > 0) out.push({ text: w, className: seg.className });
       });
     });
+    return out;
+  }
+
+  if (
+    !prefersReduced &&
+    chatPreview &&
+    chatBody &&
+    chatFeed &&
+    typingMsg &&
+    typingLabel &&
+    statusEl
+  ) {
+    let timers: number[] = [];
+    let isRunning = false;
+    let isVisible = false;
+
+    const clearAllTimers = () => {
+      timers.forEach((id) => window.clearTimeout(id));
+      timers = [];
+    };
+
+    const schedule = (fn: () => void, ms: number) => {
+      const id = window.setTimeout(fn, ms);
+      timers.push(id);
+      return id;
+    };
+
+    const scrollToBottom = (smooth = true) => {
+      if (!chatBody) return;
+      chatBody.scrollTo({
+        top: chatBody.scrollHeight,
+        behavior: smooth ? 'smooth' : 'auto',
+      });
+    };
+
+    const setOnlineStatus = () => {
+      statusEl.textContent = 'En línea · Respuesta automática 24/7';
+      statusEl.className = 'text-[11px] text-emerald-400 font-medium transition-colors duration-200 truncate';
+    };
+
+    const setBusyStatus = (text: string) => {
+      statusEl.textContent = text;
+      statusEl.className = 'text-[11px] text-[#D4FF00] font-medium transition-colors duration-200 truncate';
+    };
+
+    const renderClientBubble = (step: ChatStep) => {
+      const row = document.createElement('div');
+      row.className = 'flex justify-end ai-chat-bubble';
+
+      const attachmentHtml = step.attachment
+        ? `<div class="mb-2 px-2.5 py-1.5 rounded-lg bg-[#0D1321] border border-slate-700 flex items-center gap-2 text-[11px] text-emerald-300 font-medium">
+             <span>📄</span>
+             <span class="truncate">${step.attachment}</span>
+           </div>`
+        : '';
+
+      const text = step.segments.map((s) => s.text).join('');
+
+      row.innerHTML = `
+        <div class="max-w-[86%] rounded-2xl rounded-tr-sm bg-[#1E293B] border border-slate-700/80 px-4 py-2.5 text-[13px] text-slate-100 shadow-md">
+          ${attachmentHtml}
+          <p class="leading-relaxed">${text}</p>
+          <div class="mt-1 flex items-center justify-end gap-1 text-[10px] text-slate-400">
+            <span>${step.time}</span>
+            <span class="text-sky-400">✓✓</span>
+          </div>
+        </div>
+      `;
+
+      chatFeed.appendChild(row);
+      requestAnimationFrame(() => {
+        row.classList.add('is-shown');
+        scrollToBottom(true);
+      });
+    };
+
+    const renderSystemPill = (text: string) => {
+      const pillRow = document.createElement('div');
+      pillRow.className = 'flex justify-center ai-chat-bubble';
+      pillRow.innerHTML = `
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#131B2E] border border-[#D4FF00]/30 text-[11px] font-medium text-slate-300 shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00] animate-pulse"></span>
+          <span>${text}</span>
+        </div>
+      `;
+      chatFeed.appendChild(pillRow);
+      requestAnimationFrame(() => {
+        pillRow.classList.add('is-shown');
+        scrollToBottom(true);
+      });
+      return pillRow;
+    };
+
+    const streamAiBubble = (step: ChatStep, onDone: () => void) => {
+      const row = document.createElement('div');
+      row.className = 'flex justify-start ai-chat-bubble';
+
+      const card = document.createElement('div');
+      card.className =
+        'max-w-[92%] rounded-2xl rounded-tl-sm bg-[#131B2E] border border-[#D4FF00]/35 px-4 py-2.5 text-[13px] text-slate-100 shadow-lg';
+
+      const title = document.createElement('div');
+      title.className = 'text-[10px] font-bold uppercase tracking-wider text-[#D4FF00] mb-1';
+      title.textContent = 'Asistente IA del Negocio';
+
+      const p = document.createElement('p');
+      p.className = 'leading-relaxed';
+
+      const caret = document.createElement('span');
+      caret.className = 'ai-stream-caret';
+      caret.setAttribute('aria-hidden', 'true');
+      p.appendChild(caret);
+
+      const meta = document.createElement('div');
+      meta.className = 'mt-1 flex items-center justify-end text-[10px] text-slate-400 opacity-0 transition-opacity duration-200';
+      meta.innerHTML = `<span>${step.time}</span>`;
+
+      card.appendChild(title);
+      card.appendChild(p);
+      card.appendChild(meta);
+      row.appendChild(card);
+      chatFeed.appendChild(row);
+
+      requestAnimationFrame(() => {
+        row.classList.add('is-shown');
+        scrollToBottom(true);
+      });
+
+      const tokens = flattenTokens(step.segments);
+      let idx = 0;
+
+      const nextToken = () => {
+        if (!isVisible) {
+          isRunning = false;
+          return;
+        }
+        if (idx >= tokens.length) {
+          caret.remove();
+          meta.classList.remove('opacity-0');
+          scrollToBottom(true);
+          onDone();
+          return;
+        }
+
+        const tok = tokens[idx];
+        idx += 1;
+
+        if (tok.br) {
+          p.insertBefore(document.createElement('br'), caret);
+        } else if (tok.className) {
+          const strong = document.createElement('strong');
+          strong.className = tok.className;
+          strong.textContent = tok.text;
+          p.insertBefore(strong, caret);
+        } else {
+          p.insertBefore(document.createTextNode(tok.text), caret);
+        }
+
+        scrollToBottom(false);
+
+        const trimmed = tok.text.trim();
+        let delay = 38;
+        if (tok.br) delay = 90;
+        else if (trimmed.length === 0) delay = 16;
+        else if (/[.?!:]$/.test(trimmed)) delay = 140;
+        else if (/[,;]$/.test(trimmed)) delay = 85;
+
+        schedule(nextToken, delay);
+      };
+
+      schedule(nextToken, 110);
+    };
+
+    const runStep = (stepIndex: number) => {
+      if (!isVisible) {
+        isRunning = false;
+        return;
+      }
+
+      if (stepIndex >= conversation.length) {
+        setOnlineStatus();
+        // Comfortable pause to read the full booked confirmation, then fade & restart
+        schedule(() => {
+          chatFeed.classList.add('ai-feed-fade', 'opacity-0');
+          schedule(() => {
+            chatFeed.classList.remove('opacity-0');
+            runCycle();
+          }, 600);
+        }, 6500);
+        return;
+      }
+
+      const step = conversation[stepIndex];
+
+      schedule(() => {
+        if (!isVisible) {
+          isRunning = false;
+          return;
+        }
+
+        if (step.sender === 'client') {
+          setOnlineStatus();
+          renderClientBubble(step);
+          runStep(stepIndex + 1);
+          return;
+        }
+
+        const startTypingAndStream = () => {
+          setBusyStatus(step.headerStatus || 'escribiendo...');
+          typingLabel.textContent = step.typingLabel || 'escribiendo';
+          typingMsg.classList.remove('hidden');
+          scrollToBottom(true);
+
+          schedule(() => {
+            typingMsg.classList.add('hidden');
+            setOnlineStatus();
+            streamAiBubble(step, () => {
+              runStep(stepIndex + 1);
+            });
+          }, step.typingMs || 1200);
+        };
+
+        if (step.systemNote) {
+          setBusyStatus('Consultando con el encargado...');
+          const pill = renderSystemPill(step.systemNote.text);
+          schedule(() => {
+            pill.innerHTML = `
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-[11px] font-semibold text-emerald-300">
+                <span>✓</span>
+                <span>Encargado confirmó disponibilidad · 11:00 hrs</span>
+              </div>
+            `;
+            scrollToBottom(true);
+            schedule(startTypingAndStream, 450);
+          }, step.systemNote.durationMs);
+        } else {
+          startTypingAndStream();
+        }
+      }, step.preDelay);
+    };
+
+    const runCycle = () => {
+      if (!isVisible) {
+        isRunning = false;
+        return;
+      }
+      isRunning = true;
+      clearAllTimers();
+      chatFeed.innerHTML = '';
+      typingMsg.classList.add('hidden');
+      setOnlineStatus();
+      chatBody.scrollTop = 0;
+      runStep(0);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const chatObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isVisible = entry.isIntersecting;
+            if (isVisible && !isRunning) {
+              runCycle();
+            } else if (!isVisible) {
+              clearAllTimers();
+              isRunning = false;
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      chatObserver.observe(chatPreview);
+    } else {
+      isVisible = true;
+      runCycle();
+    }
   }
 </script>

@@ -117,14 +117,15 @@ const plans: Plan[] = [
     </div>
 
     <!-- 6 Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 reveal">
-      {plans.map((plan) => {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+      {plans.map((plan, idx) => {
         const waHref = `https://wa.me/${PHONE}?text=${encodeURIComponent(plan.waMessage)}`;
         const isFeatured = Boolean(plan.featured);
 
         return (
           <article
-            class={`relative rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
+            style={`--reveal-delay: ${(idx % 3) * 100}ms;`}
+            class={`reveal relative rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
               isFeatured
                 ? 'bg-[#0D1321] text-white border-2 border-[#D4FF00] shadow-[0_20px_50px_rgba(7,11,20,0.22)]'
                 : 'bg-white text-[#0F172A] border border-slate-200/90 hover:border-slate-300 shadow-[0_6px_24px_rgba(15,23,42,0.04)] hover:shadow-[0_16px_36px_rgba(15,23,42,0.08)]'

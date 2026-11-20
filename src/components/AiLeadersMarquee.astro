@@ -1,0 +1,206 @@
+---
+interface BrandItem {
+  name: string;
+  useCase: string;
+  accent: string;
+  monogram: string;
+}
+
+const rowOne: BrandItem[] = [
+  { name: 'Mercado Libre', useCase: 'Búsqueda & Atención IA', accent: '#FFE600', monogram: 'ML' },
+  { name: 'Falabella', useCase: 'Asistente WhatsApp IA', accent: '#AAD500', monogram: 'F' },
+  { name: 'Starbucks', useCase: 'Pedidos & Fidelización IA', accent: '#00A862', monogram: '★' },
+  { name: 'Nike', useCase: 'Experiencia Web Inteligente', accent: '#FFFFFF', monogram: 'N' },
+  { name: 'Shopify', useCase: 'Comercio & Ventas IA', accent: '#95BF47', monogram: 'S' },
+  { name: 'Uber', useCase: 'Soporte Automatizado 24/7', accent: '#E2E8F0', monogram: 'U' },
+];
+
+const rowTwo: BrandItem[] = [
+  { name: 'Netflix', useCase: 'Personalización en Vivo', accent: '#E50914', monogram: 'N' },
+  { name: 'PedidosYa', useCase: 'Chat & Logística IA', accent: '#FA0050', monogram: 'PY' },
+  { name: 'Spotify', useCase: 'Motor Predictivo IA', accent: '#1DB954', monogram: 'S' },
+  { name: "Domino's", useCase: 'Pedidos Automáticos', accent: '#0078AE', monogram: 'D' },
+  { name: 'Airbnb', useCase: 'Reservas & Respuestas IA', accent: '#FF5A5F', monogram: 'A' },
+  { name: 'LATAM', useCase: 'Atención Virtual 24/7', accent: '#ED1650', monogram: 'LA' },
+];
+
+const loopOne = [...rowOne, ...rowOne];
+const loopTwo = [...rowTwo, ...rowTwo];
+---
+
+<section
+  id="marcas-ia"
+  class="scroll-mt-20 relative bg-[#070B14] text-white py-20 sm:py-28 border-t border-slate-800/80 overflow-hidden"
+>
+  <!-- Ambient Background Glow -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[580px] h-[260px] rounded-full bg-[#D4FF00]/8 blur-[130px]"></div>
+    <div
+      class="absolute inset-0 opacity-[0.035]"
+      style="background-image: linear-gradient(to right, #94A3B8 1px, transparent 1px), linear-gradient(to bottom, #94A3B8 1px, transparent 1px); background-size: 56px 56px;"
+    ></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Editorial Header -->
+    <div class="max-w-3xl mx-auto text-center space-y-4 mb-14 reveal">
+      <div class="inline-flex items-center gap-2.5">
+        <span class="w-6 h-[2px] bg-[#D4FF00] rounded-full"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#D4FF00]">
+          El Estándar de los Líderes · IA & Automatización
+        </span>
+        <span class="w-6 h-[2px] bg-[#D4FF00] rounded-full"></span>
+      </div>
+
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] tracking-tight text-white text-balance">
+        Las grandes marcas ya atienden y venden con{' '}
+        <span class="text-[#D4FF00]">Inteligencia Artificial.</span>
+      </h2>
+
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+        Desde comercio electrónico hasta respuestas inmediatas por WhatsApp, la automatización dejó de ser exclusiva de las multinacionales. Hoy llevamos esa misma ventaja competitiva a tu negocio.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dual-Row Animated Brand Marquee -->
+  <div
+    class="relative z-10 space-y-5 marquee-mask reveal"
+    style="--reveal-delay: 100ms;"
+    aria-label="Marcas internacionales y locales que utilizan Inteligencia Artificial y automatización en sus canales digitales"
+  >
+    <!-- Row 1: Leftward -->
+    <div class="marquee-row overflow-hidden">
+      <div class="marquee-track marquee-left flex items-center gap-4 sm:gap-5 w-max">
+        {loopOne.map((brand, idx) => (
+          <div
+            aria-hidden={idx >= rowOne.length ? 'true' : 'false'}
+            class="group flex items-center gap-3.5 px-5 sm:px-6 py-4 rounded-2xl bg-[#131B2E]/90 border border-slate-800 hover:border-[#D4FF00]/45 transition-all duration-300 shadow-[0_10px_28px_rgba(0,0,0,0.3)] shrink-0"
+          >
+            <span
+              class="w-10 h-10 rounded-xl bg-[#070B14] border border-slate-700/80 flex items-center justify-center font-heading font-extrabold text-xs tracking-tight shrink-0"
+              style={`color: ${brand.accent};`}
+            >
+              {brand.monogram}
+            </span>
+            <div class="pr-1">
+              <p class="font-heading font-extrabold text-base sm:text-lg text-white tracking-tight leading-none group-hover:text-[#D4FF00] transition-colors">
+                {brand.name}
+              </p>
+              <p class="text-[11px] font-medium text-slate-400 mt-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00]/80"></span>
+                <span>{brand.useCase}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Row 2: Rightward -->
+    <div class="marquee-row overflow-hidden">
+      <div class="marquee-track marquee-right flex items-center gap-4 sm:gap-5 w-max">
+        {loopTwo.map((brand, idx) => (
+          <div
+            aria-hidden={idx >= rowTwo.length ? 'true' : 'false'}
+            class="group flex items-center gap-3.5 px-5 sm:px-6 py-4 rounded-2xl bg-[#131B2E]/90 border border-slate-800 hover:border-[#D4FF00]/45 transition-all duration-300 shadow-[0_10px_28px_rgba(0,0,0,0.3)] shrink-0"
+          >
+            <span
+              class="w-10 h-10 rounded-xl bg-[#070B14] border border-slate-700/80 flex items-center justify-center font-heading font-extrabold text-xs tracking-tight shrink-0"
+              style={`color: ${brand.accent};`}
+            >
+              {brand.monogram}
+            </span>
+            <div class="pr-1">
+              <p class="font-heading font-extrabold text-base sm:text-lg text-white tracking-tight leading-none group-hover:text-[#D4FF00] transition-colors">
+                {brand.name}
+              </p>
+              <p class="text-[11px] font-medium text-slate-400 mt-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00]/80"></span>
+                <span>{brand.useCase}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Reference Note + CTA -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 reveal" style="--reveal-delay: 160ms;">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 pt-8 border-t border-slate-800/80">
+      <p class="text-xs sm:text-sm text-slate-400 text-center sm:text-left max-w-xl leading-relaxed">
+        * Referentes globales y regionales que incorporan IA y automatización en sus canales digitales. En <strong class="text-white">JMKT</strong> adaptamos estas mismas tecnologías a la escala y presupuesto de tu negocio.
+      </p>
+
+      <a
+        href="https://wa.me/56947185397?text=Hola%20JMKT,%20quiero%20incorporar%20automatizaci%C3%B3n%20e%20Inteligencia%20Artificial%20en%20mi%20negocio"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-extrabold text-sm transition-all duration-200 shadow-[0_0_24px_rgba(212,255,0,0.25)] hover:-translate-y-0.5 shrink-0"
+      >
+        <span>Implementar IA en mi negocio</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+
+  .marquee-left {
+    animation: jmktMarqueeLeft 38s linear infinite;
+  }
+
+  .marquee-right {
+    animation: jmktMarqueeRight 42s linear infinite;
+  }
+
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes jmktMarqueeLeft {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes jmktMarqueeRight {
+    0% {
+      transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-left,
+    .marquee-right {
+      animation: none;
+    }
+    .marquee-row {
+      overflow-x: auto;
+    }
+  }
+</style>

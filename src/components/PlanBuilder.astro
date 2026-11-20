@@ -75,12 +75,13 @@ const items: BuilderItem[] = [
     </div>
 
     <!-- Interactive Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start reveal">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
       <!-- Left Column: Selectable Service Cards -->
       <div class="lg:col-span-7 space-y-3.5" id="plan-builder-list">
-        {items.map((item) => (
+        {items.map((item, idx) => (
           <label
-            class="plan-option group relative flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border-2 border-slate-200 hover:border-slate-300 cursor-pointer transition-all duration-200 select-none has-[:checked]:bg-white has-[:checked]:border-[#070B14] has-[:checked]:shadow-[0_12px_28px_rgba(7,11,20,0.08)]"
+            style={`--reveal-delay: ${idx * 80}ms;`}
+            class="reveal plan-option group relative flex items-start gap-4 p-5 rounded-2xl bg-[#F8FAFC] border-2 border-slate-200 hover:border-slate-300 cursor-pointer transition-all duration-200 select-none has-[:checked]:bg-white has-[:checked]:border-[#070B14] has-[:checked]:shadow-[0_12px_28px_rgba(7,11,20,0.08)]"
           >
             <input
               type="checkbox"
@@ -133,7 +134,7 @@ const items: BuilderItem[] = [
       </div>
 
       <!-- Right Column: Real-time Summary Card -->
-      <aside class="lg:col-span-5 lg:sticky lg:top-24 rounded-3xl bg-[#0D1321] text-white border border-slate-800 p-6 sm:p-8 shadow-[0_24px_60px_rgba(7,11,20,0.22)]">
+      <aside class="lg:col-span-5 lg:sticky lg:top-24 self-start isolate relative z-10 rounded-3xl bg-[#0D1321] text-white border border-slate-800 p-6 sm:p-8 shadow-[0_24px_60px_rgba(7,11,20,0.22)]">
         <div class="flex items-center justify-between pb-5 border-b border-slate-800">
           <div>
             <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#D4FF00]">

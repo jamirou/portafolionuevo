@@ -197,23 +197,42 @@ const schemaMarkup = JSON.stringify({
     </button>
 
     <script>
-      // Scroll Reveal Observer
-      const revealEls = document.querySelectorAll('.reveal');
-      if ('IntersectionObserver' in window) {
+      // Scroll Reveal Observer (lightweight, runs once, respects reduced motion)
+      const revealEls = document.querySelectorAll<HTMLElement>('.reveal');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('revealed'));
+      } else {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
+                const target = entry.target as HTMLElement;
+                target.classList.add('active');
+                observer.unobserve(target);
+
+                let finished = false;
+                const finishReveal = () => {
+                  if (finished) return;
+                  finished = true;
+                  target.classList.add('revealed');
+                };
+
+                const onEnd = (e: TransitionEvent) => {
+                  if (e.target === target && e.propertyName === 'transform') {
+                    finishReveal();
+                    target.removeEventListener('transitionend', onEnd);
+                  }
+                };
+                target.addEventListener('transitionend', onEnd);
+                window.setTimeout(finishReveal, 1200);
               }
             });
           },
-          { rootMargin: '0px 0px -40px 0px', threshold: 0.08 }
+          { rootMargin: '0px 0px -48px 0px', threshold: 0.08 }
         );
         revealEls.forEach((el) => observer.observe(el));
-      } else {
-        revealEls.forEach((el) => el.classList.add('active'));
       }
 
       // Scroll to Top Button

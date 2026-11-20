@@ -1,67 +1,57 @@
 ---
+import JmktLogo from './JmktLogo.astro';
+
 const WHATSAPP_URL =
   'https://wa.me/56947185397?text=Hola%20JMKT,%20quiero%20conversar%20sobre%20c%C3%B3mo%20hacer%20crecer%20mi%20negocio%20en%20internet';
 ---
 
 <section id="sobre-jmkt" class="bg-[#F8FAFC] text-[#0F172A] py-20 sm:py-24 border-t border-slate-200/70">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="rounded-3xl bg-white border border-slate-200 p-8 sm:p-12 lg:p-14 shadow-[0_12px_40px_rgba(15,23,42,0.05)] reveal">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        <!-- Left Agency Trust Statement -->
+    <div class="relative overflow-hidden rounded-3xl bg-[#070B14] text-white border border-slate-800 p-8 sm:p-12 lg:p-16 shadow-[0_24px_70px_rgba(7,11,20,0.22)] reveal">
+      <!-- Subtle Ambient Glow -->
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-[#D4FF00]/12 blur-[120px]"></div>
+        <div class="absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-blue-600/10 blur-[110px]"></div>
+      </div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Agency Institutional Statement -->
         <div class="lg:col-span-7 space-y-5">
           <div class="inline-flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-[#658C00] rounded-full"></span>
-            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#4D6B00]">
+            <span class="w-8 h-[2px] bg-[#D4FF00] rounded-full"></span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-[#D4FF00]">
               Sobre JMKT
             </span>
           </div>
 
-          <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.15] tracking-tight text-[#0F172A] text-balance">
-            Impulsamos negocios locales y PyMEs en Chile con herramientas digitales que antes solo estaban al alcance de grandes empresas.
+          <h2 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.15] tracking-tight text-white text-balance">
+            Impulsamos negocios con herramientas digitales que generan resultados reales.
           </h2>
 
-          <p class="text-base text-slate-600 leading-relaxed">
-            Trabajamos con trato directo, plazos claros y enfoque comercial real: desde tu perfil en Google Maps hasta sitios web optimizados y agentes de Inteligencia Artificial que atienden a tus clientes sin descanso.
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+            Trabajamos con trato directo, plazos claros y foco comercial: desde posicionar tu negocio en Google hasta diseñar tu sitio web e implementar Inteligencia Artificial que atiende a tus clientes sin descanso.
           </p>
         </div>
 
-        <!-- Right Founder & Action Card -->
+        <!-- Single Clean JMKT Action Block -->
         <div class="lg:col-span-5">
-          <div class="rounded-2xl bg-[#0D1321] text-white p-6 sm:p-7 border border-slate-800 space-y-5">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 rounded-2xl bg-[#131B2E] border border-[#D4FF00]/40 flex items-center justify-center font-heading font-extrabold text-xl text-[#D4FF00] shrink-0">
-                JM
-              </div>
-              <div>
-                <p class="font-heading font-bold text-lg text-white leading-tight">
-                  Jamiro Manríquez
-                </p>
-                <p class="text-xs font-semibold uppercase tracking-wider text-[#D4FF00] mt-1">
-                  Fundador & Estratega Digital
-                </p>
-                <p class="text-xs text-slate-400 mt-1">
-                  Peñaflor, Región Metropolitana · Chile
-                </p>
-              </div>
+          <div class="rounded-2xl bg-[#131B2E]/90 backdrop-blur-md border border-slate-800 p-7 sm:p-8 flex flex-col items-start gap-6 shadow-xl">
+            <div class="space-y-2">
+              <JmktLogo size="md" />
+              <p class="text-xs font-medium text-slate-400">
+                Agencia Digital · Atención directa en todo Chile
+              </p>
             </div>
 
-            <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-bold text-sm transition-colors"
-              >
-                <span>Conversemos por WhatsApp</span>
-                <span aria-hidden="true">→</span>
-              </a>
-              <a
-                href="/contacto"
-                class="inline-flex items-center justify-center px-5 py-3.5 rounded-full border border-slate-700 hover:border-white text-slate-200 hover:text-white font-heading font-semibold text-sm transition-colors"
-              >
-                Tarjeta digital
-              </a>
-            </div>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#D4FF00] hover:bg-[#CCFF00] text-[#070B14] font-heading font-extrabold text-sm sm:text-base transition-all duration-200 shadow-[0_0_26px_rgba(212,255,0,0.28)] hover:shadow-[0_0_36px_rgba(212,255,0,0.45)] hover:-translate-y-0.5"
+            >
+              <span>Conversemos por WhatsApp</span>
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </div>
