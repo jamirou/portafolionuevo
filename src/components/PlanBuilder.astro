@@ -2,9 +2,9 @@
 interface BuilderItem {
   id: string;
   name: string;
-  price: number;
+  oncePrice: number;
+  monthlyPrice: number;
   priceLabel: string;
-  type: 'once' | 'monthly';
   subtitle: string;
   tag?: string;
 }
@@ -13,44 +13,44 @@ const items: BuilderItem[] = [
   {
     id: 'google-maps',
     name: 'Perfil en Google Maps',
-    price: 29990,
+    oncePrice: 29990,
+    monthlyPrice: 0,
     priceLabel: '$29.990 pago único',
-    type: 'once',
     subtitle: 'Verificación, SEO local, catálogo, fotos y QR para reseñas.',
     tag: 'Ideal para partir',
   },
   {
     id: 'google-mantencion',
     name: 'Mantención Mensual Google',
-    price: 19990,
+    oncePrice: 0,
+    monthlyPrice: 19990,
     priceLabel: '$19.990 / mes',
-    type: 'monthly',
     subtitle: 'Publicaciones semanales, respuesta a reseñas y reporte mensual.',
   },
   {
     id: 'web-express',
     name: 'Página Web Express',
-    price: 89990,
+    oncePrice: 89990,
+    monthlyPrice: 0,
     priceLabel: '$89.990 pago único',
-    type: 'once',
     subtitle: 'Landing page a medida, rápida en celular, SEO local y botones WhatsApp.',
     tag: 'Combo -$10.000 con Google',
   },
   {
     id: 'meta-ads',
     name: 'Campañas Instagram & Facebook',
-    price: 59990,
+    oncePrice: 0,
+    monthlyPrice: 59990,
     priceLabel: '$59.990 / mes',
-    type: 'monthly',
     subtitle: 'Segmentación local (3-5 km), 2 a 3 anuncios y optimización semanal.',
   },
   {
     id: 'agente-ia',
     name: 'Agente de Inteligencia Artificial en WhatsApp',
-    price: 119990,
-    priceLabel: '$119.990 pago único',
-    type: 'once',
-    subtitle: 'Asistente IA 24/7 entrenado con tus precios, horarios y agendamiento.',
+    oncePrice: 119990,
+    monthlyPrice: 24990,
+    priceLabel: '$119.990 implementación + $24.990 / mes',
+    subtitle: 'Asistente IA 24/7 entrenado con tus precios, horarios y agendamiento (1° mes incluido; mantención desde el 2° mes).',
     tag: 'Alto impacto',
   },
 ];
@@ -88,8 +88,8 @@ const items: BuilderItem[] = [
               class="plan-checkbox sr-only"
               data-id={item.id}
               data-name={item.name}
-              data-price={item.price}
-              data-type={item.type}
+              data-once-price={item.oncePrice}
+              data-monthly-price={item.monthlyPrice}
               data-price-label={item.priceLabel}
             />
 
@@ -197,9 +197,9 @@ const items: BuilderItem[] = [
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Total Mensual
               </p>
-              <p class="text-[11px] text-slate-500">Sin contratos de amarre</p>
+              <p id="builder-monthly-note" class="text-[11px] text-slate-500">Sin contratos de amarre</p>
             </div>
-            <p id="builder-monthly-total" class="font-heading font-bold text-xl text-white">
+            <p id="builder-monthly-total" class="font-heading font-bold text-xl text-white shrink-0">
               $0 / mes
             </p>
           </div>
@@ -253,6 +253,7 @@ const items: BuilderItem[] = [
   const discountBannerEl = document.getElementById('builder-discount-banner');
   const onceTotalEl = document.getElementById('builder-once-total');
   const monthlyTotalEl = document.getElementById('builder-monthly-total');
+  const monthlyNoteEl = document.getElementById('builder-monthly-note');
   const waCtaEl = document.getElementById('builder-wa-cta') as HTMLAnchorElement | null;
   const resetBtn = document.getElementById('builder-reset-btn');
 
@@ -265,23 +266,20 @@ const items: BuilderItem[] = [
       .map((cb) => ({
         id: cb.dataset.id || '',
         name: cb.dataset.name || '',
-        price: Number(cb.dataset.price || 0),
-        type: cb.dataset.type as 'once' | 'monthly',
+        oncePrice: Number(cb.dataset.oncePrice || 0),
+        monthlyPrice: Number(cb.dataset.monthlyPrice || 0),
         priceLabel: cb.dataset.priceLabel || '',
       }));
 
     const hasGoogle = selected.some((s) => s.id === 'google-maps');
     const hasWeb = selected.some((s) => s.id === 'web-express');
+    const hasAiAgent = selected.some((s) => s.id === 'agente-ia');
     const comboDiscount = hasGoogle && hasWeb ? 10000 : 0;
 
-    const onceSubtotal = selected
-      .filter((s) => s.type === 'once')
-      .reduce((acc, s) => acc + s.price, 0);
+    const onceSubtotal = selected.reduce((acc, s) => acc + s.oncePrice, 0);
     const onceTotal = Math.max(0, onceSubtotal - comboDiscount);
 
-    const monthlyTotal = selected
-      .filter((s) => s.type === 'monthly')
-      .reduce((acc, s) => acc + s.price, 0);
+    const monthlyTotal = selected.reduce((acc, s) => acc + s.monthlyPrice, 0);
 
     // Update badge
     if (countBadgeEl) {
@@ -303,12 +301,12 @@ const items: BuilderItem[] = [
         selectedListEl.innerHTML = selected
           .map(
             (s) => `
-            <li class="flex items-center justify-between gap-3 text-sm">
+            <li class="flex items-start justify-between gap-3 text-sm">
               <span class="text-slate-200 flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#D4FF00] shrink-0"></span>
                 <span>${s.name}</span>
               </span>
-              <span class="font-semibold text-white whitespace-nowrap">${s.priceLabel}</span>
+              <span class="font-semibold text-white text-right shrink-0 max-w-[52%]">${s.priceLabel}</span>
             </li>
           `
           )
@@ -333,6 +331,20 @@ const items: BuilderItem[] = [
       monthlyTotalEl.textContent =
         monthlyTotal > 0 ? `${formatCLP(monthlyTotal)} / mes` : 'No aplica';
     }
+    if (monthlyNoteEl) {
+      if (hasAiAgent) {
+        monthlyNoteEl.textContent =
+          monthlyTotal > 24990
+            ? 'La mensualidad de la IA corre desde el 2° mes · Sin amarre'
+            : 'La mensualidad de la IA corre desde el 2° mes (1° mes incluido)';
+        monthlyNoteEl.classList.remove('text-slate-500');
+        monthlyNoteEl.classList.add('text-[#D4FF00]/85');
+      } else {
+        monthlyNoteEl.textContent = 'Sin contratos de amarre';
+        monthlyNoteEl.classList.remove('text-[#D4FF00]/85');
+        monthlyNoteEl.classList.add('text-slate-500');
+      }
+    }
 
     // Build dynamic WhatsApp message
     if (waCtaEl) {
@@ -354,7 +366,8 @@ const items: BuilderItem[] = [
           lines.push(`Total Inversión Única: ${formatCLP(onceTotal)} CLP`);
         }
         if (monthlyTotal > 0) {
-          lines.push(`Total Mensual: ${formatCLP(monthlyTotal)} CLP / mes`);
+          const monthlySuffix = hasAiAgent ? ' (mensualidad IA desde el 2° mes)' : '';
+          lines.push(`Total Mensual: ${formatCLP(monthlyTotal)} CLP / mes${monthlySuffix}`);
         }
         lines.push('', '¿Podemos coordinar los detalles?');
 

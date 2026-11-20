@@ -6,6 +6,7 @@ interface Plan {
   badge?: string;
   price: string;
   billing: string;
+  recurringNote?: string;
   oldPrice?: string;
   featured?: boolean;
   features: string[];
@@ -85,14 +86,15 @@ const plans: Plan[] = [
     name: 'Agente IA para WhatsApp',
     badge: 'ALTO IMPACTO',
     price: '$119.990',
-    billing: 'Implementación única',
+    billing: 'Implementación única (incluye 1° mes)',
+    recurringNote: '+ $24.990 / mes desde el 2° mes (servidor, consumo IA y ajustes)',
     features: [
       'Entrenamiento de asistente IA con toda la información y precios de tu negocio.',
       'Respuestas automáticas naturales 24/7 y calificación de clientes.',
-      'Integración con flujo de agendamiento o derivación directa a tu teléfono.',
+      'Soporte continuo, actualización de precios/horarios y monitoreo 24/7.',
     ],
     waMessage:
-      'Hola JMKT, quiero implementar el Agente IA para WhatsApp ($119.990 implementación única) en mi negocio.',
+      'Hola JMKT, me interesa el Agente IA para WhatsApp ($119.990 implementación + $24.990/mes)',
   },
 ];
 ---
@@ -190,6 +192,17 @@ const plans: Plan[] = [
                     </span>
                   )}
                 </div>
+                {plan.recurringNote && (
+                  <p
+                    class={`mt-3 px-3 py-2 rounded-xl text-xs font-semibold leading-snug ${
+                      isFeatured
+                        ? 'bg-[#D4FF00]/12 text-[#D4FF00] border border-[#D4FF00]/30'
+                        : 'bg-[#F8FAFC] text-[#0F172A] border border-slate-200/90'
+                    }`}
+                  >
+                    {plan.recurringNote}
+                  </p>
+                )}
               </div>
 
               {/* Features List */}
