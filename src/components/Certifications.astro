@@ -4,37 +4,43 @@ const certifications = [
     title: 'Google Ads — Publicidad en Búsqueda y Display',
     issuer: 'Certificación Oficial Google',
     benefit: 'Campañas optimizadas para atraer clientes listos para comprar sin desperdiciar tu presupuesto.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" stroke-linejoin="round" d="m12 8 4 8H8l4-8Z"/></svg>`,
+    logo: '/logos/certifications/google-ads.svg',
+    logoAlt: 'Logo oficial de Google Ads',
   },
   {
     title: 'Google Analytics 4 (GA4) — Analítica y Conversión',
     issuer: 'Certificación Oficial Google',
     benefit: 'Optimización basada en datos reales de visitas y conversiones, no en suposiciones.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h16"/><rect x="6" y="12" width="3" height="5" rx="1"/><rect x="11" y="8" width="3" height="9" rx="1"/><rect x="16" y="4" width="3" height="13" rx="1"/></svg>`,
+    logo: '/logos/certifications/google-analytics.svg',
+    logoAlt: 'Logo oficial de Google Analytics 4',
   },
   {
     title: 'Google Business Profile & SEO Local',
     issuer: 'Especialización en Posicionamiento',
     benefit: 'Visibilidad prioritaria en Google Maps y búsquedas locales de tu comuna.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    logo: '/logos/certifications/google-maps.svg',
+    logoAlt: 'Logo oficial de Google Maps y Google Business Profile',
   },
   {
     title: 'Fundamentos de Marketing Digital',
     issuer: 'Google Digital Garage',
     benefit: 'Estrategia comercial completa pensada para transformar clics en ventas sostenibles.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15l-2 5 2-1 2 1-2-5Z"/><circle cx="12" cy="9" r="6"/></svg>`,
+    logo: '/logos/certifications/google-digital-garage.svg',
+    logoAlt: 'Logo oficial de Google Digital Garage',
   },
   {
     title: 'Desarrollo Web & Rendimiento Frontend',
     issuer: 'Astro, React & Core Web Vitals',
     benefit: 'Sitios web livianos y ultrarrápidos que cargan al instante desde cualquier celular.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m8 9-3 3 3 3m8-6 3 3-3 3m-5 2 2-10"/></svg>`,
+    logo: '/logos/certifications/web-frontend.svg',
+    logoAlt: 'Logo oficial de React para desarrollo web moderno',
   },
   {
     title: 'Arquitectura de Agentes IA & Automatización',
     issuer: 'APIs Conversacionales & Flujos',
     benefit: 'Asistentes entrenados con tu negocio para responder, filtrar y agendar clientes 24/7.',
-    badge: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v3m0 12v3M3 12h3m12 0h3m-3.6-6.4-2.1 2.1m-6.6 6.6-2.1 2.1m0-10.8 2.1 2.1m6.6 6.6 2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg>`,
+    logo: '/logos/certifications/ai-agents.svg',
+    logoAlt: 'Logo oficial de OpenAI para agentes de Inteligencia Artificial',
   },
 ];
 
@@ -101,8 +107,16 @@ const loopedCerts = [...certifications, ...certifications];
           >
             <div>
               <div class="flex items-center justify-between gap-3 mb-5">
-                <div class="w-12 h-12 rounded-xl bg-[#070B14] text-[#D4FF00] flex items-center justify-center shrink-0">
-                  <span set:html={cert.badge} />
+                <div class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200/90 p-2.5 flex items-center justify-center shrink-0">
+                  <img
+                    src={cert.logo}
+                    alt={idx >= certifications.length ? '' : cert.logoAlt}
+                    width="32"
+                    height="32"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-contain"
+                  />
                 </div>
                 <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F8FAFC] border border-slate-200 text-[11px] font-bold text-slate-600">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#658C00]"></span>
